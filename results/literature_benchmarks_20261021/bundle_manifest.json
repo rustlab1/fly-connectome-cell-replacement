@@ -1,0 +1,606 @@
+{
+  "created_utc": "2026-10-22T00:03:05.645653+00:00",
+  "scope": "New benchmark code, all new raw rates and derived outputs, plus exact original model/readout source snapshots. Original connectome matrix and archived v8 baseline inputs are not duplicated.",
+  "files": [
+    {
+      "path": "code/literature_benchmarks_20261021/README.txt",
+      "size_bytes": 6477,
+      "sha256": "c7b4d57097d121144fbd23e2fc9de7ecdfd475ca6407defbdba5af0f8f29c034"
+    },
+    {
+      "path": "code/literature_benchmarks_20261021/analyze_benchmarks.py",
+      "size_bytes": 7618,
+      "sha256": "29271cb866622dd6b8ceb08bcbf676899934f45a5eeaed558c680f9db15d5e7c"
+    },
+    {
+      "path": "code/literature_benchmarks_20261021/build_report.py",
+      "size_bytes": 15258,
+      "sha256": "23bf38a20dca30df2ea3a2e0472284e39140581309cd0f986ac42902b4c3530f"
+    },
+    {
+      "path": "code/literature_benchmarks_20261021/package_results.py",
+      "size_bytes": 3797,
+      "sha256": "4e31890cdbe371afc2fb4e4c7f5b55df6c513ba9d9e08234011000dd065fa9ba"
+    },
+    {
+      "path": "code/literature_benchmarks_20261021/parquet_read.py",
+      "size_bytes": 6612,
+      "sha256": "4b4832db8ab47c26dd863fd35d2a9e6269d16f334b079b62c5cd61880b0dd266"
+    },
+    {
+      "path": "code/literature_benchmarks_20261021/plot_benchmarks.R",
+      "size_bytes": 7789,
+      "sha256": "dcfbd77b929651c094fa0489a28232cc8a2ddd5e138d3334f8393d158fd529d4"
+    },
+    {
+      "path": "code/literature_benchmarks_20261021/replay_intact.py",
+      "size_bytes": 2595,
+      "sha256": "01b7b7c4f0037030efce2b2c0b1359e6750d1e9b182e40271463b2ae0d8761c6"
+    },
+    {
+      "path": "code/literature_benchmarks_20261021/run_benchmarks.py",
+      "size_bytes": 14309,
+      "sha256": "e5b0db703ee0458305fe46bb0b918323d1b7f40170be73b9213f60a994c621a0"
+    },
+    {
+      "path": "code/v5/experiments.py",
+      "size_bytes": 20060,
+      "sha256": "6d80831846001ec082e1ec5d538a68bd6830b5b0daddafbd0de9106f62dcdee8"
+    },
+    {
+      "path": "code/v5/flysim.py",
+      "size_bytes": 10319,
+      "sha256": "ac2e114aa8a21cc659a7ffe2fda93e8892459a781b4072127877456049f62c1c"
+    },
+    {
+      "path": "report/literature_benchmarks_20261021/benchmark_diagnostics.pdf",
+      "size_bytes": 39027,
+      "sha256": "31b94d510a0535d7074a017f80abf8cf49226ef6c4b6b3234e5995e570d10782"
+    },
+    {
+      "path": "report/literature_benchmarks_20261021/benchmark_diagnostics.png",
+      "size_bytes": 236561,
+      "sha256": "be0fbdf5082fa1277687ba5a7fa215ba35b09c05058fc91df58162e30b72f657"
+    },
+    {
+      "path": "report/literature_benchmarks_20261021/benchmark_overview.pdf",
+      "size_bytes": 35277,
+      "sha256": "e8ab1f05620ed42847fc2ae502bd9f1248c45ebefa61de3fe2b6f96d6b6e6f07"
+    },
+    {
+      "path": "report/literature_benchmarks_20261021/benchmark_overview.png",
+      "size_bytes": 188305,
+      "sha256": "3c4208e54ccc00ae3b353ec97701d303dc8f18502591e5d8c8b5346afb8ff4e3"
+    },
+    {
+      "path": "report/literature_benchmarks_20261021/benchmark_overview.svg",
+      "size_bytes": 34066,
+      "sha256": "2c4158c9f8c3951af07a15fe7245219b2c4e8572778670635e7ab228bf607a87"
+    },
+    {
+      "path": "report/literature_benchmarks_20261021/literature_benchmark_report.html",
+      "size_bytes": 583639,
+      "sha256": "9bf85a02ae5787ea404273def09c8c945d86b4df25f2dcb448c6348da4df0fca"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/analysis_qa.json",
+      "size_bytes": 19176,
+      "sha256": "38451651baee0d8f70f30c2a52a6477507d439071ba8c665d813b72d7d2bdde2"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/annotations.json",
+      "size_bytes": 10270080,
+      "sha256": "e354f7c86806803461f90346f86563a0ea96b6234d09a5d22238a88f578a96e1"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/artifact_qa.json",
+      "size_bytes": 419,
+      "sha256": "a5577435ac7c22a15da76c980b090c376a43312300a094c6da2ccbebab93ef3b"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/condition_readouts.csv",
+      "size_bytes": 53985,
+      "sha256": "47ea4b7c063d8b245f7ff017decf8256f4232dd7e94f5b0eecaf81e93d9b8d5d"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/environment.json",
+      "size_bytes": 446,
+      "sha256": "caafff5ab16e530d073fae340c79033bfd45533a0b2ed25ff6859a25c9ee9168"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/execution_metadata.json",
+      "size_bytes": 595,
+      "sha256": "d6b8d790f9e639abb536e18a928b947291145fd83ea6e32999b06736bd4b4097"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/intact_rates/intact_s1000.npz",
+      "size_bytes": 71614,
+      "sha256": "eeb5cb69f55babc64af43858fc378213487b6116ed5fedcc1f95c2815a5603de"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/intact_rates/intact_s1001.npz",
+      "size_bytes": 66578,
+      "sha256": "976ec531942ed7b41c82a1744721ec2ee513030fe346b34ad03b75e861cc602d"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/intact_rates/intact_s1002.npz",
+      "size_bytes": 66787,
+      "sha256": "762972eb527193de732bc06002074c1673d008634d6fae99b7cbccdfc51474b5"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/intact_rates/intact_s1003.npz",
+      "size_bytes": 66350,
+      "sha256": "40cc8b577c0a94a30faf163289c10ee1d03f890572b57cf069f45817741df2d4"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/intact_rates/intact_s1004.npz",
+      "size_bytes": 67420,
+      "sha256": "c2cfce99ceb53613123b528499569a606b75d60e14af6717b84fed24e9c5c745"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/intact_rates/intact_s1005.npz",
+      "size_bytes": 67376,
+      "sha256": "572bc2ddfc37d36881da2453269491a7305d9cc5042c844345129680b528cc3a"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/intact_rates/intact_s1006.npz",
+      "size_bytes": 67232,
+      "sha256": "1d8c5325b186354dc5b21ada36cbdba872ce3e08efc982468447b23ce7fda44c"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/intact_rates/intact_s1007.npz",
+      "size_bytes": 66721,
+      "sha256": "527ba0511bc6fb6f09e28b3e426d6f7f7a6a39b31871be4c7a3e52292d2da69b"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/intact_rates/intact_s1008.npz",
+      "size_bytes": 67148,
+      "sha256": "125bb4f5345129ca0b99ba73c109d683d44f2e850477b2ed4a0d0c25318ce1d8"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/intact_rates/intact_s1009.npz",
+      "size_bytes": 67079,
+      "sha256": "d6395b5ab3912df22e9a12b0d6904d989684029d410783361c8355097da3d748"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/intact_readouts.csv",
+      "size_bytes": 10852,
+      "sha256": "78acb37e79e539e21ecac2ebb22f16cab92a213760157cec810e11e606ced737"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/intact_replay_note.json",
+      "size_bytes": 661,
+      "sha256": "644c7c310d32bf58217c26647a307c004143bb1245daf703ea7a540e9305d8bc"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/intact_replay_validation.jsonl",
+      "size_bytes": 84061,
+      "sha256": "514015e83375e42678fa6abfdda36a1cc27b2a371662d06f30198cca751c40e9"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/interpretation.json",
+      "size_bytes": 3219,
+      "sha256": "524bbe22780edee12e51924d54ee2cbeca31154837269f2122c06a696c65e397"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/literature_sources.json",
+      "size_bytes": 4776,
+      "sha256": "a232795d7aa8da2ac2e21dea19823159e8aebecc57420edd3a7b4500d98f51b8"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/neuron_diagnostics.csv",
+      "size_bytes": 53425,
+      "sha256": "e63e4e968802512fae9e530f62d1df10c159475579f144d7cc0f70789a35b8c2"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/paired_seed_data.csv",
+      "size_bytes": 61307,
+      "sha256": "d74a5d4c8fcbde3b868bbb631ef4ee74ec4fe1d9f2853170ecd51fed17c8582b"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/paired_summary.csv",
+      "size_bytes": 28826,
+      "sha256": "360709e5304d156cdcfa9b5b9832718b2c6e7846f6c577c10ef85e2067b1a307"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/plot_environment.txt",
+      "size_bytes": 1150,
+      "sha256": "78102e27c7d0faa6043316844a846523d70d02d6717efc2634a2db501f19b804"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/precision_amendment.json",
+      "size_bytes": 485,
+      "sha256": "479d9290b6e2b45e4e7efd8c74678be38a6e85bc01a98a9f496a911ab7f7ef9e"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/protocol.json",
+      "size_bytes": 14789,
+      "sha256": "f6fd7c0594b92d434767c7f16f7cfe89a80e09397cdeb87e8e581b948b64fcad"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/protocol_before_precision_amendment.json",
+      "size_bytes": 14789,
+      "sha256": "2d750822514f4cdf1a0b67521ac8fe26fc80ad192eebf93789816ef84621bdf1"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_bilateral_loss_s1000.npz",
+      "size_bytes": 58655,
+      "sha256": "79e9ca9f57ad0bd7e615e818aeca9b8c59379813f8ac16ece2a1e11c454d5c8d"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_bilateral_loss_s1001.npz",
+      "size_bytes": 58110,
+      "sha256": "a036f89d7de47633924e699bd7d344e6da8f6ec93756548c6775ea17963b2098"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_bilateral_loss_s1002.npz",
+      "size_bytes": 58760,
+      "sha256": "390f67dcbbb561afad36bb259cc118a67af64b5615f472ccc894bb5f0bed3dd3"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_bilateral_loss_s1003.npz",
+      "size_bytes": 58540,
+      "sha256": "7460a817434d649b56e523aed1ff60df8de4e03e0ebf3db65425b9dae8def264"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_bilateral_loss_s1004.npz",
+      "size_bytes": 58165,
+      "sha256": "2aa9e3f41473ce2cf580b26e0874e52534d5c1e2b575df6073ba0ec4800c4a01"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_bilateral_loss_s1005.npz",
+      "size_bytes": 58490,
+      "sha256": "27241dbfa5592cbfd6441a0ea73418576acd51688b70c832035018d3ae438a52"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_bilateral_loss_s1006.npz",
+      "size_bytes": 58501,
+      "sha256": "803fd964ff287376683755a7583ef8dde2337b3f7a1a2489d98ff3dda2357839"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_bilateral_loss_s1007.npz",
+      "size_bytes": 58412,
+      "sha256": "b65d5de2dda45b61bde9a086f728fc4b3f650c347dde3154a2e9634ae47aeeff"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_bilateral_loss_s1008.npz",
+      "size_bytes": 58498,
+      "sha256": "95916f3d204142e7a2b9a4b8f903da12e852d3d1accc3c45151f20b4c4ac717b"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_bilateral_loss_s1009.npz",
+      "size_bytes": 57523,
+      "sha256": "f92513350523a941d823252e10b32a53ef73795809b5d07d9f234969fdeacaa0"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_left_loss_s1000.npz",
+      "size_bytes": 58989,
+      "sha256": "303ffbbf774538c2209c52755132d1573dbc6b5f9358e900dfb0202bfd921317"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_left_loss_s1001.npz",
+      "size_bytes": 58858,
+      "sha256": "3c423602f6e6b857cb948b4b920ea59c9a4022d1e9ee5c165c04d236de754f44"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_left_loss_s1002.npz",
+      "size_bytes": 58729,
+      "sha256": "0dd321a2346a8f5cefbc66851ea384e090af004ae9f13948207e34b1489f301a"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_left_loss_s1003.npz",
+      "size_bytes": 58359,
+      "sha256": "fdc589786cf7a399b2ace27ea4061b99dc14aaf5e7e4b0066a0c1c20268fed65"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_left_loss_s1004.npz",
+      "size_bytes": 59065,
+      "sha256": "60588cef81006c4ccea8a484999b6cc51edec3f1fb60f463af5be9a5da888870"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_left_loss_s1005.npz",
+      "size_bytes": 58444,
+      "sha256": "4cc089dcd83be8046c0d4d659ac7e3da1f2228d5f4f7ad965f1e7b8d29c83eeb"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_left_loss_s1006.npz",
+      "size_bytes": 58404,
+      "sha256": "cb0b0c2ced6524ce5a3f436e975499487fe961850d46753b1a0c601dcb30129e"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_left_loss_s1007.npz",
+      "size_bytes": 58376,
+      "sha256": "a3a8b9f4916658f0bcae10e852dee2071f171ac20a9091eceebe8988784958b3"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_left_loss_s1008.npz",
+      "size_bytes": 58380,
+      "sha256": "9f73eb48d2db4207d04a431ff8261e7c372c98e2ec0c82340728425bdf904e2b"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_left_loss_s1009.npz",
+      "size_bytes": 58603,
+      "sha256": "de1b69a90658d7f68c7fd5c15b81c338f204bb91b8100fb48281760e08548191"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_right_loss_s1000.npz",
+      "size_bytes": 58642,
+      "sha256": "f00b8a57b4535c886499bd2d6ccb6875fe4fe4e479a0277f00c2c2880e3d18f7"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_right_loss_s1001.npz",
+      "size_bytes": 58761,
+      "sha256": "b39edefd299f19ff15e60a93bdb109c78f94cc4f1d77a958764270754c41445d"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_right_loss_s1002.npz",
+      "size_bytes": 59010,
+      "sha256": "891ceec4c1c8501ac6be43bc962acb37ed17e6e233803cf3d7a163f949d1fb94"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_right_loss_s1003.npz",
+      "size_bytes": 58716,
+      "sha256": "779276927cc693ee71cc6367880bfa40280094b8fdc15c5cf5f365f2aaa9bf52"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_right_loss_s1004.npz",
+      "size_bytes": 58660,
+      "sha256": "01d21de62296b69e8577ac3aedc907b0fd3137e25cf22867b766d0e9c0665614"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_right_loss_s1005.npz",
+      "size_bytes": 59005,
+      "sha256": "e32526952d4fb0e770f25fac3b38b28ffc55ca6facba7b16416f8b1289b01616"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_right_loss_s1006.npz",
+      "size_bytes": 58951,
+      "sha256": "286e63f36e17c92ceea6a2783225e523459a1b279d312bec1f96d53a2bef398c"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_right_loss_s1007.npz",
+      "size_bytes": 59186,
+      "sha256": "a81e9afee190f940ac3613de6c263a07f66956d085f5aaca797749a3c96dd73f"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_right_loss_s1008.npz",
+      "size_bytes": 58608,
+      "sha256": "5231d4ffccea6eb52990c2dad0729977f3ceb9a06ce6a8c28569d5cf91e4112e"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/HS_right_loss_s1009.npz",
+      "size_bytes": 58545,
+      "sha256": "660eca32905a42363d186e5e9209037888d2fff4b643551a51f9b685c8b60912"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LC4_LPLC2_block_s1000.npz",
+      "size_bytes": 874,
+      "sha256": "85386534b7de3db6bd99ba608d9b4eb574e9750f89a2d4090e19dd6ec4b50c91"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LC4_LPLC2_block_s1001.npz",
+      "size_bytes": 874,
+      "sha256": "85386534b7de3db6bd99ba608d9b4eb574e9750f89a2d4090e19dd6ec4b50c91"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LC4_LPLC2_block_s1002.npz",
+      "size_bytes": 874,
+      "sha256": "85386534b7de3db6bd99ba608d9b4eb574e9750f89a2d4090e19dd6ec4b50c91"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LC4_LPLC2_block_s1003.npz",
+      "size_bytes": 874,
+      "sha256": "85386534b7de3db6bd99ba608d9b4eb574e9750f89a2d4090e19dd6ec4b50c91"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LC4_LPLC2_block_s1004.npz",
+      "size_bytes": 874,
+      "sha256": "85386534b7de3db6bd99ba608d9b4eb574e9750f89a2d4090e19dd6ec4b50c91"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LC4_LPLC2_block_s1005.npz",
+      "size_bytes": 874,
+      "sha256": "85386534b7de3db6bd99ba608d9b4eb574e9750f89a2d4090e19dd6ec4b50c91"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LC4_LPLC2_block_s1006.npz",
+      "size_bytes": 874,
+      "sha256": "85386534b7de3db6bd99ba608d9b4eb574e9750f89a2d4090e19dd6ec4b50c91"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LC4_LPLC2_block_s1007.npz",
+      "size_bytes": 874,
+      "sha256": "85386534b7de3db6bd99ba608d9b4eb574e9750f89a2d4090e19dd6ec4b50c91"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LC4_LPLC2_block_s1008.npz",
+      "size_bytes": 874,
+      "sha256": "85386534b7de3db6bd99ba608d9b4eb574e9750f89a2d4090e19dd6ec4b50c91"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LC4_LPLC2_block_s1009.npz",
+      "size_bytes": 874,
+      "sha256": "85386534b7de3db6bd99ba608d9b4eb574e9750f89a2d4090e19dd6ec4b50c91"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LC4_block_s1000.npz",
+      "size_bytes": 5818,
+      "sha256": "3232aa99fc260a7a3556c43fd55c14e1ecb60b4c9843773b3b2c9e5ab4714fdd"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LC4_block_s1001.npz",
+      "size_bytes": 5844,
+      "sha256": "faf20da1e0187678d532d8b621d0e212dfc8d9f25f2a3ff19a0860b0cc177acf"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LC4_block_s1002.npz",
+      "size_bytes": 6062,
+      "sha256": "a6c4c04716b484e90c5a451bb7e370b72b7c0f043ec497701c961d91463f026a"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LC4_block_s1003.npz",
+      "size_bytes": 6022,
+      "sha256": "1ab9820bff3f4acc104434baf8f0d5b5a9a0ae34c9a72458dc2e12d69b3ea9af"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LC4_block_s1004.npz",
+      "size_bytes": 6048,
+      "sha256": "0dbb64ce77ded741d1103cc729b935abca7baff8337ebdf1f73d3efee5bff6ad"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LC4_block_s1005.npz",
+      "size_bytes": 6207,
+      "sha256": "fcc85d1231b1e448cfddba13e0d828a12c4e144358cb1e956873f9acdeeccea5"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LC4_block_s1006.npz",
+      "size_bytes": 5953,
+      "sha256": "f42b4dac8a2f2e4018cbe09ac887f8e5ba1cc0779c697bb1cfb0070cf4ec309d"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LC4_block_s1007.npz",
+      "size_bytes": 6124,
+      "sha256": "1324685e44604003cca081b5cbcd1e2469163579cf7d3f0002756ad1861d57f4"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LC4_block_s1008.npz",
+      "size_bytes": 5911,
+      "sha256": "040b155e7be618b102601e60ae06e56ec6910c503358fcc7e338afd4282351b4"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LC4_block_s1009.npz",
+      "size_bytes": 6063,
+      "sha256": "bb6419f623e8a46dc5ce7d93112c5d685f7d16b1b0154fce7492f6e62f4113b3"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LPLC2_block_s1000.npz",
+      "size_bytes": 62800,
+      "sha256": "8e9334b797acfa17cbd850e4c552f574e2e63f11c7bccb5f8413a6ef8ecb40e2"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LPLC2_block_s1001.npz",
+      "size_bytes": 63272,
+      "sha256": "504072fe3a79e147d706384fddfe4c23627c1edf07e9b39266e2f656ba78e8fe"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LPLC2_block_s1002.npz",
+      "size_bytes": 62653,
+      "sha256": "c148d769040f6190873399c5d7fb1455a39c6447a431d5ea637ed621e3796da7"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LPLC2_block_s1003.npz",
+      "size_bytes": 63649,
+      "sha256": "d0644c079277fbab88aadcd5fd385616f35f4ce7457cbb27c5d582e381390bde"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LPLC2_block_s1004.npz",
+      "size_bytes": 63427,
+      "sha256": "f13e4150741527142ae23c4930d65aea8264050da00165b52365c7cbb224e7ca"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LPLC2_block_s1005.npz",
+      "size_bytes": 62896,
+      "sha256": "15d1d4478542ffdb476ff2024a725ff6824f6f06835903ba6bd997f1c9c99067"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LPLC2_block_s1006.npz",
+      "size_bytes": 62557,
+      "sha256": "5bbef90a04fcc9e7df035dac7c82fde3bc139bb83acb91e138cf946c427480bc"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LPLC2_block_s1007.npz",
+      "size_bytes": 63054,
+      "sha256": "5a0095a540476c6c2408ae23bf1cbcb66e6b530e7c60ccc0654e4753d4c0f34f"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LPLC2_block_s1008.npz",
+      "size_bytes": 62686,
+      "sha256": "ca514f4aca202f3cd119845442c9f69ebeeabb1719c7ec171bd459f5889de02b"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/LPLC2_block_s1009.npz",
+      "size_bytes": 63449,
+      "sha256": "c15349f84ec99266849de349c67fdbb24520e15ebff1f304746e78efd720d803"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/T4T5_block_s1000.npz",
+      "size_bytes": 10538,
+      "sha256": "0044fe47fed517cc07b940e496e2f4961c92791ec4b9e3207a412c3d70de4a2b"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/T4T5_block_s1001.npz",
+      "size_bytes": 10701,
+      "sha256": "d32b9ce038382d12441cb197675480be7c214ab27d50351dd7a2de146504b0cf"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/T4T5_block_s1002.npz",
+      "size_bytes": 10532,
+      "sha256": "09fee798041b5043f6d80159da51d544088c50b80deef2fbb3627095e19db64e"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/T4T5_block_s1003.npz",
+      "size_bytes": 10425,
+      "sha256": "83e57b5ee486efec7269e74e48c4b74d2ffe512d107b3b254a851948f4c5dfd7"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/T4T5_block_s1004.npz",
+      "size_bytes": 10569,
+      "sha256": "47753bf5e4a90e27c375b06181603e4310f2b5ce114efc67c035249f26b448a9"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/T4T5_block_s1005.npz",
+      "size_bytes": 10702,
+      "sha256": "0f70e121c5daa4926e61d3f05eb8e64a3048882c598b7937ad054ebc717bc67b"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/T4T5_block_s1006.npz",
+      "size_bytes": 10615,
+      "sha256": "6b665e6fa48fcee17a25d12b103f2c07ad5bd4d9c00cf429b806029bff3d2fa5"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/T4T5_block_s1007.npz",
+      "size_bytes": 10520,
+      "sha256": "510efb2d1b831a80bfdcc4fd335f67bca9bbd1146224e6c7f1db8b87d23ac87d"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/T4T5_block_s1008.npz",
+      "size_bytes": 10927,
+      "sha256": "568e149d2dd3c6383c11bf35be52af1438c5c97903f66748b3252713e855e404"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/rates/T4T5_block_s1009.npz",
+      "size_bytes": 10702,
+      "sha256": "2b1cf379404108c0deb1350b6c3768cb4b672ffa85bf34d7fb91b63995aab644"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/scalar_readout_checks.csv",
+      "size_bytes": 155339,
+      "sha256": "caa44d7a3c0f22cccc9dfd98d13ea3b4a9c43d15c2b9d2d142a57207cd0474a9"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/silencing_checks.csv",
+      "size_bytes": 5159,
+      "sha256": "3b0d8bae1d61f670ded8d52c262f429d9779c937a46d09d5519e285bf109d75a"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/states.jsonl",
+      "size_bytes": 121041,
+      "sha256": "35adfb49d643ab038fc3e4bbd2d70a8b7eac6b049516e98bd59ebb1ade8b5be4"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/statistics.json",
+      "size_bytes": 73001,
+      "sha256": "1ed7404aef801c5e43ce5de2e95c2f1fdb0038814e001482506ed19da40a0f4b"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/target_cells.csv",
+      "size_bytes": 643340,
+      "sha256": "dec00ab666acaffe4dadc06ba766220ca657178d3832b69a57d65877a0e8e97d"
+    },
+    {
+      "path": "results/literature_benchmarks_20261021/validation.json",
+      "size_bytes": 15805,
+      "sha256": "8b68ed28b3ac9f7f624efeefef0b25cbff7034240e6dc781691e873fdd7c97e2"
+    }
+  ]
+}

@@ -1,0 +1,676 @@
+{
+  "passed": true,
+  "conditions": 7,
+  "seeds_per_condition": 10,
+  "states": 70,
+  "perturbation_trials": 190,
+  "neurons_per_trial": 165122,
+  "validation": {
+    "passed": true,
+    "checks": [
+      {
+        "stimulus": "R",
+        "exact_equal": true,
+        "max_abs_diff_Hz": 0.0,
+        "different_cells": 0,
+        "seconds": 14.965510275999804
+      },
+      {
+        "stimulus": "L",
+        "exact_equal": true,
+        "max_abs_diff_Hz": 0.0,
+        "different_cells": 0,
+        "seconds": 16.262516413999947
+      },
+      {
+        "stimulus": "F",
+        "exact_equal": true,
+        "max_abs_diff_Hz": 0.0,
+        "different_cells": 0,
+        "seconds": 15.108485492
+      },
+      {
+        "stimulus": "loom",
+        "exact_equal": true,
+        "max_abs_diff_Hz": 0.0,
+        "different_cells": 0,
+        "seconds": 12.097861416999876
+      }
+    ],
+    "readouts_exact": false,
+    "readout_tolerance": {
+      "rtol": 1e-07,
+      "atol": 1e-05
+    },
+    "readout_checks": [
+      {
+        "metric": "active_R",
+        "current": 6659,
+        "archived": 6659,
+        "absolute_difference": 0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "activeCB_R",
+        "current": 2496,
+        "archived": 2496,
+        "absolute_difference": 0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "spikes_R",
+        "current": 75468.0,
+        "archived": 75468.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "steerMN_R_R",
+        "current": 15.25,
+        "archived": 15.25,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "steerMN_L_R",
+        "current": 8.75,
+        "archived": 8.75,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "powerMN_R_R",
+        "current": 4.0,
+        "archived": 4.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "powerMN_L_R",
+        "current": 5.230769157409668,
+        "archived": 5.230769157409668,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "haltereMN_R_R",
+        "current": 13.0,
+        "archived": 13.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "haltereMN_L_R",
+        "current": 0.5,
+        "archived": 0.5,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "legMN_R_R",
+        "current": 0.8548387289047241,
+        "archived": 0.8548387289047241,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "legMN_L_R",
+        "current": 1.5555555820465088,
+        "archived": 1.5555555820465088,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "DN_R_R",
+        "current": 4.339506149291992,
+        "archived": 4.339506149291992,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "DN_L_R",
+        "current": 2.262195110321045,
+        "archived": 2.262195110321045,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "LPTC_R_R",
+        "current": 107.13043212890625,
+        "archived": 107.13043212890625,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "LPTC_L_R",
+        "current": 47.238094329833984,
+        "archived": 47.238094329833984,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "probMN_R",
+        "current": 0.0,
+        "archived": 0.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "GF_R",
+        "current": 4.0,
+        "archived": 4.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "TTMn_R",
+        "current": 0.0,
+        "archived": 0.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "DLMn_R",
+        "current": 9.600000381469727,
+        "archived": 9.600000381469727,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "y_R",
+        "current": 41.277061462402344,
+        "archived": 41.277061462402344,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "active_L",
+        "current": 6341,
+        "archived": 6341,
+        "absolute_difference": 0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "activeCB_L",
+        "current": 2211,
+        "archived": 2211,
+        "absolute_difference": 0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "spikes_L",
+        "current": 70732.0,
+        "archived": 70732.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "steerMN_R_L",
+        "current": 5.25,
+        "archived": 5.25,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "steerMN_L_L",
+        "current": 11.0,
+        "archived": 11.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "powerMN_R_L",
+        "current": 4.0,
+        "archived": 4.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "powerMN_L_L",
+        "current": 2.461538553237915,
+        "archived": 2.461538553237915,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "haltereMN_R_L",
+        "current": 0.0,
+        "archived": 0.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "haltereMN_L_L",
+        "current": 16.0,
+        "archived": 16.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "legMN_R_L",
+        "current": 2.0806450843811035,
+        "archived": 2.0806450843811035,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "legMN_L_L",
+        "current": 0.5714285969734192,
+        "archived": 0.5714285969734192,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "DN_R_L",
+        "current": 1.8456790447235107,
+        "archived": 1.8456790447235107,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "DN_L_L",
+        "current": 4.371951103210449,
+        "archived": 4.371951103210449,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "LPTC_R_L",
+        "current": 42.956520080566406,
+        "archived": 42.956520080566406,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "LPTC_L_L",
+        "current": 111.04762268066406,
+        "archived": 111.04762268066406,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "probMN_L",
+        "current": 0.0,
+        "archived": 0.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "GF_L",
+        "current": 4.0,
+        "archived": 4.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "TTMn_L",
+        "current": 0.0,
+        "archived": 0.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "DLMn_L",
+        "current": 6.800000190734863,
+        "archived": 6.800000190734863,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "y_L",
+        "current": -32.26304244995117,
+        "archived": -32.26304244995117,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "active_F",
+        "current": 7624,
+        "archived": 7624,
+        "absolute_difference": 0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "activeCB_F",
+        "current": 2999,
+        "archived": 2999,
+        "absolute_difference": 0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "spikes_F",
+        "current": 97956.0,
+        "archived": 97956.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "steerMN_R_F",
+        "current": 17.75,
+        "archived": 17.75,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "steerMN_L_F",
+        "current": 17.5,
+        "archived": 17.5,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "powerMN_R_F",
+        "current": 20.0,
+        "archived": 20.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "powerMN_L_F",
+        "current": 20.615385055541992,
+        "archived": 20.615385055541992,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "haltereMN_R_F",
+        "current": 5.5,
+        "archived": 5.5,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "haltereMN_L_F",
+        "current": 8.0,
+        "archived": 8.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "legMN_R_F",
+        "current": 0.8709677457809448,
+        "archived": 0.8709677457809448,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "legMN_L_F",
+        "current": 0.9365079402923584,
+        "archived": 0.9365079402923584,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "DN_R_F",
+        "current": 4.537036895751953,
+        "archived": 4.537036895751953,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "DN_L_F",
+        "current": 4.3353657722473145,
+        "archived": 4.3353657722473145,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "LPTC_R_F",
+        "current": 108.86956787109375,
+        "archived": 108.86956787109375,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "LPTC_L_F",
+        "current": 112.38095092773438,
+        "archived": 112.38095092773438,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "probMN_F",
+        "current": 0.0,
+        "archived": 0.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "GF_F",
+        "current": 0.0,
+        "archived": 0.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "TTMn_F",
+        "current": 0.0,
+        "archived": 0.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "DLMn_F",
+        "current": 36.0,
+        "archived": 36.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "y_F",
+        "current": -8.36697006225586,
+        "archived": -8.366966247558594,
+        "absolute_difference": 3.814697265625e-06,
+        "within_tolerance": true
+      },
+      {
+        "metric": "active_loom",
+        "current": 2349,
+        "archived": 2349,
+        "absolute_difference": 0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "activeCB_loom",
+        "current": 2316,
+        "archived": 2316,
+        "absolute_difference": 0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "spikes_loom",
+        "current": 114796.0,
+        "archived": 114796.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "steerMN_R_loom",
+        "current": 17.25,
+        "archived": 17.25,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "steerMN_L_loom",
+        "current": 16.5,
+        "archived": 16.5,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "powerMN_R_loom",
+        "current": 55.69230651855469,
+        "archived": 55.69230651855469,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "powerMN_L_loom",
+        "current": 61.846153259277344,
+        "archived": 61.846153259277344,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "haltereMN_R_loom",
+        "current": 20.5,
+        "archived": 20.5,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "haltereMN_L_loom",
+        "current": 17.5,
+        "archived": 17.5,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "legMN_R_loom",
+        "current": 2.322580575942993,
+        "archived": 2.322580575942993,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "legMN_L_loom",
+        "current": 2.0793650150299072,
+        "archived": 2.0793650150299072,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "DN_R_loom",
+        "current": 6.117283821105957,
+        "archived": 6.117283821105957,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "DN_L_loom",
+        "current": 6.243902206420898,
+        "archived": 6.243902206420898,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "LPTC_R_loom",
+        "current": 0.0,
+        "archived": 0.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "LPTC_L_loom",
+        "current": 0.0,
+        "archived": 0.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "probMN_loom",
+        "current": 1.8360655307769775,
+        "archived": 1.8360655307769775,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "GF_loom",
+        "current": 248.0,
+        "archived": 248.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "TTMn_loom",
+        "current": 60.0,
+        "archived": 60.0,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "DLMn_loom",
+        "current": 77.5999984741211,
+        "archived": 77.5999984741211,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "gain",
+        "current": 1.0255133871433462,
+        "archived": 1.0255133871433462,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "bias",
+        "current": -0.10528923502554781,
+        "archived": -0.10528912863398984,
+        "absolute_difference": 1.0639155796632327e-07,
+        "within_tolerance": true
+      },
+      {
+        "metric": "bias_RL",
+        "current": 0.12570008304925015,
+        "archived": 0.12570008304925015,
+        "absolute_difference": 0.0,
+        "within_tolerance": true
+      },
+      {
+        "metric": "gain_R",
+        "current": 1.1616371605780744,
+        "archived": 1.161637071316708,
+        "absolute_difference": 8.926136652043226e-08,
+        "within_tolerance": true
+      },
+      {
+        "metric": "gain_L",
+        "current": 0.8247344554204904,
+        "archived": 0.8247345870786232,
+        "absolute_difference": 1.316581328403288e-07,
+        "within_tolerance": true
+      },
+      {
+        "metric": "decoder_schema",
+        "current": 2,
+        "archived": 2,
+        "absolute_difference": 0,
+        "within_tolerance": true
+      }
+    ],
+    "source_hashes": {
+      "data/v5/W_csc.npz": "a4d3ae4665f284c84f6f3ccdaea48ba0bb11f7fc9e20f19fbc5db52b0316eb35",
+      "data/v5/neurons.parquet": "c6eb802c77dddd98186e78034e4c04d988edefd05b294b716a4073c38bd59021",
+      "data/v5/cell_groups.json": "3b338c9971d7c50bdd971498ff4eaa54817148980b3720e2120d01f9352f78ae",
+      "data/v5/decoder.npz": "a37dbb0cee057d6237177c957369291806788c0ffeef1b7d13fafc326b27eb53",
+      "code/v5/flysim.py": "ac2e114aa8a21cc659a7ffe2fda93e8892459a781b4072127877456049f62c1c",
+      "code/v5/experiments.py": "6d80831846001ec082e1ec5d538a68bd6830b5b0daddafbd0de9106f62dcdee8",
+      "results/v8/states.jsonl": "f95fa88ea6642949c78bd63d9bb8f928e699f26f3d1237f94fdeff9aebc883f2",
+      "results/v8/rates/intact_s1000.npz": "eeb5cb69f55babc64af43858fc378213487b6116ed5fedcc1f95c2815a5603de"
+    }
+  },
+  "sources_unchanged": true,
+  "all_targets_silent": true,
+  "all_rate_files_reproduce_recorded_readouts_within_tolerance": true,
+  "scalar_readout_tolerance": {
+    "rtol": 1e-07,
+    "atol": 1e-05
+  },
+  "max_scalar_reduction_difference": 3.814697265625e-06,
+  "all_specified_conditions_retained": true,
+  "paired_intact_readouts_match_archive": true,
+  "paired_intact_rate_hashes": {
+    "results/literature_benchmarks_20261021/intact_rates/intact_s1000.npz": "eeb5cb69f55babc64af43858fc378213487b6116ed5fedcc1f95c2815a5603de",
+    "results/literature_benchmarks_20261021/intact_rates/intact_s1001.npz": "976ec531942ed7b41c82a1744721ec2ee513030fe346b34ad03b75e861cc602d",
+    "results/literature_benchmarks_20261021/intact_rates/intact_s1002.npz": "762972eb527193de732bc06002074c1673d008634d6fae99b7cbccdfc51474b5",
+    "results/literature_benchmarks_20261021/intact_rates/intact_s1003.npz": "40cc8b577c0a94a30faf163289c10ee1d03f890572b57cf069f45817741df2d4",
+    "results/literature_benchmarks_20261021/intact_rates/intact_s1004.npz": "c2cfce99ceb53613123b528499569a606b75d60e14af6717b84fed24e9c5c745",
+    "results/literature_benchmarks_20261021/intact_rates/intact_s1005.npz": "572bc2ddfc37d36881da2453269491a7305d9cc5042c844345129680b528cc3a",
+    "results/literature_benchmarks_20261021/intact_rates/intact_s1006.npz": "1d8c5325b186354dc5b21ada36cbdba872ce3e08efc982468447b23ce7fda44c",
+    "results/literature_benchmarks_20261021/intact_rates/intact_s1007.npz": "527ba0511bc6fb6f09e28b3e426d6f7f7a6a39b31871be4c7a3e52292d2da69b",
+    "results/literature_benchmarks_20261021/intact_rates/intact_s1008.npz": "125bb4f5345129ca0b99ba73c109d683d44f2e850477b2ed4a0d0c25318ce1d8",
+    "results/literature_benchmarks_20261021/intact_rates/intact_s1009.npz": "d6395b5ab3912df22e9a12b0d6904d989684029d410783361c8355097da3d748"
+  },
+  "analysis_sha256": "29271cb866622dd6b8ceb08bcbf676899934f45a5eeaed558c680f9db15d5e7c"
+}

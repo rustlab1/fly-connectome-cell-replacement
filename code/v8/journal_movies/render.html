@@ -1,0 +1,181 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+html,body{margin:0;background:#fff;overflow:hidden}
+canvas{position:absolute;left:0;top:0}
+</style></head>
+<body>
+<canvas id="gl" width="1920" height="1080"></canvas>
+<canvas id="hud" width="1920" height="1080"></canvas>
+<script src="three.min.js"></script>
+<script>
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;}}
+</script>
+<script src="fly_model.js"></script>
+<script>
+// Journal-style replay of frozen V8 example paths. Positions are the saved model paths;
+// altitude, posture, wingbeat and fly size are illustrative only.
+const W=1920,H=1080,HEAD=112,FOOT=58,STRIP=62,BOT=88;
+const INK='#24313a',MUTED='#5d6b74',RULE='#dfe4e2';
+const FLY_SCALE=0.15, ALT=0.20, WINGBEAT_HZ=12;
+let M=null, CH=0, R=null, panels=[], cam=null, imgs=[], ticks=null;
+const hud=document.getElementById('hud').getContext('2d');
+
+function initRenderer(){
+  R=new THREE.WebGLRenderer({canvas:document.getElementById('gl'),antialias:true,preserveDrawingBuffer:true});
+  R.setPixelRatio(1);R.setSize(W,H,false);R.outputColorSpace=THREE.SRGBColorSpace;R.setClearColor(0xffffff,1);
+}
+function ribbon(pts,width,color,y,opacity){
+  // flat strip on the floor following pts [[fwd,lat],...]
+  const n=pts.length,pos=new Float32Array(n*2*3),idx=[];
+  for(let i=0;i<n;i++){
+    const a=pts[Math.max(0,i-1)],b=pts[Math.min(n-1,i+1)];
+    let dx=b[0]-a[0],dz=b[1]-a[1],L=Math.hypot(dx,dz)||1;const nx=-dz/L*width/2,nz=dx/L*width/2;
+    pos.set([pts[i][0]+nx,y,pts[i][1]+nz,pts[i][0]-nx,y,pts[i][1]-nz],i*6);
+    if(i<n-1)idx.push(2*i,2*i+1,2*i+2,2*i+1,2*i+3,2*i+2);
+  }
+  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(pos,3));g.setIndex(idx);
+  const m=new THREE.Mesh(g,new THREE.MeshBasicMaterial({color,side:THREE.DoubleSide,transparent:opacity<1,opacity,depthWrite:false}));
+  m.renderOrder=2;return m;
+}
+function dashed(pts,width,color,y,dash,gap){
+  const grp=new THREE.Group();let acc=0,cur=[pts[0]],on=true;
+  for(let i=1;i<pts.length;i++){
+    const d=Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]);acc+=d;
+    if(on)cur.push(pts[i]);
+    if(on&&acc>=dash){if(cur.length>1)grp.add(ribbon(cur,width,color,y,1));cur=[];on=false;acc=0;}
+    else if(!on&&acc>=gap){on=true;acc=0;cur=[pts[i]];}
+  }
+  if(on&&cur.length>1)grp.add(ribbon(cur,width,color,y,1));return grp;
+}
+function disc(r,color,opacity){
+  const m=new THREE.Mesh(new THREE.CircleGeometry(r,32),new THREE.MeshBasicMaterial({color,transparent:opacity<1,opacity,depthWrite:false}));
+  m.rotation.x=-Math.PI/2;m.renderOrder=3;return m;
+}
+function buildPanel(p){
+  const s=new THREE.Scene();
+  s.add(new THREE.HemisphereLight(0xffffff,0xd3d9d6,1.7));
+  const sun=new THREE.DirectionalLight(0xffffff,1.25);sun.position.set(-2,6,3);s.add(sun);
+  const A=M.arena,fw=A.fwd[1]-A.fwd[0],lw=A.lat[1]-A.lat[0];
+  const floor=new THREE.Mesh(new THREE.PlaneGeometry(fw,lw),new THREE.MeshBasicMaterial({color:0xf1f4f2}));
+  floor.rotation.x=-Math.PI/2;floor.position.set((A.fwd[0]+A.fwd[1])/2,0,(A.lat[0]+A.lat[1])/2);s.add(floor);
+  const gp=[];
+  for(let f=Math.ceil(A.fwd[0]*2)/2;f<=A.fwd[1]+1e-9;f+=.5)gp.push(f,.001,A.lat[0],f,.001,A.lat[1]);
+  for(let l=Math.ceil(A.lat[0]*2)/2;l<=A.lat[1]+1e-9;l+=.5)gp.push(A.fwd[0],.001,l,A.fwd[1],.001,l);
+  const gg=new THREE.BufferGeometry();gg.setAttribute('position',new THREE.Float32BufferAttribute(gp,3));
+  s.add(new THREE.LineSegments(gg,new THREE.LineBasicMaterial({color:0xd3dad6})));
+  const bp=[A.fwd[0],.002,A.lat[0],A.fwd[1],.002,A.lat[0],A.fwd[1],.002,A.lat[0],A.fwd[1],.002,A.lat[1],A.fwd[1],.002,A.lat[1],A.fwd[0],.002,A.lat[1],A.fwd[0],.002,A.lat[1],A.fwd[0],.002,A.lat[0]];
+  const bg=new THREE.BufferGeometry();bg.setAttribute('position',new THREE.Float32BufferAttribute(bp,3));
+  s.add(new THREE.LineSegments(bg,new THREE.LineBasicMaterial({color:0xb9c3be})));
+  s.add(dashed(M.intact,.026,0x98a3ab,.004,.09,.06));
+  const path=ribbon(p.path,.042,new THREE.Color(p.color),.006,1);s.add(path);
+  const start=disc(.05,0x1d252b,1);start.position.set(0,.008,0);s.add(start);
+  const dots=p.dots.map(d=>{const m=disc(.06,new THREE.Color(p.color),1);m.position.set(d[0],.0085,d[1]);
+    const ring=disc(.032,0xffffff,1);ring.position.set(d[0],.009,d[1]);ring.renderOrder=4;s.add(m);s.add(ring);ring.visible=false;m.userData.ring=ring;return m;});
+  const shadow=disc(.13,0x2d3a34,.16);shadow.scale.set(1.35,1,.8);s.add(shadow);
+  const drop=new THREE.Mesh(new THREE.CylinderGeometry(.004,.004,ALT,6),new THREE.MeshBasicMaterial({color:0x8d989f,transparent:true,opacity:.55}));s.add(drop);
+  const {fly,wings}=makeFly();fly.scale.setScalar(FLY_SCALE);s.add(fly);
+  return {p,scene:s,path,dots,shadow,drop,fly,wings};
+}
+function layout(i){
+  const [rows,cols]=M.chapters[CH].grid,pw=W/cols,ph=(H-HEAD-FOOT)/rows;
+  const r=Math.floor(i/cols),c=i%cols;return {x:c*pw,y:HEAD+r*ph,w:pw,h:ph};
+}
+function fitCamera(){
+  const L=layout(0),vw=L.w,vh=L.h-STRIP-BOT,A=M.arena;
+  const c=new THREE.Vector3((A.fwd[0]+A.fwd[1])/2,0,(A.lat[0]+A.lat[1])/2);
+  const elev=56*Math.PI/180,camr=new THREE.PerspectiveCamera(30,vw/vh,.05,100);
+  const corners=[[A.fwd[0],A.lat[0]],[A.fwd[0],A.lat[1]],[A.fwd[1],A.lat[0]],[A.fwd[1],A.lat[1]]].map(q=>new THREE.Vector3(q[0],0,q[1]));
+  let d=2;
+  for(;d<40;d+=.02){
+    camr.position.set(c.x,d*Math.sin(elev),c.z+d*Math.cos(elev));camr.lookAt(c);camr.updateMatrixWorld();camr.updateProjectionMatrix();
+    let ok=true;for(const v of corners){const q=v.clone().project(camr);if(Math.abs(q.x)>.95||q.y>.95||q.y<-.84)ok=false;}
+    if(ok)break;
+  }
+  cam=camr;
+  // forward-distance tick positions along the left arena edge (screen coordinates within the 3D viewport)
+  ticks=[];for(let f=0;f<=3;f++){const q=new THREE.Vector3(f,0,A.lat[1]).project(cam);ticks.push({f,x:(q.x+1)/2*vw,y:(1-q.y)/2*vh});}
+}
+window.setMovie=function(data){M=data;};
+window.setChapter=async function(k){
+  CH=k;if(!R)initRenderer();
+  panels=M.chapters[k].panels.map(buildPanel);fitCamera();
+  imgs=await Promise.all(M.chapters[k].panels.map(p=>new Promise(res=>{const im=new Image();im.onload=()=>res(im);im.src=p.anatomy;})));
+  return panels.length;
+};
+function txt(s,x,y,font,color,align){hud.font=font;hud.fillStyle=color;hud.textAlign=align||'left';hud.textBaseline='alphabetic';hud.fillText(s,x,y);}
+function roundRect(x,y,w,h,r,fill,stroke){hud.beginPath();hud.moveTo(x+r,y);hud.arcTo(x+w,y,x+w,y+h,r);hud.arcTo(x+w,y+h,x,y+h,r);hud.arcTo(x,y+h,x,y,r);hud.arcTo(x,y,x+w,y,r);hud.closePath();if(fill){hud.fillStyle=fill;hud.fill();}if(stroke){hud.strokeStyle=stroke;hud.lineWidth=1;hud.stroke();}}
+window.renderFrame=function(n){
+  const ch=M.chapters[CH],t=n/M.fps,out=[];
+  R.setScissorTest(true);R.setViewport(0,0,W,H);R.setScissor(0,0,W,H);R.setClearColor(0xffffff,1);R.clear();
+  panels.forEach((P,i)=>{
+    const L=layout(i),fr=P.p.frames[n],X=fr[0],Y=fr[1],psi=fr[2],omf=fr[3];
+    // reveal path up to time t (path sampled every 10 ms)
+    let k=0;const pt=P.p.path_t;while(k<pt.length&&pt[k]<=t+1e-9)k++;
+    P.path.geometry.setDrawRange(0,Math.max(0,(k-1))*6);
+    P.dots.forEach((d,j)=>{const on=t>=j+1-1e-9;d.visible=on;d.userData.ring.visible=on;});
+    const bob=.012*Math.sin(2*Math.PI*.7*t);
+    P.fly.position.set(X,ALT+bob,Y);P.fly.rotation.set(0,-psi,0);
+    const roll=.45*Math.tanh(omf/6);P.fly.userData.body.rotation.set(roll,0,.28);
+    P.wings[-1].rotation.set(.25,.22,.05);P.wings[1].rotation.set(-.25,-.22,.05);
+    const ph=2*Math.PI*WINGBEAT_HZ*t;
+    for(let q=0;q<3;q++){P.wings[-1].userData.ghosts[q].rotation.x=-.95*Math.sin(ph+q*2.1);P.wings[1].userData.ghosts[q].rotation.x=.95*Math.sin(ph+q*2.1);}
+    P.shadow.position.set(X,.007,Y);P.shadow.rotation.z=psi;
+    P.drop.position.set(X,(ALT+bob)/2,Y);P.drop.scale.y=(ALT+bob)/ALT;
+    const vx=Math.round(L.x),vy=Math.round(H-(L.y+L.h-BOT)),vw=Math.round(L.w),vh=Math.round(L.h-STRIP-BOT);
+    R.setViewport(vx,vy,vw,vh);R.setScissor(vx,vy,vw,vh);R.render(P.scene,cam);
+    out.push({name:P.p.name,model_fwd_m:X,model_lat_m:Y,heading:psi});
+  });
+  R.setScissorTest(false);
+  drawHud(n,t);
+  return out;
+};
+function drawHud(n,t){
+  const ch=M.chapters[CH];hud.clearRect(0,0,W,H);
+  // header
+  txt(M.title,36,50,'600 32px Arial',INK);
+  txt(ch.sub,36,88,'22px Arial',MUTED);
+  txt('t = '+t.toFixed(1)+' s',W-36,62,'28px Arial',INK,'right');
+  hud.fillStyle=RULE;hud.fillRect(0,HEAD-1,W,1);
+  panels.forEach((P,i)=>{
+    const L=layout(i),p=P.p;
+    // panel separators
+    hud.fillStyle=RULE;if(L.x>0)hud.fillRect(L.x,L.y,1,L.h);if(L.y>HEAD)hud.fillRect(L.x,L.y,L.w,1);
+    txt(p.title,L.x+22,L.y+30,'700 24px Arial',p.color);
+    txt(p.sub,L.x+22,L.y+54,'18px Arial',MUTED);
+    const top=L.y+STRIP;
+    // anatomy inset (lesion pink, replacement cells coloured)
+    const ah=BOT-10,aw=ah*285/300;
+    roundRect(L.x+L.w-aw-14,L.y+L.h-ah-6,aw,ah,4,'#ffffff','#e3e8e5');hud.drawImage(imgs[i],L.x+L.w-aw-14,L.y+L.h-ah-6,aw,ah);
+    // forward distance labels
+    ticks.forEach(q=>txt(q.f+' m',L.x+q.x,top+q.y+20,'15px Arial','#8a969d','center'));
+    // readouts
+    const fr=p.frames[n],d=Math.hypot(fr[0],fr[1]);
+    const bw=Math.min(330,L.w-28),bh=62,bx=L.x+14,by=L.y+L.h-bh-14;
+    roundRect(bx,by,bw,bh,5,'rgba(255,255,255,.94)','#e1e6e3');
+    hud.font='20px Arial';hud.fillStyle=INK;hud.textAlign='left';hud.fillText('Distance from start ',bx+12,by+26);
+    const w0=hud.measureText('Distance from start ').width;txt(d.toFixed(2)+' m',bx+12+w0,by+26,'700 20px Arial',INK);
+    txt('Mean of 100 runs: '+Math.round(p.mean_pct)+'% of intact',bx+12,by+50,'16px Arial',MUTED);
+  });
+  if(ch.table)drawTable(ch.table);
+  // footer legend
+  const fy=H-FOOT/2+6;hud.fillStyle=RULE;hud.fillRect(0,H-FOOT,W,1);
+  hud.strokeStyle='#98a3ab';hud.lineWidth=4;hud.setLineDash([12,8]);hud.beginPath();hud.moveTo(36,fy-6);hud.lineTo(90,fy-6);hud.stroke();hud.setLineDash([]);
+  txt('Intact reference',100,fy,'18px Arial',MUTED);
+  hud.fillStyle='#1d252b';hud.beginPath();hud.arc(268,fy-6,6,0,2*Math.PI);hud.fill();txt('Start',282,fy,'18px Arial',MUTED);
+  hud.strokeStyle='#7d8a92';hud.lineWidth=3;hud.beginPath();hud.arc(358,fy-6,5.5,0,2*Math.PI);hud.stroke();txt('1-s marks',372,fy,'18px Arial',MUTED);
+  txt('Grid 0.5 m',480,fy,'18px Arial',MUTED);
+  txt('Saved model paths (neural seed 1000, gust seed 3). Fly enlarged about 100-fold; altitude, posture and wingbeat are illustrative.',W-36,fy,'17px Arial',MUTED,'right');
+}
+function drawTable(T){
+  const L=layout(5),x0=L.x+26,y0=L.y+44,cw=(L.w-52-150)/5;
+  txt('Mean of 100 runs (% of intact), '+T.dose+' cells',x0,y0,'700 21px Arial',INK);
+  const short=['No graft','Original','Random wiring','Correct type','Non-target'];
+  short.forEach((h,j)=>{const cx=x0+150+cw*j+cw/2;const parts=h.split(' ');
+    parts.forEach((w,q)=>txt(w,cx,y0+44+q*20-(parts.length-1)*10,'700 17px Arial',T.colors[j],'center'));});
+  T.rows.forEach((r,i)=>{const y=y0+108+i*62;hud.fillStyle=RULE;hud.fillRect(x0,y-38,L.w-52,1);
+    txt(r,x0,y,'19px Arial',INK);T.values[i].forEach((v,j)=>txt(v+'%',x0+150+cw*j+cw/2,y,'700 20px Arial',INK,'center'));});
+  txt('Single example paths vary; table shows means.',x0,L.y+L.h-24,'16px Arial',MUTED);
+}
+</script>
+</body></html>

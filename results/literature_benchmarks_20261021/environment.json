@@ -1,0 +1,8 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:22) [Clang 22.1.3 ]",
+  "executable": "/tmp/fly_benchmark_env_20261021/bin/python",
+  "numpy": "2.3.5",
+  "platform": "macOS-15.8.1-x86_64-i386-64bit",
+  "backend": "unmodified_numpy_reference_AST_import",
+  "reason": "Archived conda environment absent; SciPy/PyArrow/Numba not installed and dependency download unavailable. Only file loading adapted; validation gate compares all saved rates."
+}

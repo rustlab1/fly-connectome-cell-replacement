@@ -1,0 +1,20 @@
+EXPERIMENTAL NUMBERS: WHAT CAN BE PUT ON THE FIGURE
+Checked 22 October 2026. All model values are unchanged.
+
+a. HS lesions: retain a qualitative label.
+The accessible 1983 abstract establishes a role in optomotor yaw torque. The original experimental figure was not accessible for reliable measurement, so no percentage is assigned. The model's 20.6% reduction is not an estimate of the animal result.
+Source: https://doi.org/10.1098/rspb.1983.0068
+Author record: https://www.researchgate.net/publication/247603863_Microsurgical_Lesion_of_Horizontal_Cells_Changes_Optomotor_Yaw_Responses_in_the_Blowfly_Calliphora_erythrocephala
+
+b. T4/T5 blockade: approximately 100% loss of optomotor turning.
+Bahl et al. (2013), Fig. 1b-d and its legend, report loss of the optomotor response across tested contrasts. The block-group response was not significantly different from zero (P=0.47, two-sided t test); each optomotor group contained 10 flies. The figure's approximately 100% label is an interpretation of the reported abolition, not an exact ratio calculated from raw data or digitized bars. General walking/turning activity and bar fixation are different endpoints and are not claimed to vanish.
+Source: https://doi.org/10.1038/nn.3386
+Full manuscript: https://d-nb.info/1333191847/34
+
+c. LPLC2 silencing: retain the component-specific qualitative label.
+Ache et al. (2019) report loss of the size-dependent component, with a velocity component remaining. This does not provide a universal percentage loss of total GF response. The directly reported short-mode takeoff fractions are 26% to 3% with TNT (47/178 versus 3/93) and 17% to 7% with Kir2.1 (18/105 versus 5/70), pooled across looming conditions (Fig. 1C,D). These behavioral fractions are accurate numerical context but do not match our GF firing-rate endpoint, so they are not placed beside the model percentage. A whole-response voltage estimate would require inspection or digitization of the relevant electrophysiology figure with a specified stimulus; no such number is claimed here.
+Source: https://doi.org/10.1016/j.cub.2019.01.079
+Author-uploaded full text: https://www.researchgate.net/publication/331408732_Neural_Basis_for_Looming_Size_and_Velocity_Encoding_in_the_Drosophila_Giant_Fiber_Escape_Pathway
+
+Recommendation
+Keep the single approximate experimental percentage in panel b. The other panels provide qualitative experimental context. This avoids implying a quantitative match between unlike endpoints while preserving the concise visual comparison.

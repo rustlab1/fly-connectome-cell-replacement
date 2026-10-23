@@ -1,0 +1,604 @@
+{
+  "created_utc": "2026-10-02T23:04:00.067499+00:00",
+  "scope": "annotation/connectivity inventory only; no simulations",
+  "n_neurons": 165122,
+  "n_connections": 25563197,
+  "exact_unsigned_synapses": 124025046,
+  "n_cell_type_labels": 11751,
+  "n_cells_without_type": 2605,
+  "n_superclass_labels": 26,
+  "n_class_labels": 21,
+  "n_finite_somata": 140024,
+  "n_x_position_present": 140024,
+  "n_motoneurons": 815,
+  "n_motoneurons_with_soma": 806,
+  "n_lesion_eligible": 139218,
+  "n_lesion_pool_runtime": 139218,
+  "n_exc": 107861,
+  "n_inh": 57261,
+  "superclass_counts": {
+    "<unclassified>": 516,
+    "ENS": 47,
+    "ascending_neuron": 1846,
+    "cb_efferent": 4,
+    "cb_endocrine": 72,
+    "cb_intrinsic": 32160,
+    "cb_motor": 107,
+    "cb_sensory": 4868,
+    "cb_sensory_tbc": 5,
+    "descending_neuron": 1314,
+    "efferent_ascending": 8,
+    "efferent_descending": 4,
+    "ol_intrinsic": 89390,
+    "ol_sensory": 4114,
+    "sensory_ascending": 537,
+    "sensory_ascending_tbc": 2,
+    "sensory_descending": 12,
+    "visual_centrifugal": 563,
+    "visual_projection": 9201,
+    "visual_projection_tbc": 2,
+    "vnc_efferent": 94,
+    "vnc_endocrine": 22,
+    "vnc_intrinsic": 13151,
+    "vnc_motor": 708,
+    "vnc_sensory": 6365,
+    "vnc_sensory_tbc": 9,
+    "vnc_tbc": 1
+  },
+  "class_counts": {
+    "<unclassified>": 140598,
+    "ALIN": 24,
+    "ALLN": 420,
+    "ALON": 14,
+    "ALPN": 686,
+    "CX": 2950,
+    "DAN": 340,
+    "Kenyon_Cell": 4064,
+    "MBON": 97,
+    "SEZPN": 27,
+    "chemosensory": 58,
+    "gustatory": 1428,
+    "hygrosensory": 66,
+    "mechanosensory": 1733,
+    "mechanosensory_proprioceptive": 1454,
+    "mechanosensory_tactile": 2558,
+    "mechanosensory_tbc": 11,
+    "ol_bilateral": 116,
+    "olfactory": 2639,
+    "thermosensory": 25,
+    "unknown_sensory": 1707,
+    "visual": 4107
+  },
+  "neurotransmitter_counts": {
+    "<unclassified>": 502,
+    "acetylcholine": 103718,
+    "dopamine": 392,
+    "gaba": 22055,
+    "glutamate": 29296,
+    "histamine": 5910,
+    "octopamine": 101,
+    "serotonin": 48,
+    "unclear": 3100
+  },
+  "neurotransmitter_sign_counts": {
+    "<unclassified>": {
+      "-1": 0,
+      "1": 502
+    },
+    "acetylcholine": {
+      "-1": 0,
+      "1": 103718
+    },
+    "dopamine": {
+      "-1": 0,
+      "1": 392
+    },
+    "gaba": {
+      "-1": 22055,
+      "1": 0
+    },
+    "glutamate": {
+      "-1": 29296,
+      "1": 0
+    },
+    "histamine": {
+      "-1": 5910,
+      "1": 0
+    },
+    "octopamine": {
+      "-1": 0,
+      "1": 101
+    },
+    "serotonin": {
+      "-1": 0,
+      "1": 48
+    },
+    "unclear": {
+      "-1": 0,
+      "1": 3100
+    }
+  },
+  "group_counts": {
+    "DLMn": 10,
+    "DN_L": 656,
+    "DN_R": 648,
+    "GF": 2,
+    "GRN_labellar": 271,
+    "LC_loom": 311,
+    "LPTC_L": 21,
+    "LPTC_R": 23,
+    "T4a_L": 835,
+    "T4a_R": 849,
+    "T4b_L": 844,
+    "T4b_R": 846,
+    "T4c_L": 895,
+    "T4c_R": 883,
+    "T4d_L": 850,
+    "T4d_R": 859,
+    "T5a_L": 826,
+    "T5a_R": 838,
+    "T5b_L": 863,
+    "T5b_R": 852,
+    "T5c_L": 862,
+    "T5c_R": 858,
+    "T5d_L": 812,
+    "T5d_R": 808,
+    "TTMn": 2,
+    "all_MN": 815,
+    "haltereMN_L": 8,
+    "haltereMN_R": 8,
+    "legMN_L": 252,
+    "legMN_R": 248,
+    "powerMN": 26,
+    "powerMN_L": 13,
+    "powerMN_R": 13,
+    "probMN": 61,
+    "steerMN": 32,
+    "steerMN_L": 16,
+    "steerMN_R": 16,
+    "wingMN_L": 33,
+    "wingMN_R": 34
+  },
+  "stimulus_counts": {
+    "R": 3394,
+    "L": 3359,
+    "F": 3348,
+    "feed": 271,
+    "loom": 311
+  },
+  "n_unique_driven_neurons": 7335,
+  "n_LPTC": 44,
+  "n_descending_total": 1314,
+  "n_core": 1358,
+  "n_interface": 11078,
+  "W_SYN_mV": 0.14390733024201519,
+  "stimulus_Hz": 100.0,
+  "trial_ms": 300.0,
+  "measurement_ms": [
+    50.0,
+    300.0
+  ],
+  "lesion_composition": [
+    {
+      "site": 20,
+      "n_lesion": 1000,
+      "center_um": [
+        292.0516907563026,
+        199.2039193277311,
+        301.10268907563017
+      ],
+      "radius_um": 49.03792860848201,
+      "n_types": 588,
+      "n_without_type": 13,
+      "superclass_counts": {
+        "<unclassified>": 1,
+        "cb_intrinsic": 802,
+        "descending_neuron": 37,
+        "ol_intrinsic": 2,
+        "visual_centrifugal": 30,
+        "visual_projection": 128
+      },
+      "side_counts": {
+        "R": 1000
+      },
+      "neurotransmitter_counts": {
+        "<unclassified>": 1,
+        "acetylcholine": 733,
+        "dopamine": 1,
+        "gaba": 84,
+        "glutamate": 149,
+        "serotonin": 1,
+        "unclear": 31
+      },
+      "n_excitatory": 767,
+      "n_inhibitory": 233,
+      "n_T4T5": 0,
+      "n_LPTC": 4,
+      "n_descending": 37,
+      "n_core": 41,
+      "n_interface": 195,
+      "n_motor": 0,
+      "selected_indices_sha256": "0e57d42bd0f871a8bd4dcaf15626948926676504d7bbdeade46a2f183e592b6f"
+    },
+    {
+      "site": 20,
+      "n_lesion": 2000,
+      "center_um": [
+        292.0516907563026,
+        199.2039193277311,
+        301.10268907563017
+      ],
+      "radius_um": 66.86123334259493,
+      "n_types": 992,
+      "n_without_type": 42,
+      "superclass_counts": {
+        "<unclassified>": 1,
+        "cb_intrinsic": 1544,
+        "descending_neuron": 79,
+        "ol_intrinsic": 71,
+        "visual_centrifugal": 76,
+        "visual_projection": 229
+      },
+      "side_counts": {
+        "L": 1,
+        "R": 1999
+      },
+      "neurotransmitter_counts": {
+        "<unclassified>": 1,
+        "acetylcholine": 1412,
+        "dopamine": 11,
+        "gaba": 208,
+        "glutamate": 319,
+        "octopamine": 1,
+        "serotonin": 4,
+        "unclear": 44
+      },
+      "n_excitatory": 1473,
+      "n_inhibitory": 527,
+      "n_T4T5": 0,
+      "n_LPTC": 5,
+      "n_descending": 79,
+      "n_core": 84,
+      "n_interface": 384,
+      "n_motor": 0,
+      "selected_indices_sha256": "f13901314b855a16e0c0c2966f47c8a785213243446d07820306b905b43d8e82"
+    },
+    {
+      "site": 20,
+      "n_lesion": 4000,
+      "center_um": [
+        292.0516907563026,
+        199.2039193277311,
+        301.10268907563017
+      ],
+      "radius_um": 93.78783111041346,
+      "n_types": 1470,
+      "n_without_type": 49,
+      "superclass_counts": {
+        "<unclassified>": 1,
+        "cb_endocrine": 1,
+        "cb_intrinsic": 2777,
+        "descending_neuron": 108,
+        "ol_intrinsic": 370,
+        "visual_centrifugal": 149,
+        "visual_projection": 594
+      },
+      "side_counts": {
+        "L": 1,
+        "R": 3999
+      },
+      "neurotransmitter_counts": {
+        "<unclassified>": 1,
+        "acetylcholine": 2772,
+        "dopamine": 19,
+        "gaba": 493,
+        "glutamate": 644,
+        "octopamine": 3,
+        "serotonin": 5,
+        "unclear": 63
+      },
+      "n_excitatory": 2863,
+      "n_inhibitory": 1137,
+      "n_T4T5": 9,
+      "n_LPTC": 14,
+      "n_descending": 108,
+      "n_core": 122,
+      "n_interface": 851,
+      "n_motor": 0,
+      "selected_indices_sha256": "0e39a3829ee02caf5d8ac5f90ad9155dc1d9fc101dfe4beef07497e0fd12ce72"
+    },
+    {
+      "site": 20,
+      "n_lesion": 16000,
+      "center_um": [
+        292.0516907563026,
+        199.2039193277311,
+        301.10268907563017
+      ],
+      "radius_um": 147.22508587829424,
+      "n_types": 3084,
+      "n_without_type": 149,
+      "superclass_counts": {
+        "<unclassified>": 10,
+        "cb_endocrine": 7,
+        "cb_intrinsic": 7439,
+        "descending_neuron": 344,
+        "ol_intrinsic": 4636,
+        "visual_centrifugal": 237,
+        "visual_projection": 3327
+      },
+      "side_counts": {
+        "L": 725,
+        "M": 9,
+        "R": 15266
+      },
+      "neurotransmitter_counts": {
+        "<unclassified>": 3,
+        "acetylcholine": 11948,
+        "dopamine": 38,
+        "gaba": 1542,
+        "glutamate": 2257,
+        "histamine": 2,
+        "octopamine": 10,
+        "serotonin": 8,
+        "unclear": 192
+      },
+      "n_excitatory": 12199,
+      "n_inhibitory": 3801,
+      "n_T4T5": 2711,
+      "n_LPTC": 23,
+      "n_descending": 344,
+      "n_core": 367,
+      "n_interface": 3908,
+      "n_motor": 0,
+      "selected_indices_sha256": "e227a0a96c470b1ee329107279fe8de0f6c4526cb5e9b7ffb87f22f1126e4a65"
+    },
+    {
+      "site": 25,
+      "n_lesion": 1000,
+      "center_um": [
+        82.85912520868112,
+        306.0142504173623,
+        250.7759065108515
+      ],
+      "radius_um": 40.22668505407048,
+      "n_types": 98,
+      "n_without_type": 0,
+      "superclass_counts": {
+        "ol_intrinsic": 902,
+        "visual_projection": 98
+      },
+      "side_counts": {
+        "R": 1000
+      },
+      "neurotransmitter_counts": {
+        "acetylcholine": 518,
+        "gaba": 49,
+        "glutamate": 375,
+        "histamine": 10,
+        "unclear": 48
+      },
+      "n_excitatory": 566,
+      "n_inhibitory": 434,
+      "n_T4T5": 0,
+      "n_LPTC": 0,
+      "n_descending": 0,
+      "n_core": 0,
+      "n_interface": 98,
+      "n_motor": 0,
+      "selected_indices_sha256": "56c3c535959e7b2a3e43a008dc6169c937e9fd828bc95a097ac65d30b502ef1d"
+    },
+    {
+      "site": 25,
+      "n_lesion": 2000,
+      "center_um": [
+        82.85912520868112,
+        306.0142504173623,
+        250.7759065108515
+      ],
+      "radius_um": 49.168524765015285,
+      "n_types": 112,
+      "n_without_type": 2,
+      "superclass_counts": {
+        "<unclassified>": 2,
+        "ol_intrinsic": 1831,
+        "visual_projection": 167
+      },
+      "side_counts": {
+        "R": 2000
+      },
+      "neurotransmitter_counts": {
+        "<unclassified>": 2,
+        "acetylcholine": 1133,
+        "gaba": 112,
+        "glutamate": 663,
+        "histamine": 14,
+        "unclear": 76
+      },
+      "n_excitatory": 1211,
+      "n_inhibitory": 789,
+      "n_T4T5": 0,
+      "n_LPTC": 0,
+      "n_descending": 0,
+      "n_core": 0,
+      "n_interface": 167,
+      "n_motor": 0,
+      "selected_indices_sha256": "ed01929fdc85c578be4a57574b0f956be28b578c20671d03374f8e7cd6f5487a"
+    },
+    {
+      "site": 25,
+      "n_lesion": 4000,
+      "center_um": [
+        82.85912520868112,
+        306.0142504173623,
+        250.7759065108515
+      ],
+      "radius_um": 61.90069701767594,
+      "n_types": 116,
+      "n_without_type": 25,
+      "superclass_counts": {
+        "<unclassified>": 23,
+        "ol_intrinsic": 3725,
+        "visual_projection": 252
+      },
+      "side_counts": {
+        "R": 4000
+      },
+      "neurotransmitter_counts": {
+        "<unclassified>": 19,
+        "acetylcholine": 2309,
+        "gaba": 269,
+        "glutamate": 1237,
+        "histamine": 55,
+        "unclear": 111
+      },
+      "n_excitatory": 2439,
+      "n_inhibitory": 1561,
+      "n_T4T5": 0,
+      "n_LPTC": 0,
+      "n_descending": 0,
+      "n_core": 0,
+      "n_interface": 252,
+      "n_motor": 0,
+      "selected_indices_sha256": "0807b48da540fed9c3ebee0d8379daeab83e78848cdd14e818a9e5b39d7843a2"
+    },
+    {
+      "site": 25,
+      "n_lesion": 16000,
+      "center_um": [
+        82.85912520868112,
+        306.0142504173623,
+        250.7759065108515
+      ],
+      "radius_um": 109.940879525012,
+      "n_types": 151,
+      "n_without_type": 109,
+      "superclass_counts": {
+        "<unclassified>": 101,
+        "ol_intrinsic": 15346,
+        "ol_sensory": 5,
+        "visual_projection": 548
+      },
+      "side_counts": {
+        "R": 16000
+      },
+      "neurotransmitter_counts": {
+        "<unclassified>": 84,
+        "acetylcholine": 9674,
+        "gaba": 1906,
+        "glutamate": 3752,
+        "histamine": 365,
+        "unclear": 219
+      },
+      "n_excitatory": 9977,
+      "n_inhibitory": 6023,
+      "n_T4T5": 525,
+      "n_LPTC": 0,
+      "n_descending": 0,
+      "n_core": 0,
+      "n_interface": 548,
+      "n_motor": 0,
+      "selected_indices_sha256": "0fe2627a8e46be86c16e435f939f46e085c142081d0b102c83b8edab7c0435ed"
+    }
+  ],
+  "site20_2000_core_first_100": [
+    {
+      "seed": 0,
+      "n_graft": 100,
+      "n_LPTC": 5,
+      "n_descending": 79,
+      "n_core": 84,
+      "superclass_counts": {
+        "descending_neuron": 79,
+        "visual_centrifugal": 5,
+        "visual_projection": 16
+      },
+      "template_indices_sha256": "89701d1da08ea5b41b0eda15791bfdc1d041ff47ceecacaa0141cd04e9675518"
+    },
+    {
+      "seed": 1,
+      "n_graft": 100,
+      "n_LPTC": 5,
+      "n_descending": 79,
+      "n_core": 84,
+      "superclass_counts": {
+        "descending_neuron": 79,
+        "visual_centrifugal": 5,
+        "visual_projection": 16
+      },
+      "template_indices_sha256": "f7bce8db1bf93c720be458b63e46d39f3cfe972eb6dfc54fd874ab005e65f211"
+    },
+    {
+      "seed": 2,
+      "n_graft": 100,
+      "n_LPTC": 5,
+      "n_descending": 79,
+      "n_core": 84,
+      "superclass_counts": {
+        "descending_neuron": 79,
+        "visual_centrifugal": 5,
+        "visual_projection": 16
+      },
+      "template_indices_sha256": "25a2be95c8bacce1730273fbd914a83e223cbc97ffd1cdc17085e94d75de1217"
+    }
+  ],
+  "runtime": {
+    "python": "3.11.15",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "pandas": "2.3.3"
+  },
+  "original_runtime_neuron_tables_equal": true,
+  "static_design": {
+    "n_states": 680,
+    "category_counts": {
+      "grid": 45,
+      "heterogeneity": 12,
+      "partial": 48,
+      "screen": 504,
+      "sensitivity": 16,
+      "sensitivity_intact": 4,
+      "size": 15,
+      "survival": 12,
+      "typed": 18,
+      "wiring": 6
+    }
+  },
+  "source_hashes": {
+    "data/processed/neurons.parquet": "c6eb802c77dddd98186e78034e4c04d988edefd05b294b716a4073c38bd59021",
+    "data/v5/neurons.parquet": "c6eb802c77dddd98186e78034e4c04d988edefd05b294b716a4073c38bd59021",
+    "data/v5/W_csc.npz": "a4d3ae4665f284c84f6f3ccdaea48ba0bb11f7fc9e20f19fbc5db52b0316eb35",
+    "data/v5/cell_groups.json": "3b338c9971d7c50bdd971498ff4eaa54817148980b3720e2120d01f9352f78ae",
+    "data/v5/decoder.npz": "a37dbb0cee057d6237177c957369291806788c0ffeef1b7d13fafc326b27eb53",
+    "results/v5/lesion_sites.csv": "be9130366291689d5fe858ec6cba5a790e0dba62a983cce4a6f126a54c3539d6",
+    "code/01_prepare_data.py": "e1fb64e98a5387bd1e4c76f4e6e3505805e81d2a3d5118a12ce18dc05ba58a38",
+    "code/v5/restore_connectivity.py": "bd55f44f13ac4dec6c3311edf064f5db74b38ec01dcb39c2f922ff2fcf1d4291",
+    "code/v5/flysim.py": "ac2e114aa8a21cc659a7ffe2fda93e8892459a781b4072127877456049f62c1c",
+    "code/v5/flysim_fast.py": "169b30671cc7ee9f379871bd6ec36c48aba931aa7cee34475a0bd99b9cffa0a4",
+    "code/v5/experiments.py": "6d80831846001ec082e1ec5d538a68bd6830b5b0daddafbd0de9106f62dcdee8",
+    "code/v5/graft_typed.py": "f9c0370c6d1fd8a73bad8f88812e946d1abfc52c30bd3f10c4b2941c99bcaa4a",
+    "code/v5/adaptation.py": "a6dac6a24c5413528fc1b0bab00284e9b3fac6ae1c52dc86cbab2ecbe56217d2",
+    "code/v5/adaptation_protocol.py": "5608f27a3c364d618e799972292af88ea1bd7868e6c26d1fee3772573dfbbeed",
+    "code/v5/calibrate.py": "f227d329bb315a3c89f2b7a7103afdf138c848c6212bf1c40437ccc6711c8516",
+    "code/v5/protocol.py": "45c4c54ec287b1ba323063655de27fe73f3e6de938c9e149643f8ce299c5f145",
+    "code/v5/run_states.py": "9a0902c4e9238831038ddb4479747f4c4244481b189668fb52ae416c0633735d",
+    "code/v5/summarize.py": "6b3173b6acf4c53fc5293fe0b1dcff992ac18c57786838b52e62961c42537141",
+    "code/v5/flight.py": "4e9b9c56777980696c8c9225d0d93c78fd610bf9c0039771c07f437828599ab3",
+    "code/v5/flight_fast.py": "bc1df60cf3a4861568af72845b75ce995a1b56e856b79430e6b7672e60b4c8ec",
+    "results/v5/specs_states.json": "04292f0a3ea6804fe426fd761ee1bb2430d2b1d8a2fc101ca674b83c40d1d807",
+    "results/v5/protocol.json": "898d428ecc8326ae8bffde569bf0dc302cf6b3e10c14d08c892ef5ea239bfd5c",
+    "tests/v5/test_model.py": "e875b1a6234040c1d6c9b80689fd38ee33c410a9750652d4e08221f99fbe1bb2",
+    "tests/v5/test_adaptation.py": "927b2a9722743672ca3d513e41d84c59ce52122a7a3b98d78a75f8d315baff4d",
+    "code/v5/model_inventory.py": "87a03a2d35c50de13766e5c94c84a1dcd007e3e5af2f7c09b7241367a5d53e62"
+  },
+  "decoder": {
+    "schema_version": 2,
+    "gain_definition": "state_forward_referenced_directional_intact_span",
+    "ref": 71.71052551269531,
+    "ref_R": 42.736263275146484,
+    "ref_L": 28.974262237548828,
+    "yF0": -4.591796875,
+    "yR0": 38.144466400146484,
+    "yL0": -33.56605911254883
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "html_structure_passed": true,
+  "embedded_images_valid": 2,
+  "tables": 4,
+  "pdf_figures_rendered_and_visually_reviewed": true,
+  "png_figures_visually_reviewed": true,
+  "html_browser_layout_review": "Unavailable: local headless browser launch exited with SIGABRT; HTML source and embedded images were structurally checked.",
+  "html_sha256": "9bf85a02ae5787ea404273def09c8c945d86b4df25f2dcb448c6348da4df0fca"
+}

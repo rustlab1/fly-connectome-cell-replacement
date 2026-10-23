@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "states": 7100,
+  "realizations_per_condition": 100,
+  "nested_trajectories": 142000,
+  "complete_reconstruction_exact": true,
+  "masks_nested": true,
+  "first_realization_selection_prefixes": {
+    "random": true,
+    "interface": true,
+    "ranked": true
+  },
+  "first_realization_connection_templates_identical": true,
+  "annotated_correct_type_assignments_verified": true,
+  "annotated_alternative_type_assignments_verified": true,
+  "unannotated_lesion_positions": 42,
+  "non_target_pool_disjoint_from_annotated_lost_types": true,
+  "ci95_formula_verified": true,
+  "beam_rate_units_verified": true,
+  "frozen_model_hashes_unchanged": true,
+  "largest_lesion_neural_drive_zero": true,
+  "plotted_outcomes_finite": true,
+  "limitations": "One anatomical connectome. Non-target types exclude every annotated lost type; the earlier lost-type-shuffle control remains separate. Original-wiring random selection is not an untargeted transplant.",
+  "source_sha256": {
+    "results/v8/states.jsonl": "f95fa88ea6642949c78bd63d9bb8f928e699f26f3d1237f94fdeff9aebc883f2",
+    "results/v8/typed_dose_states.jsonl": "569350a5533f72254868d62a849eeba304f3f3f8cd4685a53af15d885a3b87c5",
+    "results/v8/non_target_states.jsonl": "8ed95bfe5a2e7cd31f15405b67c49832c10a60aaae59446ac09e0b051a0cfd4f",
+    "code/v8/run_confirmatory.py": "2e1b42af44246b74af5bf049f0a1f2394e648c6e7956ad561de90379a9ad6ebf",
+    "code/v8/run_typed_dose.py": "ae4b53c3117b5844a3c9270e30c32b8d3567e7bb0e233b06a453a2a0f9fa1707",
+    "code/v8/audit_batch.py": "ee716bbd307edcd99e40b1c6236ed6df2a2a00633fa9fa130c337c6b870f1a88"
+  }
+}

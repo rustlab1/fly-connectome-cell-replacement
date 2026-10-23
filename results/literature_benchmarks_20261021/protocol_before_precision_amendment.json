@@ -1,0 +1,770 @@
+{
+  "created_utc": "2026-10-21T23:25:15.876853+00:00",
+  "label": "Exploratory pilot fixed before benchmark outcome inspection",
+  "seeds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009
+  ],
+  "unit": "paired sensory-event realizations of one MaleCNS connectome; not biological replicates",
+  "model": "Unmodified V5 NumPy LIF reference source; V8 input matrix and frozen steering decoder",
+  "trial_ms": 300,
+  "measurement_ms": [
+    50,
+    300
+  ],
+  "input_Hz": 100,
+  "intervention": "Silence specified cells using the original dead mask; surviving inputs retain original random-event slots. This approximates output blockade/axon lesion, not its full physiology.",
+  "benchmark_studies": [
+    {
+      "id": "HS",
+      "citation": "Hausen and Wehrhahn 1983",
+      "doi": "10.1098/rspb.1983.0068",
+      "species": "Calliphora erythrocephala",
+      "expected": "Unilateral loss of canonical HS cells alters/reduces yaw steering asymmetrically; bilateral loss is an added diagnostic.",
+      "primary": [
+        "gain_R",
+        "gain_L",
+        "y_R",
+        "y_L",
+        "y_F",
+        "gain",
+        "bias"
+      ],
+      "limits": "Cross-species qualitative comparison. Published yaw torque versus model wing-motor decoder. No quantitative experimental curve fitted. Model omits graded HS physiology and electrical coupling. Inspect absolute decoder responses as well as forward-referenced gains."
+    },
+    {
+      "id": "T4T5",
+      "citation": "Bahl et al. 2013",
+      "doi": "10.1038/nn.3386",
+      "species": "Drosophila melanogaster",
+      "expected": "Blocking T4/T5 abolishes directional optomotor responses.",
+      "primary": [
+        "gain_R",
+        "gain_L",
+        "gain"
+      ],
+      "added_specificity": "looming motor response to direct LC4/LPLC2 input",
+      "limits": "Published optomotor experiment used walking; model decoder uses wing motor neurons. T4/T5 are directly driven model inputs, making response loss a basic input-pathway sanity check. Object fixation and actual free-flight ability are not represented; directly driven looming bypasses upstream T4/T5 processing."
+    },
+    {
+      "id": "LPLC2",
+      "citation": "Ache et al. 2019",
+      "doi": "10.1016/j.cub.2019.01.079",
+      "species": "Drosophila melanogaster",
+      "expected": "LPLC2 silencing reduces GF recruitment during combined LC4/LPLC2 looming drive; motor output may also decline. LC4-only and combined blockade are diagnostic controls.",
+      "primary": [
+        "GF_loom"
+      ],
+      "secondary": [
+        "TTMn_loom",
+        "DLMn_loom",
+        "gain_R",
+        "gain_L"
+      ],
+      "limits": "Only a pathway-level consistency check: constant Poisson input does not encode looming size or velocity, GF mean spike rate is not the measured graded voltage response, and escape probability/timing are not modeled."
+    }
+  ],
+  "inference": "Report all three tests and all predefined controls. No tuning, outcome-based study replacement, or quantitative biological validation claim. Paired descriptive effects and seed variability; matching expected sign is not sufficient to validate the graft model.",
+  "sources": {
+    "data/v5/W_csc.npz": "a4d3ae4665f284c84f6f3ccdaea48ba0bb11f7fc9e20f19fbc5db52b0316eb35",
+    "data/v5/neurons.parquet": "c6eb802c77dddd98186e78034e4c04d988edefd05b294b716a4073c38bd59021",
+    "data/v5/cell_groups.json": "3b338c9971d7c50bdd971498ff4eaa54817148980b3720e2120d01f9352f78ae",
+    "data/v5/decoder.npz": "a37dbb0cee057d6237177c957369291806788c0ffeef1b7d13fafc326b27eb53",
+    "code/v5/flysim.py": "ac2e114aa8a21cc659a7ffe2fda93e8892459a781b4072127877456049f62c1c",
+    "code/v5/experiments.py": "6d80831846001ec082e1ec5d538a68bd6830b5b0daddafbd0de9106f62dcdee8",
+    "results/v8/states.jsonl": "f95fa88ea6642949c78bd63d9bb8f928e699f26f3d1237f94fdeff9aebc883f2",
+    "results/v8/rates/intact_s1000.npz": "eeb5cb69f55babc64af43858fc378213487b6116ed5fedcc1f95c2815a5603de"
+  },
+  "specifications": [
+    {
+      "name": "HS_left_loss",
+      "group": "HS_L",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1000
+    },
+    {
+      "name": "HS_right_loss",
+      "group": "HS_R",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1000
+    },
+    {
+      "name": "HS_bilateral_loss",
+      "group": "HS_bilateral",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1000
+    },
+    {
+      "name": "T4T5_block",
+      "group": "T4T5",
+      "stimuli": [
+        "R",
+        "L",
+        "F",
+        "loom"
+      ],
+      "seed": 1000
+    },
+    {
+      "name": "LPLC2_block",
+      "group": "LPLC2",
+      "stimuli": [
+        "R",
+        "L",
+        "F",
+        "loom"
+      ],
+      "seed": 1000
+    },
+    {
+      "name": "LC4_block",
+      "group": "LC4",
+      "stimuli": [
+        "loom"
+      ],
+      "seed": 1000
+    },
+    {
+      "name": "LC4_LPLC2_block",
+      "group": "LC_loom",
+      "stimuli": [
+        "loom"
+      ],
+      "seed": 1000
+    },
+    {
+      "name": "HS_left_loss",
+      "group": "HS_L",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1001
+    },
+    {
+      "name": "HS_right_loss",
+      "group": "HS_R",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1001
+    },
+    {
+      "name": "HS_bilateral_loss",
+      "group": "HS_bilateral",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1001
+    },
+    {
+      "name": "T4T5_block",
+      "group": "T4T5",
+      "stimuli": [
+        "R",
+        "L",
+        "F",
+        "loom"
+      ],
+      "seed": 1001
+    },
+    {
+      "name": "LPLC2_block",
+      "group": "LPLC2",
+      "stimuli": [
+        "R",
+        "L",
+        "F",
+        "loom"
+      ],
+      "seed": 1001
+    },
+    {
+      "name": "LC4_block",
+      "group": "LC4",
+      "stimuli": [
+        "loom"
+      ],
+      "seed": 1001
+    },
+    {
+      "name": "LC4_LPLC2_block",
+      "group": "LC_loom",
+      "stimuli": [
+        "loom"
+      ],
+      "seed": 1001
+    },
+    {
+      "name": "HS_left_loss",
+      "group": "HS_L",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1002
+    },
+    {
+      "name": "HS_right_loss",
+      "group": "HS_R",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1002
+    },
+    {
+      "name": "HS_bilateral_loss",
+      "group": "HS_bilateral",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1002
+    },
+    {
+      "name": "T4T5_block",
+      "group": "T4T5",
+      "stimuli": [
+        "R",
+        "L",
+        "F",
+        "loom"
+      ],
+      "seed": 1002
+    },
+    {
+      "name": "LPLC2_block",
+      "group": "LPLC2",
+      "stimuli": [
+        "R",
+        "L",
+        "F",
+        "loom"
+      ],
+      "seed": 1002
+    },
+    {
+      "name": "LC4_block",
+      "group": "LC4",
+      "stimuli": [
+        "loom"
+      ],
+      "seed": 1002
+    },
+    {
+      "name": "LC4_LPLC2_block",
+      "group": "LC_loom",
+      "stimuli": [
+        "loom"
+      ],
+      "seed": 1002
+    },
+    {
+      "name": "HS_left_loss",
+      "group": "HS_L",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1003
+    },
+    {
+      "name": "HS_right_loss",
+      "group": "HS_R",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1003
+    },
+    {
+      "name": "HS_bilateral_loss",
+      "group": "HS_bilateral",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1003
+    },
+    {
+      "name": "T4T5_block",
+      "group": "T4T5",
+      "stimuli": [
+        "R",
+        "L",
+        "F",
+        "loom"
+      ],
+      "seed": 1003
+    },
+    {
+      "name": "LPLC2_block",
+      "group": "LPLC2",
+      "stimuli": [
+        "R",
+        "L",
+        "F",
+        "loom"
+      ],
+      "seed": 1003
+    },
+    {
+      "name": "LC4_block",
+      "group": "LC4",
+      "stimuli": [
+        "loom"
+      ],
+      "seed": 1003
+    },
+    {
+      "name": "LC4_LPLC2_block",
+      "group": "LC_loom",
+      "stimuli": [
+        "loom"
+      ],
+      "seed": 1003
+    },
+    {
+      "name": "HS_left_loss",
+      "group": "HS_L",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1004
+    },
+    {
+      "name": "HS_right_loss",
+      "group": "HS_R",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1004
+    },
+    {
+      "name": "HS_bilateral_loss",
+      "group": "HS_bilateral",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1004
+    },
+    {
+      "name": "T4T5_block",
+      "group": "T4T5",
+      "stimuli": [
+        "R",
+        "L",
+        "F",
+        "loom"
+      ],
+      "seed": 1004
+    },
+    {
+      "name": "LPLC2_block",
+      "group": "LPLC2",
+      "stimuli": [
+        "R",
+        "L",
+        "F",
+        "loom"
+      ],
+      "seed": 1004
+    },
+    {
+      "name": "LC4_block",
+      "group": "LC4",
+      "stimuli": [
+        "loom"
+      ],
+      "seed": 1004
+    },
+    {
+      "name": "LC4_LPLC2_block",
+      "group": "LC_loom",
+      "stimuli": [
+        "loom"
+      ],
+      "seed": 1004
+    },
+    {
+      "name": "HS_left_loss",
+      "group": "HS_L",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1005
+    },
+    {
+      "name": "HS_right_loss",
+      "group": "HS_R",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1005
+    },
+    {
+      "name": "HS_bilateral_loss",
+      "group": "HS_bilateral",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1005
+    },
+    {
+      "name": "T4T5_block",
+      "group": "T4T5",
+      "stimuli": [
+        "R",
+        "L",
+        "F",
+        "loom"
+      ],
+      "seed": 1005
+    },
+    {
+      "name": "LPLC2_block",
+      "group": "LPLC2",
+      "stimuli": [
+        "R",
+        "L",
+        "F",
+        "loom"
+      ],
+      "seed": 1005
+    },
+    {
+      "name": "LC4_block",
+      "group": "LC4",
+      "stimuli": [
+        "loom"
+      ],
+      "seed": 1005
+    },
+    {
+      "name": "LC4_LPLC2_block",
+      "group": "LC_loom",
+      "stimuli": [
+        "loom"
+      ],
+      "seed": 1005
+    },
+    {
+      "name": "HS_left_loss",
+      "group": "HS_L",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1006
+    },
+    {
+      "name": "HS_right_loss",
+      "group": "HS_R",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1006
+    },
+    {
+      "name": "HS_bilateral_loss",
+      "group": "HS_bilateral",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1006
+    },
+    {
+      "name": "T4T5_block",
+      "group": "T4T5",
+      "stimuli": [
+        "R",
+        "L",
+        "F",
+        "loom"
+      ],
+      "seed": 1006
+    },
+    {
+      "name": "LPLC2_block",
+      "group": "LPLC2",
+      "stimuli": [
+        "R",
+        "L",
+        "F",
+        "loom"
+      ],
+      "seed": 1006
+    },
+    {
+      "name": "LC4_block",
+      "group": "LC4",
+      "stimuli": [
+        "loom"
+      ],
+      "seed": 1006
+    },
+    {
+      "name": "LC4_LPLC2_block",
+      "group": "LC_loom",
+      "stimuli": [
+        "loom"
+      ],
+      "seed": 1006
+    },
+    {
+      "name": "HS_left_loss",
+      "group": "HS_L",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1007
+    },
+    {
+      "name": "HS_right_loss",
+      "group": "HS_R",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1007
+    },
+    {
+      "name": "HS_bilateral_loss",
+      "group": "HS_bilateral",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1007
+    },
+    {
+      "name": "T4T5_block",
+      "group": "T4T5",
+      "stimuli": [
+        "R",
+        "L",
+        "F",
+        "loom"
+      ],
+      "seed": 1007
+    },
+    {
+      "name": "LPLC2_block",
+      "group": "LPLC2",
+      "stimuli": [
+        "R",
+        "L",
+        "F",
+        "loom"
+      ],
+      "seed": 1007
+    },
+    {
+      "name": "LC4_block",
+      "group": "LC4",
+      "stimuli": [
+        "loom"
+      ],
+      "seed": 1007
+    },
+    {
+      "name": "LC4_LPLC2_block",
+      "group": "LC_loom",
+      "stimuli": [
+        "loom"
+      ],
+      "seed": 1007
+    },
+    {
+      "name": "HS_left_loss",
+      "group": "HS_L",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1008
+    },
+    {
+      "name": "HS_right_loss",
+      "group": "HS_R",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1008
+    },
+    {
+      "name": "HS_bilateral_loss",
+      "group": "HS_bilateral",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1008
+    },
+    {
+      "name": "T4T5_block",
+      "group": "T4T5",
+      "stimuli": [
+        "R",
+        "L",
+        "F",
+        "loom"
+      ],
+      "seed": 1008
+    },
+    {
+      "name": "LPLC2_block",
+      "group": "LPLC2",
+      "stimuli": [
+        "R",
+        "L",
+        "F",
+        "loom"
+      ],
+      "seed": 1008
+    },
+    {
+      "name": "LC4_block",
+      "group": "LC4",
+      "stimuli": [
+        "loom"
+      ],
+      "seed": 1008
+    },
+    {
+      "name": "LC4_LPLC2_block",
+      "group": "LC_loom",
+      "stimuli": [
+        "loom"
+      ],
+      "seed": 1008
+    },
+    {
+      "name": "HS_left_loss",
+      "group": "HS_L",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1009
+    },
+    {
+      "name": "HS_right_loss",
+      "group": "HS_R",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1009
+    },
+    {
+      "name": "HS_bilateral_loss",
+      "group": "HS_bilateral",
+      "stimuli": [
+        "R",
+        "L",
+        "F"
+      ],
+      "seed": 1009
+    },
+    {
+      "name": "T4T5_block",
+      "group": "T4T5",
+      "stimuli": [
+        "R",
+        "L",
+        "F",
+        "loom"
+      ],
+      "seed": 1009
+    },
+    {
+      "name": "LPLC2_block",
+      "group": "LPLC2",
+      "stimuli": [
+        "R",
+        "L",
+        "F",
+        "loom"
+      ],
+      "seed": 1009
+    },
+    {
+      "name": "LC4_block",
+      "group": "LC4",
+      "stimuli": [
+        "loom"
+      ],
+      "seed": 1009
+    },
+    {
+      "name": "LC4_LPLC2_block",
+      "group": "LC_loom",
+      "stimuli": [
+        "loom"
+      ],
+      "seed": 1009
+    }
+  ],
+  "driver_sha256": "a275366a3bb2e205ca4ab042d6d99c7c6bf069a3705abe6064c036d0a8e0ca4d",
+  "parquet_reader_sha256": "4b4832db8ab47c26dd863fd35d2a9e6269d16f334b079b62c5cd61880b0dd266"
+}

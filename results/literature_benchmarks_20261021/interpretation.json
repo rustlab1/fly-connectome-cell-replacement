@@ -1,0 +1,33 @@
+{
+  "reviewed_after_all_results": true,
+  "ranking_is_qualitative_judgment_not_an_empirical_fit_score": true,
+  "lead": "T4/T5 blockade gives the clearest qualitative match. HS loss is the more informative steering test, with a consistent right-sided deficit and a variable left-sided effect. LPLC2 silencing shows partial pathway agreement.",
+  "hs_qualification": "The two sides are not equally convincing: right-HS loss reduced the raw rightward command in all 10 seeds; left-HS loss reduced the leftward command in 7 of 10 seeds, and its 95% seed interval includes no reduction. This uncertainty must remain visible in any manuscript claim.",
+  "studies": [
+    {
+      "label": "HS-cell loss",
+      "study": "Hausen and Wehrhahn, 1983",
+      "result": "Right-HS loss reduced the rightward raw steering command by 20.3%; left-HS loss reduced the leftward command by 15.8% on average. Opposite-direction raw commands were preserved. Left-sided effects varied substantially.",
+      "judgment": "Promising but mixed qualitative agreement. Most relevant to MP's steering question; a selective fruit-fly silencing assay is not identical to the historical blowfly microsurgery experiment."
+    },
+    {
+      "label": "T4/T5 blockade",
+      "study": "Bahl et al., 2013",
+      "result": "Both directional steering gains fell to zero in every seed. The independently driven looming pathway remained unchanged.",
+      "judgment": "Clearest qualitative match to optomotor loss. Limited validation strength because T4/T5 are the directly driven motion inputs in this model."
+    },
+    {
+      "label": "LPLC2 silencing",
+      "study": "Ache et al., 2019",
+      "result": "Mean giant-fiber firing fell from 249.0 to 199.8 Hz, retaining 80.2% of the paired intact response. Jump and flight-power motor activity remained substantial.",
+      "judgment": "Partial pathway agreement. The test does not reproduce the size/velocity decomposition or loss of GF-mediated escape in the published animal assay."
+    }
+  ],
+  "recommendations": [
+    "Keep all three results and every control in a supplementary pilot figure. Describe them as frozen-model qualitative consistency tests, with the source-to-model assay differences stated explicitly.",
+    "Prioritize the HS experiment for follow-up because it addresses MP's steering question. Show both sides, raw R/L/F commands and the uncertainty in left-HS effects. Increase the seed count and obtain a matched stimulus/readout comparison before promoting a broad validation claim.",
+    "Keep T4/T5 blockade as a basic input-pathway control. Its complete response loss alone gives limited evidence that the internal circuit dynamics are biologically accurate.",
+    "For the looming benchmark, introduce literature-grounded size/velocity input time courses and a corresponding GF temporal endpoint before comparing escape behavior. Retain the current residual activity and the different LC4/LPLC2 motor effects as limitations to investigate.",
+    "Do not retune the frozen model to make these three results look better. If model changes follow, document them separately and evaluate them on additional held-out experiments. These tests do not validate graft repair."
+  ]
+}

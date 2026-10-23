@@ -1,0 +1,13 @@
+Supplementary Figure 2 | Selected experimental precedents for visual sensorimotor responses in the connectome model.
+
+a, Microsurgical HS lesions disrupted optomotor yaw steering in blowflies (Hausen and Wehrhahn, 1983). Silencing the right HSN, HSE and HSS neurons in the frozen Drosophila model reduced mean rightward steering output to 79.4% of the intact mean. b, T4/T5 blockade abolished motion-following turning in walking Drosophila (Bahl et al., 2013, Fig. 1b-d). The approximately 100% loss annotation summarizes the reported abolition of the optomotor response; it is not a digitized percentage effect size. Model T4/T5 silencing abolished steering output. c, LPLC2 silencing removed the size-dependent component of the experimentally recorded giant-fiber (GF) looming response, while a velocity-dependent component remained (Ache et al., 2019). Purple and grey connections depict the lost size-related and retained inputs, respectively. Model LPLC2 silencing reduced mean GF firing from 249.0 to 199.8 Hz (80.2% retained) during combined LC4/LPLC2 drive.
+
+Small points show all 10 sensory-event seeds in one connectome; lines connect matched intact and perturbed runs. Open circles and whiskers denote means and 95% t confidence intervals across seeds. Within each panel, every raw output is divided by the same observed intact mean, preserving intact-run variability; confidence intervals are scaled by that fixed denominator. Panels a and b show the raw rightward steering-decoder output; c shows GF firing. Parameters and decoder weights were unchanged. Identical fly icons are generic schematics, not assay-specific poses or experimental measurements. These are selected qualitative comparisons across different assays: T4/T5 are directly driven model inputs, and panel c tests pathway contribution without reproducing looming size/velocity dynamics or escape behavior.
+
+References
+
+Hausen, K. and Wehrhahn, C. Microsurgical lesion of horizontal cells changes optomotor yaw responses in the blowfly Calliphora erythrocephala. Proceedings of the Royal Society B 219, 211-216 (1983). https://doi.org/10.1098/rspb.1983.0068
+
+Bahl, A., Ammer, G., Schilling, T. and Borst, A. Object tracking in motion-blind flies. Nature Neuroscience 16, 730-738 (2013). https://doi.org/10.1038/nn.3386
+
+Ache, J. M. et al. Neural Basis for Looming Size and Velocity Encoding in the Drosophila Giant Fiber Escape Pathway. Current Biology 29, 1073-1081.e4 (2019). https://doi.org/10.1016/j.cub.2019.01.079

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "descending_cells_1000_mask": 37,
+  "descending_cells_2000_mask": 79,
+  "directed_edges": 56336,
+  "synapses": 382694,
+  "orientation": "W[post, pre]; absolute weights are synapse counts, sign is the modeled presynaptic transmitter sign.",
+  "scope": "Direct postsynaptic cell annotations from the reconstructed connectome. Soma neuromere describes the target cell, not the location of a synapse.",
+  "limitations": "No synapse-level neuropil/ROI coordinates are present in the model inputs. These tables do not assign axon terminal regions or establish a flight-specific function for each descending neuron.",
+  "source_sha256": {
+    "data/v5/neurons.parquet": "c6eb802c77dddd98186e78034e4c04d988edefd05b294b716a4073c38bd59021",
+    "data/v5/W_csc.npz": "a4d3ae4665f284c84f6f3ccdaea48ba0bb11f7fc9e20f19fbc5db52b0316eb35",
+    "data/v5/cell_groups.json": "3b338c9971d7c50bdd971498ff4eaa54817148980b3720e2120d01f9352f78ae"
+  }
+}

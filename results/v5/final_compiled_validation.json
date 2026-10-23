@@ -1,0 +1,164 @@
+{
+  "exact_all_outputs": true,
+  "numpy": "2.4.6",
+  "timings": [
+    {
+      "case": "intact",
+      "duration_ms": 30.0,
+      "backend": "reference",
+      "seconds": 0.40596825000829995,
+      "spikes": 12268
+    },
+    {
+      "case": "intact",
+      "duration_ms": 30.0,
+      "backend": "compiled_loop",
+      "seconds": 0.3072886249865405,
+      "spikes": 12268
+    },
+    {
+      "case": "intact",
+      "duration_ms": 300.0,
+      "backend": "reference",
+      "seconds": 6.012816375005059,
+      "spikes": 138759
+    },
+    {
+      "case": "intact",
+      "duration_ms": 300.0,
+      "backend": "compiled_loop",
+      "seconds": 2.3252460000221618,
+      "spikes": 138759
+    },
+    {
+      "case": "lesion",
+      "duration_ms": 30.0,
+      "backend": "reference",
+      "seconds": 0.41970712499460205,
+      "spikes": 11980
+    },
+    {
+      "case": "lesion",
+      "duration_ms": 30.0,
+      "backend": "compiled_loop",
+      "seconds": 0.24700387503253296,
+      "spikes": 11980
+    },
+    {
+      "case": "lesion",
+      "duration_ms": 300.0,
+      "backend": "reference",
+      "seconds": 5.888028957997449,
+      "spikes": 135769
+    },
+    {
+      "case": "lesion",
+      "duration_ms": 300.0,
+      "backend": "compiled_loop",
+      "seconds": 2.2163190830033273,
+      "spikes": 135769
+    },
+    {
+      "case": "exact_graft",
+      "duration_ms": 30.0,
+      "backend": "reference",
+      "seconds": 0.38902183301979676,
+      "spikes": 12077
+    },
+    {
+      "case": "exact_graft",
+      "duration_ms": 30.0,
+      "backend": "compiled_loop",
+      "seconds": 0.2733529579709284,
+      "spikes": 12077
+    },
+    {
+      "case": "exact_graft",
+      "duration_ms": 300.0,
+      "backend": "reference",
+      "seconds": 5.746087041974533,
+      "spikes": 137609
+    },
+    {
+      "case": "exact_graft",
+      "duration_ms": 300.0,
+      "backend": "compiled_loop",
+      "seconds": 2.5083141250070184,
+      "spikes": 137609
+    },
+    {
+      "case": "homeostasis",
+      "duration_ms": 30.0,
+      "backend": "reference",
+      "seconds": 0.47460329200839624,
+      "spikes": 12153
+    },
+    {
+      "case": "homeostasis",
+      "duration_ms": 30.0,
+      "backend": "compiled_loop",
+      "seconds": 0.2725241670268588,
+      "spikes": 12153
+    },
+    {
+      "case": "homeostasis",
+      "duration_ms": 300.0,
+      "backend": "reference",
+      "seconds": 8.013096165959723,
+      "spikes": 251345
+    },
+    {
+      "case": "homeostasis",
+      "duration_ms": 300.0,
+      "backend": "compiled_loop",
+      "seconds": 2.275056082988158,
+      "spikes": 251345
+    },
+    {
+      "case": "graft_homeostasis",
+      "duration_ms": 30.0,
+      "backend": "reference",
+      "seconds": 0.5405970839783549,
+      "spikes": 12602
+    },
+    {
+      "case": "graft_homeostasis",
+      "duration_ms": 30.0,
+      "backend": "compiled_loop",
+      "seconds": 0.3485655000549741,
+      "spikes": 12602
+    },
+    {
+      "case": "graft_homeostasis",
+      "duration_ms": 300.0,
+      "backend": "reference",
+      "seconds": 9.185773708042689,
+      "spikes": 305802
+    },
+    {
+      "case": "graft_homeostasis",
+      "duration_ms": 300.0,
+      "backend": "compiled_loop",
+      "seconds": 3.2337815000209957,
+      "spikes": 305802
+    }
+  ],
+  "source_hashes": {
+    "code/v5/flysim.py": "ac2e114aa8a21cc659a7ffe2fda93e8892459a781b4072127877456049f62c1c",
+    "code/v5/flysim_fast.py": "169b30671cc7ee9f379871bd6ec36c48aba931aa7cee34475a0bd99b9cffa0a4",
+    "code/v5/experiments.py": "6d80831846001ec082e1ec5d538a68bd6830b5b0daddafbd0de9106f62dcdee8"
+  },
+  "completed_utc": "2026-10-02T23:09:02.110431+00:00",
+  "validation_entrypoint": "code/v5/flysim_fast.py::validate_backend",
+  "compared_outputs": [
+    "rates",
+    "spike_t",
+    "spike_i",
+    "voltage",
+    "synaptic_state",
+    "refractory"
+  ],
+  "comparison": "numpy.testing.assert_array_equal on every output array, for paired 30-ms and 300-ms trials",
+  "gain_state_definition": "Homeostasis cases use fixed-seed 923 per-host excitatory gains uniform on [0.5,2]; graft gains are one. These are numerical equivalence fixtures, not recovery outcome estimates.",
+  "case_count": 5
+}

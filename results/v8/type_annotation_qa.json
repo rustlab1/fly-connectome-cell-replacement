@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-09",
+  "lesion_cells": 2000,
+  "annotated_types": 1958,
+  "unannotated_types": 42,
+  "matched_100_all_annotated": true,
+  "definition": "Existing typed-graft code samples a type from annotated lost cells whenever the intended position has no type annotation. Both intended-correct and intended-incorrect arms use this fallback. Correctness cannot be established at those positions. Required types are therefore matched where annotated, with 42 unannotated positions at the complete dose.",
+  "model_change": false
+}

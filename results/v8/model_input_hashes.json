@@ -1,0 +1,40 @@
+{
+  "timing": "Recorded during the V8 batch for reproducibility; not claimed as original protocol prespecification. Available activity-movie input hashes independently match.",
+  "files": {
+    "data/v5/W_csc.npz": {
+      "sha256": "a4d3ae4665f284c84f6f3ccdaea48ba0bb11f7fc9e20f19fbc5db52b0316eb35",
+      "bytes": 80498987,
+      "matches_prior_activity_manifest": true
+    },
+    "data/v5/neurons.parquet": {
+      "sha256": "c6eb802c77dddd98186e78034e4c04d988edefd05b294b716a4073c38bd59021",
+      "bytes": 4760103,
+      "matches_prior_activity_manifest": true
+    },
+    "data/v5/cell_groups.json": {
+      "sha256": "3b338c9971d7c50bdd971498ff4eaa54817148980b3720e2120d01f9352f78ae",
+      "bytes": 119150,
+      "matches_prior_activity_manifest": true
+    },
+    "data/v5/decoder.npz": {
+      "sha256": "a37dbb0cee057d6237177c957369291806788c0ffeef1b7d13fafc326b27eb53",
+      "bytes": 3596,
+      "matches_prior_activity_manifest": true
+    },
+    "data/v5/mirror_map.npy": {
+      "sha256": "0105b9b6b14abaee9cb2c80a4b6f6f6fe60073248b5d74ad5cc82c2a6f99edc2",
+      "bytes": 1321104,
+      "matches_prior_activity_manifest": null
+    },
+    "results/v5/reference.json": {
+      "sha256": "49487ce614a3fb7c0d1b1dde1d9769d7d653e6ce39f417acb4f6739165c35cad",
+      "bytes": 152,
+      "matches_prior_activity_manifest": null
+    },
+    "results/v5/lesion_sites.csv": {
+      "sha256": "be9130366291689d5fe858ec6cba5a790e0dba62a983cce4a6f126a54c3539d6",
+      "bytes": 4835,
+      "matches_prior_activity_manifest": null
+    }
+  }
+}

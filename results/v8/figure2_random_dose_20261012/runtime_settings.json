@@ -1,0 +1,9 @@
+{
+  "workers": 8,
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "FLY_SIM_BACKEND": "compiled"
+  }
+}

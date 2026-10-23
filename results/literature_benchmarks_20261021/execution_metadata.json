@@ -1,0 +1,12 @@
+{
+  "workers": 4,
+  "backend": "Unmodified original NumPy reference via portable data loader",
+  "state_log_created_utc": "2026-10-21T23:30:19.921811+00:00",
+  "last_state_written_utc": "2026-10-21T23:50:28.101148+00:00",
+  "approximate_batch_wall_seconds": 1208.1793365478516,
+  "finished_states": 70,
+  "finished_perturbation_trials": 190,
+  "successful_validation_replay_trials": 4,
+  "additional_intact_control_replay_trials": 36,
+  "note": "Timing covers the final perturbation batch, including worker initialization; excludes setup, original probe and pre-amendment validation attempt."
+}

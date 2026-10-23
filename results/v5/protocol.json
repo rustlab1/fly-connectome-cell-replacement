@@ -1,0 +1,68 @@
+{
+  "neural_seeds": [
+    0,
+    1,
+    2
+  ],
+  "screen_sizes": [
+    1000,
+    4000,
+    16000
+  ],
+  "screen_sites": 56,
+  "state_count": 680,
+  "gust_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "movie_gust_seed": 3,
+  "flight_duration_s": 10,
+  "adaptation_rounds": 20,
+  "adaptation_sizes": [
+    1000,
+    2000,
+    4000,
+    8000
+  ],
+  "late_summary_rounds": [
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "adaptation_note": "Algorithmic rounds. No plateau or biological time claim. Display individual seeds and temporal variation.",
+  "adaptation_params": {
+    "eta": 0.25,
+    "eps": 2.0,
+    "step": 1.15,
+    "ema": 0.5,
+    "gmin": 0.5,
+    "gmax": 2.0
+  },
+  "delayed_branch_round": 10,
+  "delayed_primary_lesion": 2000,
+  "delayed_graft_counts": [
+    100,
+    2000
+  ],
+  "data_policy": "Only corrected V5 results; no V4 result mixing."
+}

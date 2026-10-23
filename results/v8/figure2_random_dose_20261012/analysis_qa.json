@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "states": 700,
+  "conditions": 7,
+  "realizations_per_dose": 100,
+  "nested_gust_trials": 14000,
+  "source_model_unchanged": true,
+  "primary_table_unchanged": true,
+  "same_nested_ranked_positions": true,
+  "paired_no_graft_change": "Subtract matched realization after intact normalization; exact zero at zero replacement.",
+  "separate_post_primary_extension": true,
+  "source_sha256": {
+    "results/v8/figure2_random_dose_20261012/states.jsonl": "fcfe5ffb483bf92655586b8ab36936b648d4e0b071709dcc9565ab72c4e89deb",
+    "results/v8/figure2_random_dose_20261012/extension_protocol.json": "46ae9a8bdf3e176d631be19643c63858b98f71d338e24a4a1abe0b738346086e",
+    "results/v8/tables/per_realization.csv": "60e52bf29c03904fa157b5a4b749668faa8922ba989498a72054ccee3d88e035",
+    "figures/v8/review_20261012/analyze_random_dose_review.py": "99c4121e0bb120a2f5baff2f1e643e38313972252913bbf66f2fc6be1a1e2d00"
+  },
+  "output_sha256": {
+    "per_realization.csv": "952025c93808e462996016fc3b3a45c72dc323ff0c805204fcfe7709340f944a",
+    "gust_trials.csv": "b1182a479975bf1c638f6449b58de28dff284f564af16754c3ecbfb754d2afcf",
+    "summary.csv": "0b304d5cde15cd80dece0ddaee8e8e6f861fb82a49845e2ced7f951646a6b607"
+  }
+}

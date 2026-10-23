@@ -1,0 +1,59 @@
+{
+  "accessed_date": "2026-10-21",
+  "scope": "Three selected primary studies; qualitative perturbation comparison, not a systematic review or digitized effect-size benchmark.",
+  "studies": [
+    {
+      "id": "HS",
+      "authors_year": "Hausen and Wehrhahn, 1983",
+      "title": "Microsurgical lesion of horizontal cells changes optomotor yaw responses in the blowfly Calliphora erythrocephala",
+      "journal": "Proceedings of the Royal Society B 219, 211-216",
+      "doi": "10.1098/rspb.1983.0068",
+      "url": "https://doi.org/10.1098/rspb.1983.0068",
+      "public_author_record": "https://www.researchgate.net/publication/247603863_Microsurgical_Lesion_of_Horizontal_Cells_Changes_Optomotor_Yaw_Responses_in_the_Blowfly_Calliphora_erythrocephala",
+      "evidence": "Microsurgical interruption of HS axons changed visually evoked yaw torque in tethered blowflies, supporting a causal contribution to optomotor control.",
+      "access_limit": "Primary abstract and indexed text available; publisher full PDF unavailable. No experimental curve was digitized, and effect magnitude or detailed left/right waveform agreement is not claimed.",
+      "model_comparison": "Silence HSN, HSE and HSS in the left or right MaleCNS hemisphere, then compare frozen steering-decoder outputs under rightward, leftward and forward motion drive. Bilateral loss is an added control.",
+      "mismatch": "Fruit-fly model versus blowfly study; cell silencing versus microsurgical lesion; neural decoder versus torque. Graded HS signals and electrical coupling are absent."
+    },
+    {
+      "id": "T4T5",
+      "authors_year": "Bahl et al., 2013",
+      "title": "Object tracking in motion-blind flies",
+      "journal": "Nature Neuroscience 16, 730-738",
+      "doi": "10.1038/nn.3386",
+      "url": "https://www.nature.com/articles/nn.3386",
+      "lab_assay_description": "https://www.bi.mpg.de/borst/tethered",
+      "evidence": "Blocking T4/T5 output abolished the optomotor response while reduced black-bar fixation remained in walking Drosophila.",
+      "model_comparison": "Silence all 13,580 T4/T5 cells and test rightward, leftward and forward drive. The separately driven looming trial is an additional input-bypass control.",
+      "mismatch": "Walking versus wing-motor readout. T4/T5 are directly driven model inputs, making response abolition a structurally simple sanity check. Black-bar fixation and upstream looming computation are not simulated."
+    },
+    {
+      "id": "LPLC2",
+      "authors_year": "Ache et al., 2019",
+      "title": "Neural Basis for Looming Size and Velocity Encoding in the Drosophila Giant Fiber Escape Pathway",
+      "journal": "Current Biology 29, 1073-1081.e4",
+      "doi": "10.1016/j.cub.2019.01.079",
+      "url": "https://doi.org/10.1016/j.cub.2019.01.079",
+      "author_institution_source": "https://www.janelia.org/publication/neural-basis-for-looming-size-and-velocity-encoding-in-the-drosophila-giant-fiber-escape",
+      "evidence": "LPLC2 silencing removed the size-dependent component of the giant-fiber looming response, leaving the LC4-associated velocity component. LPLC2 was necessary for GF-mediated escape.",
+      "model_comparison": "Silence 185 LPLC2 neurons during the existing combined LC4/LPLC2 drive; measure mean giant-fiber firing. LC4-only and double blockade are additional controls.",
+      "mismatch": "Constant Poisson drive has no angular-size or velocity dynamics. GF spike rate is not the experimental graded voltage endpoint. Escape probability and takeoff timing are not represented."
+    }
+  ],
+  "hs_specificity_context": {
+    "authors_year": "Kim et al., 2017",
+    "title": "Quantitative Predictions Orchestrate Visual Signaling in Drosophila",
+    "doi": "10.1016/j.cell.2016.12.005",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6320683/",
+    "relevance": "More selective HS/VS hyperpolarization in Drosophila strongly weakened head optomotor responses but had more modest effects on wing steering. The authors note that older lesion methods could affect additional cells. This limits a direct interpretation of selective HS loss as reproducing the old microsurgery assay.",
+    "not_an_additional_benchmark": true
+  },
+  "interpretive_context": {
+    "authors_year": "Pokusaeva et al., 2024",
+    "title": "Bilateral interactions of optic-flow sensitive neurons coordinate course control in flies",
+    "doi": "10.1038/s41467-024-53173-w",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11470938/",
+    "relevance": "Electrical interactions in the HS-H2 circuit contribute to course-control behavior. This strengthens the caution about interpreting a chemical-synapse-only HS simulation as a full physiological reproduction.",
+    "not_an_additional_benchmark": true
+  }
+}

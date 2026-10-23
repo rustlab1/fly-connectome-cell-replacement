@@ -1,0 +1,19 @@
+{
+  "date_utc": "2026-10-21T23:52:48.019330+00:00",
+  "reason": "V8 retained full rate arrays only for seed 1000 (save_rates=rep==0); the scalar intact summaries exist for all ten paired seeds. Replay the other nine controls with unchanged parameters and original input-event seeds, then compare all scalar readouts against their archived values.",
+  "timing": "Archive detail discovered during final audit after all 70 perturbation states completed.",
+  "change_to_scientific_design": false,
+  "seeds_to_replay": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009
+  ],
+  "additional_neural_trials": 36,
+  "workers": 4
+}

@@ -1,0 +1,20 @@
+{
+ "results/v8/trajectories/intact.csv": "c56e1f7c2a00e0ce906b6dd7781c4a1e6f69c56a0fb280041ee5d3d7dd4ca9fc",
+ "results/v8/trajectories/lesion20_1000.csv": "e648ead89030b340796e38783aa6d10378cdf17a2bb2a33867e51953e17b2f25",
+ "results/v8/trajectories/lesion20_4000.csv": "aaef88a818a2353c849739aad6acf9fae6b6fe42c2d0f94d7cd9afdfd0c713d2",
+ "results/v8/trajectories/lesion20_16000.csv": "eee435fc8de09664e679b882e8838016acc4e06f81d84b96a97947896690e5ac",
+ "results/v8/trajectories/lesion25_1000.csv": "a2fb82602c339979111958ec96ce4a7641d674727687265247f40a9a6c0a91b2",
+ "results/v8/trajectories/lesion25_4000.csv": "b4510594604e268a5789486e8e83df514f869121fed210b8dc79d7b71ec9c5f9",
+ "results/v8/trajectories/lesion25_16000.csv": "d5a698a8330d2efac2b114b0a174b40439ff9ff19c69b6f27ed15f5ba97948a2",
+ "results/v8/trajectories/lesion20_2000.csv": "9ba8dc219709498519d8d64ec227d633b8139a71e673771ba4ff45d9a15ce77c",
+ "results/v8/trajectories/selection_random_100.csv": "b740a066035a744449ad75807207529edee4a4bc1e629eb7d5d14264e05d91f7",
+ "results/v8/trajectories/selection_interface_100.csv": "4f23c5583b44389f49c858bcc9dbac30b99ddb03c9a87f84d4f9e5df7e2ac0e7",
+ "results/v8/trajectories/selection_ranked_100.csv": "abe97952243a3079c0dea5afe6e027e5a101fb782614969deac9e401638b476a",
+ "results/v8/trajectories/connections_random_partners_100.csv": "54ee758a7f5ab532a48ff9927615a778c607d7a1f9d1d25e6c1243a0417cb676",
+ "results/v8/trajectories/connections_correct_types_100.csv": "f4564669595b1bc4f0613101a042d6e97ba76bb30d02f94687d1de785ed0cf81",
+ "results/v8/trajectories/non_target_types_100.csv": "d39beae989c518f2fff4532c2c53148d595f3027ba27276f59837add2127a298",
+ "results/v8/trajectories/complete_original_2000.csv": "c56e1f7c2a00e0ce906b6dd7781c4a1e6f69c56a0fb280041ee5d3d7dd4ca9fc",
+ "results/v8/figure2_full_replacement_20261012/trajectories/review_full_random_partners_2000.csv": "e1da6c8a824b87fc33b8de55006e2a728cf97092f9cc084edf71c3acb010d8e1",
+ "results/v8/trajectories/typed_dose_correct_types_2000.csv": "992383c1c78f4747e236ccb81632e40bc67977dcb7b2b7c65ef13371e3644ee4",
+ "results/v8/trajectories/non_target_types_2000.csv": "96a04c14c60d45dc3bd21b162427be4d46400d1c9f5a97437e883d96ce1ebde7"
+}

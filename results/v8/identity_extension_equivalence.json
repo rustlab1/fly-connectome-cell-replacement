@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "tested_dose": 100,
+  "intervention_seed": 2000,
+  "accuracy_values": [
+    0,
+    1
+  ],
+  "sparse_edges_equal": true,
+  "annotation_and_stimulus_masks_equal": true,
+  "stats_equal": true,
+  "source_sha256": {
+    "code/v5/graft_typed.py": "f9c0370c6d1fd8a73bad8f88812e946d1abfc52c30bd3f10c4b2941c99bcaa4a",
+    "code/v8/graft_identity.py": "5496bfd634182b0512bc4b6d865b8f6b0f3d8591eebeb861048e6806477d93a0"
+  }
+}

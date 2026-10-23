@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-09",
+  "reason": "Author requested beam passes per time and stimulus-evoked locomotor readouts in Figure 1f.",
+  "timing": "Additional descriptive trajectory endpoint specified during the ongoing batch; no neural model change.",
+  "planes_m": [
+    0.5,
+    1.0,
+    1.5,
+    2.0
+  ],
+  "hysteresis_m": 0.005,
+  "window_s": 10,
+  "count": "Both forward and reverse passages through each infinite vertical flight-plane line; count after reaching the opposite side by at least 5 mm. Rate is total events divided by 10 seconds.",
+  "distinction": "Original unique gates measure forward progress (0-4). Repeated crossings measure passage events and may increase with circling. Neither is a walking-tube beam assay.",
+  "evoked_readout": "Existing looming-driven TTMn and DLMn responses, mean of their population rates in Hz and matched-intact normalized sum. No no-stimulus baseline, walking model, response latency or probability of takeoff was simulated.",
+  "specificity": "Use the originally specified LPTC_L_L response, retaining observed changes, including at the largest lesion.",
+  "test": "Synthetic forward/reverse passages, hysteresis chatter, unidirectional four-plane traversal and same-side re-entry passed."
+}

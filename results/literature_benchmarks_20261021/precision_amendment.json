@@ -1,0 +1,5 @@
+{
+  "time_utc": "2026-10-21T23:28:27.348162+00:00",
+  "before_perturbation_outcomes": true,
+  "reason": "All four full neuron-rate arrays exactly matched V8. Archived decoder y_F differed by 0.000003814697265625 due to numerical reduction. Permit readout tolerance rtol=1e-7, atol=1e-5 while retaining exact firing-rate validation. Scientific conditions, endpoints, parameters and seeds unchanged. Analysis will recompute paired intact readouts with the same numerical environment."
+}

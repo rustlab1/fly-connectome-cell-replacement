@@ -1,0 +1,826 @@
+{
+  "status": "APPROVED_INTEGRATED",
+  "panels": {
+    "a": "Five repair conditions, CNS activity, graft close-ups and matched-size looming motor profile boxes",
+    "b": "Matched 100-cell and 2,000-cell examples below each condition",
+    "c": "Five labelled readouts starting from residual function after damage, with intact = 1"
+  },
+  "conditions": [
+    "No graft",
+    "Original repair",
+    "Random wiring",
+    "Correct-type graft",
+    "Non-target graft"
+  ],
+  "path_conditions": {
+    "100_cells": [
+      "lesion20_2000",
+      "selection_ranked_100",
+      "connections_random_partners_100",
+      "connections_correct_types_100",
+      "non_target_types_100"
+    ],
+    "2000_cells": [
+      "lesion20_2000",
+      "complete_original_2000",
+      "review_full_random_partners_2000",
+      "typed_dose_correct_types_2000",
+      "non_target_types_2000"
+    ]
+  },
+  "example_seeds": {
+    "neural": 1000,
+    "intervention": 2000,
+    "gust": 3
+  },
+  "path_axes_common_for_all_ten": true,
+  "path_axis_limits": [
+    [
+      -0.6322463029510447,
+      1.120534339749562
+    ],
+    [
+      -0.42012398199400003,
+      3.09619025863
+    ]
+  ],
+  "actual_displayed_path_limits": {
+    "x": [
+      -0.6322463029510447,
+      1.120534339749562
+    ],
+    "y": [
+      -0.42012398199400003,
+      3.09619025863
+    ]
+  },
+  "figure_inches": [
+    7.2,
+    7.3
+  ],
+  "panel_a_extra_height_inches": 0.18,
+  "schematic_host_nodes_per_condition": 4,
+  "no_graft_symbol": "Small vector X marker surrounded by the same gray host-neuron dots as the other conditions.",
+  "partner_label": "By cell type",
+  "partner_label_definition": "Partners are copied from a surviving neuron of the graft cell's assigned type. This rule applies to both correct-type and non-target grafts.",
+  "path_axis_labels_each_panel": [
+    "Lateral displacement (m)",
+    "Forward displacement (m)"
+  ],
+  "path_origin": "Each displayed path starts at its first saved position. Raw trajectories unchanged.",
+  "path_plot_shape": "Identical rectangular axes and identical numerical ranges in all ten panels; lateral and forward metres have different display scales.",
+  "visual_style": "Identical-size 12-point schematic flies and trajectory dots at 1-second intervals",
+  "fly_glyph_note": "Glyphs use the same pose and size for every condition. Orientation follows the displayed path tangent. They do not model wing posture.",
+  "fly_glyph_size_points": 12,
+  "trajectory_dot_times_s": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "anatomy": {
+    "conditions": [
+      {
+        "condition": "lesion20_2000",
+        "lost": 2000,
+        "replacements": 0,
+        "same_intended_positions": true,
+        "rate_source": "results/v8/rates/lesion20_2000_s1000.npz",
+        "stimulus": "loom",
+        "measurement_window_ms": [
+          50,
+          300
+        ],
+        "active_host_cells_with_known_soma": 1578,
+        "active_host_vnc_cells": 594,
+        "activity_marker_size_rule": ".38 + .014 * mean firing rate in Hz",
+        "host_rate_max_hz": 264.0,
+        "illustrative_activity_map_neural_seed": 1000,
+        "intervention_seed": 2000,
+        "motor_mean_hz": 28.0,
+        "motor_percent_intact": 40.697674869910784,
+        "intact_motor_mean_hz": 68.79999923706055,
+        "motor_rate_definition": "Arithmetic mean of TTMn and DLMn population mean rates, including zero-rate cells.",
+        "profile_window_ms": 25,
+        "profile_xlim_ms": [
+          0,
+          300
+        ],
+        "profile_ylim_hz": [
+          0,
+          100.0
+        ],
+        "zoom_arrow_start_axes": [
+          0.09932635577190294,
+          0.5903908606601944
+        ],
+        "zoom_arrow_end_axes": [
+          0.135,
+          0.5906933130515228
+        ]
+      },
+      {
+        "condition": "selection_ranked_100",
+        "lost": 2000,
+        "replacements": 100,
+        "same_intended_positions": true,
+        "rate_source": "results/v8/rates/selection_ranked_100_s1000.npz",
+        "stimulus": "loom",
+        "measurement_window_ms": [
+          50,
+          300
+        ],
+        "active_host_cells_with_known_soma": 2079,
+        "active_host_vnc_cells": 866,
+        "activity_marker_size_rule": ".38 + .014 * mean firing rate in Hz",
+        "host_rate_max_hz": 264.0,
+        "illustrative_activity_map_neural_seed": 1000,
+        "intervention_seed": 2000,
+        "motor_mean_hz": 63.0,
+        "motor_percent_intact": 91.56976845729926,
+        "intact_motor_mean_hz": 68.79999923706055,
+        "motor_rate_definition": "Arithmetic mean of TTMn and DLMn population mean rates, including zero-rate cells.",
+        "profile_window_ms": 25,
+        "profile_xlim_ms": [
+          0,
+          300
+        ],
+        "profile_ylim_hz": [
+          0,
+          100.0
+        ],
+        "zoom_arrow_start_axes": [
+          0.29807635577190283,
+          0.5903908606601944
+        ],
+        "zoom_arrow_end_axes": [
+          0.33375,
+          0.5906933130515228
+        ]
+      },
+      {
+        "condition": "connections_random_partners_100",
+        "lost": 2000,
+        "replacements": 100,
+        "same_intended_positions": true,
+        "rate_source": "results/v8/rates/connections_random_partners_100_s1000.npz",
+        "stimulus": "loom",
+        "measurement_window_ms": [
+          50,
+          300
+        ],
+        "active_host_cells_with_known_soma": 1780,
+        "active_host_vnc_cells": 587,
+        "activity_marker_size_rule": ".38 + .014 * mean firing rate in Hz",
+        "host_rate_max_hz": 264.0,
+        "illustrative_activity_map_neural_seed": 1000,
+        "intervention_seed": 2000,
+        "motor_mean_hz": 25.399999618530273,
+        "motor_percent_intact": 36.9186045061001,
+        "intact_motor_mean_hz": 68.79999923706055,
+        "motor_rate_definition": "Arithmetic mean of TTMn and DLMn population mean rates, including zero-rate cells.",
+        "profile_window_ms": 25,
+        "profile_xlim_ms": [
+          0,
+          300
+        ],
+        "profile_ylim_hz": [
+          0,
+          100.0
+        ],
+        "zoom_arrow_start_axes": [
+          0.496826355771903,
+          0.5903908606601944
+        ],
+        "zoom_arrow_end_axes": [
+          0.5325000000000001,
+          0.5906933130515228
+        ]
+      },
+      {
+        "condition": "connections_correct_types_100",
+        "lost": 2000,
+        "replacements": 100,
+        "same_intended_positions": true,
+        "rate_source": "results/v8/rates/connections_correct_types_100_s1000.npz",
+        "stimulus": "loom",
+        "measurement_window_ms": [
+          50,
+          300
+        ],
+        "active_host_cells_with_known_soma": 2092,
+        "active_host_vnc_cells": 861,
+        "activity_marker_size_rule": ".38 + .014 * mean firing rate in Hz",
+        "host_rate_max_hz": 264.0,
+        "illustrative_activity_map_neural_seed": 1000,
+        "intervention_seed": 2000,
+        "motor_mean_hz": 50.0,
+        "motor_percent_intact": 72.67441941055496,
+        "intact_motor_mean_hz": 68.79999923706055,
+        "motor_rate_definition": "Arithmetic mean of TTMn and DLMn population mean rates, including zero-rate cells.",
+        "profile_window_ms": 25,
+        "profile_xlim_ms": [
+          0,
+          300
+        ],
+        "profile_ylim_hz": [
+          0,
+          100.0
+        ],
+        "zoom_arrow_start_axes": [
+          0.6955763557719029,
+          0.5903908606601944
+        ],
+        "zoom_arrow_end_axes": [
+          0.7312500000000001,
+          0.5906933130515228
+        ]
+      },
+      {
+        "condition": "non_target_types_100",
+        "lost": 2000,
+        "replacements": 100,
+        "same_intended_positions": true,
+        "rate_source": "results/v8/rates/non_target_types_100_s1000.npz",
+        "stimulus": "loom",
+        "measurement_window_ms": [
+          50,
+          300
+        ],
+        "active_host_cells_with_known_soma": 1598,
+        "active_host_vnc_cells": 597,
+        "activity_marker_size_rule": ".38 + .014 * mean firing rate in Hz",
+        "host_rate_max_hz": 264.0,
+        "illustrative_activity_map_neural_seed": 1000,
+        "intervention_seed": 2000,
+        "motor_mean_hz": 27.200000762939453,
+        "motor_percent_intact": 39.53488526826554,
+        "intact_motor_mean_hz": 68.79999923706055,
+        "motor_rate_definition": "Arithmetic mean of TTMn and DLMn population mean rates, including zero-rate cells.",
+        "profile_window_ms": 25,
+        "profile_xlim_ms": [
+          0,
+          300
+        ],
+        "profile_ylim_hz": [
+          0,
+          100.0
+        ],
+        "zoom_arrow_start_axes": [
+          0.894326355771903,
+          0.5903908606601944
+        ],
+        "zoom_arrow_end_axes": [
+          0.9299999999999999,
+          0.5906933130515228
+        ]
+      }
+    ],
+    "matched_brain_scale": true,
+    "matched_full_cns_scale": true,
+    "full_ventral_nerve_cord_visible": true,
+    "activity_is_single_matched_realization": true,
+    "activity_n": 1,
+    "activity_colour": "#3b7dab",
+    "motor_activity_colour": "#d7652a",
+    "rate_mean_comparison_to_frozen_states": "PASS",
+    "display_scales": [
+      [
+        0.08888475728155498,
+        -0.08888475728156209
+      ],
+      [
+        0.08888475728156209,
+        -0.08888475728156209
+      ],
+      [
+        0.08888475728156209,
+        -0.08888475728156209
+      ],
+      [
+        0.08888475728156209,
+        -0.08888475728156209
+      ],
+      [
+        0.08888475728156209,
+        -0.08888475728156209
+      ]
+    ],
+    "activity_source_hashes": {
+      "results/v8/figure2_activity_profiles_20261012/manifest.json": "6bb6f0d683e33bd25e1d7be6fb15514d213f0b6ab39c37235c6b429a3a3b1190",
+      "results/v8/figure2_activity_profiles_20261012/motor_traces.csv": "429eb0fc596b8b1f457bf5874b79620b5fc2c69d2a3da3b55fe6f59b45ab8ec2",
+      "results/v8/figure2_activity_profiles_20261012/recordings.npz": "b036674344297412eb7fb8710787feb6f6d031118d9fa86fd92fe660bf6e043b",
+      "results/v8/rates/intact_s1000.npz": "eeb5cb69f55babc64af43858fc378213487b6116ed5fedcc1f95c2815a5603de",
+      "results/v8/rates/lesion20_2000_s1000.npz": "93365424a7dd2cd35c87606761ee37fc2e288f7774d63d2a75a4c6074af60ca5",
+      "results/v8/rates/selection_ranked_100_s1000.npz": "25c746aa69af8821e3790e8354a7a0ba8154231aa92fe902e4daa8d342f540e8",
+      "results/v8/rates/connections_random_partners_100_s1000.npz": "551cef40da3282c53feec7d7fe3c5bcfdfdfe7380dd63cb0f57af46709968c57",
+      "results/v8/rates/connections_correct_types_100_s1000.npz": "ca62f4a46404763366ba5b9898fc0766d4b23f17cb894703c6eef23d3821f71c",
+      "results/v8/rates/non_target_types_100_s1000.npz": "80f8b15f3961de03f13f953fd39028066c398bc9e8e4f72fa4039b282ef18692"
+    },
+    "activity_source_table": "figures/v8/review_20261012/Fig2a_activity_source_values.csv",
+    "activity_source_table_sha256": "9d3dc12397bd01fecd8e844e03040514521e1cb1d77f314a3a383d6e8f831ec2",
+    "motor_readout_table": "figures/v8/review_20261012/Fig2a_motor_readouts.csv",
+    "motor_readout_table_sha256": "489206f35604013605e2d05554c362cabc77b862be78c78238df1c6bea91712f",
+    "activity_profile_table": "results/v8/figure2_activity_profiles_20261012/motor_traces.csv",
+    "activity_profile_table_sha256": "429eb0fc596b8b1f457bf5874b79620b5fc2c69d2a3da3b55fe6f59b45ab8ec2",
+    "profile_window_ms": 25,
+    "profile_boxes_same_size_as_zooms": true,
+    "profile_box_sizes_pixels": [
+      {
+        "zoom": [
+          51.71040000000002,
+          26.5174910138752
+        ],
+        "profile": [
+          51.71040000000002,
+          26.5174910138752
+        ]
+      },
+      {
+        "zoom": [
+          51.710399999999964,
+          26.5174910138752
+        ],
+        "profile": [
+          51.710399999999964,
+          26.5174910138752
+        ]
+      },
+      {
+        "zoom": [
+          51.71039999999999,
+          26.5174910138752
+        ],
+        "profile": [
+          51.71039999999999,
+          26.5174910138752
+        ]
+      },
+      {
+        "zoom": [
+          51.710399999999936,
+          26.5174910138752
+        ],
+        "profile": [
+          51.710399999999936,
+          26.5174910138752
+        ]
+      },
+      {
+        "zoom": [
+          51.710399999999936,
+          26.5174910138752
+        ],
+        "profile": [
+          51.710399999999936,
+          26.5174910138752
+        ]
+      }
+    ],
+    "profile_common_xlim_ms": [
+      0,
+      300
+    ],
+    "profile_common_ylim_hz": [
+      0,
+      100.0
+    ]
+  },
+  "column_centers": [
+    0.13,
+    0.32875,
+    0.5275000000000001,
+    0.7262500000000001,
+    0.925
+  ],
+  "readout_y_limits": [
+    -0.025,
+    1.12
+  ],
+  "readouts": [
+    "distance_m_norm",
+    "beam_crossings_per_s_norm",
+    "motor_output_norm",
+    "takeoff_output_norm",
+    "LPTC_L_L_norm"
+  ],
+  "sample_size": 100,
+  "uncertainty": "Pointwise 95% Student t confidence interval across neural/intervention realizations. Average 20 gusts first.",
+  "all_repair_group_doses": [
+    0,
+    50,
+    100,
+    200,
+    500,
+    1000,
+    1250,
+    1500,
+    1750,
+    2000
+  ],
+  "random_wiring_doses": [
+    0,
+    50,
+    100,
+    200,
+    500,
+    1000,
+    1250,
+    1500,
+    1750,
+    2000
+  ],
+  "zero_dose_definition": "Shared untreated 2,000-cell lesion. Every group starts at the measured remaining function for that readout, not at zero by construction.",
+  "quantity": "Graft readout divided by matched intact readout, calculated within each realization before summarizing.",
+  "no_graft_curve": "Dashed orange reference at remaining function after damage, with its 95% CI. It is a shared untreated baseline, not a graft dose series.",
+  "spared_response": "Remaining visual response starts near intact = 1 and remains close to that level. No forced invariance or clipping at 1.",
+  "intact_reference": "Dotted gray line at 1 in all five readout plots.",
+  "damage_baselines_intact_normalized": {
+    "distance_m_norm": {
+      "mean": 0.06463277654201292,
+      "ci95_low": 0.0623340617378091,
+      "ci95_high": 0.06693149134621675
+    },
+    "beam_crossings_per_s_norm": {
+      "mean": 0.000266714082503556,
+      "ci95_low": -0.00010563898292416954,
+      "ci95_high": 0.0006390671479312815
+    },
+    "motor_output_norm": {
+      "mean": 0.012026397805474242,
+      "ci95_low": 0.009098218544135415,
+      "ci95_high": 0.014954577066813069
+    },
+    "takeoff_output_norm": {
+      "mean": 0.37367300258364516,
+      "ci95_low": 0.36844244100199425,
+      "ci95_high": 0.3789035641652961
+    },
+    "LPTC_L_L_norm": {
+      "mean": 1.0057462583111438,
+      "ci95_low": 1.0050494381666844,
+      "ci95_high": 1.0064430784556033
+    }
+  },
+  "background_band": null,
+  "lines": "Join tested doses only. No smoothing, forced plateau or clipping at intact.",
+  "dose_interpretation": "Intended positions are nested dose prefixes. Correct-type and non-target donor assignments and wiring are resampled at each dose, so these are separate grafts rather than additions to an unchanged smaller graft.",
+  "primary_states_unchanged": 7100,
+  "new_review_states": 800,
+  "new_random_dose_states": 700,
+  "new_extension_separate_from_primary": true,
+  "manuscript_and_package_updated_for_this_review": true,
+  "annotation_limit": "All 100-cell positions are annotated. At full dose, 42 positions are untyped and the matched-type algorithm samples annotated lost-cell identities there.",
+  "outputs": {
+    "Fig2_v8_cell_replacement.png": "7b2fbe8fe8fccd50c927445286817fea03028d400f307b3f8bf344c648c443ae",
+    "Fig2_v8_cell_replacement.pdf": "93a189f37024c066854efba837bed66a00709a7c259db14becdeb89881513495",
+    "Fig2_v8_cell_replacement.svg": "c0c36ee9ed6eb9ce7b866f162e036459bc7fd6f4ef55891c4d069a0911d75110"
+  },
+  "source_values_sha256": "68f17ec6ad4c05f4039bfff777228f323b885bdb620aa75b0fef7c2ddc40ec07",
+  "sources": {
+    "results/v8/tables/per_realization.csv": "60e52bf29c03904fa157b5a4b749668faa8922ba989498a72054ccee3d88e035",
+    "results/v8/figure2_full_replacement_20261012/per_realization.csv": "e82cf5ea5a37f1c78ad19dbc3deec830ab304522701f18a346b4228c9d1268f3",
+    "results/v8/figure2_full_replacement_20261012/analysis_qa.json": "22f74432c594b4d9c8eca69bf38cee2088fa76e4a121edd5dc773b4419cb4beb",
+    "results/v8/figure2_random_dose_20261012/per_realization.csv": "952025c93808e462996016fc3b3a45c72dc323ff0c805204fcfe7709340f944a",
+    "results/v8/figure2_random_dose_20261012/analysis_qa.json": "0741af2f70aec596f1864935ddccec6b3739f2298331cbb82e74aba401413599",
+    "results/v8/figure2_random_dose_20261012/extension_protocol.json": "46ae9a8bdf3e176d631be19643c63858b98f71d338e24a4a1abe0b738346086e",
+    "figures/v8/review_20261012/build_fig2a_activity_review.py": "b6b028c5dd14b60f0f05bde5c08378faae70f137e193b9d858e9b49922145cc2",
+    "results/v8/figure2_activity_profiles_20261012/manifest.json": "6bb6f0d683e33bd25e1d7be6fb15514d213f0b6ab39c37235c6b429a3a3b1190",
+    "results/v8/figure2_activity_profiles_20261012/motor_traces.csv": "429eb0fc596b8b1f457bf5874b79620b5fc2c69d2a3da3b55fe6f59b45ab8ec2",
+    "results/v8/figure2_activity_profiles_20261012/recordings.npz": "b036674344297412eb7fb8710787feb6f6d031118d9fa86fd92fe660bf6e043b",
+    "results/v8/rates/intact_s1000.npz": "eeb5cb69f55babc64af43858fc378213487b6116ed5fedcc1f95c2815a5603de",
+    "results/v8/rates/lesion20_2000_s1000.npz": "93365424a7dd2cd35c87606761ee37fc2e288f7774d63d2a75a4c6074af60ca5",
+    "results/v8/rates/selection_ranked_100_s1000.npz": "25c746aa69af8821e3790e8354a7a0ba8154231aa92fe902e4daa8d342f540e8",
+    "results/v8/rates/connections_random_partners_100_s1000.npz": "551cef40da3282c53feec7d7fe3c5bcfdfdfe7380dd63cb0f57af46709968c57",
+    "results/v8/rates/connections_correct_types_100_s1000.npz": "ca62f4a46404763366ba5b9898fc0766d4b23f17cb894703c6eef23d3821f71c",
+    "results/v8/rates/non_target_types_100_s1000.npz": "80f8b15f3961de03f13f953fd39028066c398bc9e8e4f72fa4039b282ef18692"
+  },
+  "activity_source_table": "figures/v8/review_20261012/Fig2a_activity_source_values.csv",
+  "activity_source_table_sha256": "9d3dc12397bd01fecd8e844e03040514521e1cb1d77f314a3a383d6e8f831ec2",
+  "motor_readout_table": "figures/v8/review_20261012/Fig2a_motor_readouts.csv",
+  "motor_readout_table_sha256": "489206f35604013605e2d05554c362cabc77b862be78c78238df1c6bea91712f",
+  "activity_profile_table": "results/v8/figure2_activity_profiles_20261012/motor_traces.csv",
+  "activity_profile_table_sha256": "429eb0fc596b8b1f457bf5874b79620b5fc2c69d2a3da3b55fe6f59b45ab8ec2",
+  "panel_a_conditions": [
+    "lesion20_2000",
+    "selection_ranked_100",
+    "connections_random_partners_100",
+    "connections_correct_types_100",
+    "non_target_types_100"
+  ],
+  "old_panel_b_moved_to": "Supplementary Figure 3d",
+  "earlier_cell_selection_distance_plot": "Supplementary Figure 3a",
+  "panel_a_anatomy": {
+    "conditions": [
+      {
+        "condition": "lesion20_2000",
+        "lost": 2000,
+        "replacements": 0,
+        "same_intended_positions": true,
+        "rate_source": "results/v8/rates/lesion20_2000_s1000.npz",
+        "stimulus": "loom",
+        "measurement_window_ms": [
+          50,
+          300
+        ],
+        "active_host_cells_with_known_soma": 1578,
+        "active_host_vnc_cells": 594,
+        "activity_marker_size_rule": ".38 + .014 * mean firing rate in Hz",
+        "host_rate_max_hz": 264.0,
+        "illustrative_activity_map_neural_seed": 1000,
+        "intervention_seed": 2000,
+        "motor_mean_hz": 28.0,
+        "motor_percent_intact": 40.697674869910784,
+        "intact_motor_mean_hz": 68.79999923706055,
+        "motor_rate_definition": "Arithmetic mean of TTMn and DLMn population mean rates, including zero-rate cells.",
+        "profile_window_ms": 25,
+        "profile_xlim_ms": [
+          0,
+          300
+        ],
+        "profile_ylim_hz": [
+          0,
+          100.0
+        ],
+        "zoom_arrow_start_axes": [
+          0.09932635577190294,
+          0.5903908606601944
+        ],
+        "zoom_arrow_end_axes": [
+          0.135,
+          0.5906933130515228
+        ]
+      },
+      {
+        "condition": "selection_ranked_100",
+        "lost": 2000,
+        "replacements": 100,
+        "same_intended_positions": true,
+        "rate_source": "results/v8/rates/selection_ranked_100_s1000.npz",
+        "stimulus": "loom",
+        "measurement_window_ms": [
+          50,
+          300
+        ],
+        "active_host_cells_with_known_soma": 2079,
+        "active_host_vnc_cells": 866,
+        "activity_marker_size_rule": ".38 + .014 * mean firing rate in Hz",
+        "host_rate_max_hz": 264.0,
+        "illustrative_activity_map_neural_seed": 1000,
+        "intervention_seed": 2000,
+        "motor_mean_hz": 63.0,
+        "motor_percent_intact": 91.56976845729926,
+        "intact_motor_mean_hz": 68.79999923706055,
+        "motor_rate_definition": "Arithmetic mean of TTMn and DLMn population mean rates, including zero-rate cells.",
+        "profile_window_ms": 25,
+        "profile_xlim_ms": [
+          0,
+          300
+        ],
+        "profile_ylim_hz": [
+          0,
+          100.0
+        ],
+        "zoom_arrow_start_axes": [
+          0.29807635577190283,
+          0.5903908606601944
+        ],
+        "zoom_arrow_end_axes": [
+          0.33375,
+          0.5906933130515228
+        ]
+      },
+      {
+        "condition": "connections_random_partners_100",
+        "lost": 2000,
+        "replacements": 100,
+        "same_intended_positions": true,
+        "rate_source": "results/v8/rates/connections_random_partners_100_s1000.npz",
+        "stimulus": "loom",
+        "measurement_window_ms": [
+          50,
+          300
+        ],
+        "active_host_cells_with_known_soma": 1780,
+        "active_host_vnc_cells": 587,
+        "activity_marker_size_rule": ".38 + .014 * mean firing rate in Hz",
+        "host_rate_max_hz": 264.0,
+        "illustrative_activity_map_neural_seed": 1000,
+        "intervention_seed": 2000,
+        "motor_mean_hz": 25.399999618530273,
+        "motor_percent_intact": 36.9186045061001,
+        "intact_motor_mean_hz": 68.79999923706055,
+        "motor_rate_definition": "Arithmetic mean of TTMn and DLMn population mean rates, including zero-rate cells.",
+        "profile_window_ms": 25,
+        "profile_xlim_ms": [
+          0,
+          300
+        ],
+        "profile_ylim_hz": [
+          0,
+          100.0
+        ],
+        "zoom_arrow_start_axes": [
+          0.496826355771903,
+          0.5903908606601944
+        ],
+        "zoom_arrow_end_axes": [
+          0.5325000000000001,
+          0.5906933130515228
+        ]
+      },
+      {
+        "condition": "connections_correct_types_100",
+        "lost": 2000,
+        "replacements": 100,
+        "same_intended_positions": true,
+        "rate_source": "results/v8/rates/connections_correct_types_100_s1000.npz",
+        "stimulus": "loom",
+        "measurement_window_ms": [
+          50,
+          300
+        ],
+        "active_host_cells_with_known_soma": 2092,
+        "active_host_vnc_cells": 861,
+        "activity_marker_size_rule": ".38 + .014 * mean firing rate in Hz",
+        "host_rate_max_hz": 264.0,
+        "illustrative_activity_map_neural_seed": 1000,
+        "intervention_seed": 2000,
+        "motor_mean_hz": 50.0,
+        "motor_percent_intact": 72.67441941055496,
+        "intact_motor_mean_hz": 68.79999923706055,
+        "motor_rate_definition": "Arithmetic mean of TTMn and DLMn population mean rates, including zero-rate cells.",
+        "profile_window_ms": 25,
+        "profile_xlim_ms": [
+          0,
+          300
+        ],
+        "profile_ylim_hz": [
+          0,
+          100.0
+        ],
+        "zoom_arrow_start_axes": [
+          0.6955763557719029,
+          0.5903908606601944
+        ],
+        "zoom_arrow_end_axes": [
+          0.7312500000000001,
+          0.5906933130515228
+        ]
+      },
+      {
+        "condition": "non_target_types_100",
+        "lost": 2000,
+        "replacements": 100,
+        "same_intended_positions": true,
+        "rate_source": "results/v8/rates/non_target_types_100_s1000.npz",
+        "stimulus": "loom",
+        "measurement_window_ms": [
+          50,
+          300
+        ],
+        "active_host_cells_with_known_soma": 1598,
+        "active_host_vnc_cells": 597,
+        "activity_marker_size_rule": ".38 + .014 * mean firing rate in Hz",
+        "host_rate_max_hz": 264.0,
+        "illustrative_activity_map_neural_seed": 1000,
+        "intervention_seed": 2000,
+        "motor_mean_hz": 27.200000762939453,
+        "motor_percent_intact": 39.53488526826554,
+        "intact_motor_mean_hz": 68.79999923706055,
+        "motor_rate_definition": "Arithmetic mean of TTMn and DLMn population mean rates, including zero-rate cells.",
+        "profile_window_ms": 25,
+        "profile_xlim_ms": [
+          0,
+          300
+        ],
+        "profile_ylim_hz": [
+          0,
+          100.0
+        ],
+        "zoom_arrow_start_axes": [
+          0.894326355771903,
+          0.5903908606601944
+        ],
+        "zoom_arrow_end_axes": [
+          0.9299999999999999,
+          0.5906933130515228
+        ]
+      }
+    ],
+    "matched_brain_scale": true,
+    "matched_full_cns_scale": true,
+    "full_ventral_nerve_cord_visible": true,
+    "activity_is_single_matched_realization": true,
+    "activity_n": 1,
+    "activity_colour": "#3b7dab",
+    "motor_activity_colour": "#d7652a",
+    "rate_mean_comparison_to_frozen_states": "PASS",
+    "display_scales": [
+      [
+        0.08888475728155498,
+        -0.08888475728156209
+      ],
+      [
+        0.08888475728156209,
+        -0.08888475728156209
+      ],
+      [
+        0.08888475728156209,
+        -0.08888475728156209
+      ],
+      [
+        0.08888475728156209,
+        -0.08888475728156209
+      ],
+      [
+        0.08888475728156209,
+        -0.08888475728156209
+      ]
+    ],
+    "activity_source_hashes": {
+      "results/v8/figure2_activity_profiles_20261012/manifest.json": "6bb6f0d683e33bd25e1d7be6fb15514d213f0b6ab39c37235c6b429a3a3b1190",
+      "results/v8/figure2_activity_profiles_20261012/motor_traces.csv": "429eb0fc596b8b1f457bf5874b79620b5fc2c69d2a3da3b55fe6f59b45ab8ec2",
+      "results/v8/figure2_activity_profiles_20261012/recordings.npz": "b036674344297412eb7fb8710787feb6f6d031118d9fa86fd92fe660bf6e043b",
+      "results/v8/rates/intact_s1000.npz": "eeb5cb69f55babc64af43858fc378213487b6116ed5fedcc1f95c2815a5603de",
+      "results/v8/rates/lesion20_2000_s1000.npz": "93365424a7dd2cd35c87606761ee37fc2e288f7774d63d2a75a4c6074af60ca5",
+      "results/v8/rates/selection_ranked_100_s1000.npz": "25c746aa69af8821e3790e8354a7a0ba8154231aa92fe902e4daa8d342f540e8",
+      "results/v8/rates/connections_random_partners_100_s1000.npz": "551cef40da3282c53feec7d7fe3c5bcfdfdfe7380dd63cb0f57af46709968c57",
+      "results/v8/rates/connections_correct_types_100_s1000.npz": "ca62f4a46404763366ba5b9898fc0766d4b23f17cb894703c6eef23d3821f71c",
+      "results/v8/rates/non_target_types_100_s1000.npz": "80f8b15f3961de03f13f953fd39028066c398bc9e8e4f72fa4039b282ef18692"
+    },
+    "activity_source_table": "figures/v8/review_20261012/Fig2a_activity_source_values.csv",
+    "activity_source_table_sha256": "9d3dc12397bd01fecd8e844e03040514521e1cb1d77f314a3a383d6e8f831ec2",
+    "motor_readout_table": "figures/v8/review_20261012/Fig2a_motor_readouts.csv",
+    "motor_readout_table_sha256": "489206f35604013605e2d05554c362cabc77b862be78c78238df1c6bea91712f",
+    "activity_profile_table": "results/v8/figure2_activity_profiles_20261012/motor_traces.csv",
+    "activity_profile_table_sha256": "429eb0fc596b8b1f457bf5874b79620b5fc2c69d2a3da3b55fe6f59b45ab8ec2",
+    "profile_window_ms": 25,
+    "profile_boxes_same_size_as_zooms": true,
+    "profile_box_sizes_pixels": [
+      {
+        "zoom": [
+          51.71040000000002,
+          26.5174910138752
+        ],
+        "profile": [
+          51.71040000000002,
+          26.5174910138752
+        ]
+      },
+      {
+        "zoom": [
+          51.710399999999964,
+          26.5174910138752
+        ],
+        "profile": [
+          51.710399999999964,
+          26.5174910138752
+        ]
+      },
+      {
+        "zoom": [
+          51.71039999999999,
+          26.5174910138752
+        ],
+        "profile": [
+          51.71039999999999,
+          26.5174910138752
+        ]
+      },
+      {
+        "zoom": [
+          51.710399999999936,
+          26.5174910138752
+        ],
+        "profile": [
+          51.710399999999936,
+          26.5174910138752
+        ]
+      },
+      {
+        "zoom": [
+          51.710399999999936,
+          26.5174910138752
+        ],
+        "profile": [
+          51.710399999999936,
+          26.5174910138752
+        ]
+      }
+    ],
+    "profile_common_xlim_ms": [
+      0,
+      300
+    ],
+    "profile_common_ylim_hz": [
+      0,
+      100.0
+    ]
+  }
+}

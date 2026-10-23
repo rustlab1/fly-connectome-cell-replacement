@@ -1,0 +1,44 @@
+{
+  "status": "EXPLORATORY_CONTROLLER_CHECK",
+  "recorded_before_simulation": true,
+  "neural_states": "Reuse the 100 existing intact realizations",
+  "gust_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "gust_amplitude_factors": [
+    0,
+    0.5,
+    1,
+    1.5,
+    2
+  ],
+  "baseline_amplitude_deg_per_s": 100,
+  "additional_neural_states": 0,
+  "purpose": "Internal sensitivity, not experimental validation",
+  "original_batch_results_available_before_this_check": true,
+  "independent_uncertainty_unit": "Intact neural realization, average 20 gusts first",
+  "input_sha256": {
+    "results/v8/tables/per_realization.csv": "60e52bf29c03904fa157b5a4b749668faa8922ba989498a72054ccee3d88e035",
+    "code/v5/flight.py": "4e9b9c56777980696c8c9225d0d93c78fd610bf9c0039771c07f437828599ab3",
+    "code/v5/flight_fast.py": "bc1df60cf3a4861568af72845b75ce995a1b56e856b79430e6b7672e60b4c8ec"
+  }
+}

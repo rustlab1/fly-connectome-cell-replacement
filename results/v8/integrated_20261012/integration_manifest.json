@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "primary_states": 7100,
+  "additional_review_states": 800,
+  "conditions": 79,
+  "neural_states": 7900,
+  "nested_gust_trials": 158000,
+  "separate_post_primary_extensions": [
+    "figure2_full_replacement_20261012",
+    "figure2_random_dose_20261012"
+  ],
+  "source_sha256": {
+    "results/v8/tables/per_realization.csv": "60e52bf29c03904fa157b5a4b749668faa8922ba989498a72054ccee3d88e035",
+    "results/v8/figure2_full_replacement_20261012/per_realization.csv": "e82cf5ea5a37f1c78ad19dbc3deec830ab304522701f18a346b4228c9d1268f3",
+    "results/v8/figure2_random_dose_20261012/per_realization.csv": "952025c93808e462996016fc3b3a45c72dc323ff0c805204fcfe7709340f944a",
+    "results/v8/tables/gust_trials.csv": "c9c144e92bf9de49993aab90520aed259b5c9d241e49a45d597741a28b459995",
+    "results/v8/figure2_full_replacement_20261012/gust_trials.csv": "0d6b323d661146194cf667af88cafa7d7b47bcd51d0bab67110e69f02c6bde7e",
+    "results/v8/figure2_random_dose_20261012/gust_trials.csv": "b1182a479975bf1c638f6449b58de28dff284f564af16754c3ecbfb754d2afcf"
+  },
+  "output_sha256": {
+    "summary.csv": "b07d447cba602fe9ceecff7e430f2d6d2f8ccb926b7dc598f2ea8f51e4202247",
+    "gust_trials.csv": "dd156b86835df95da17739c5a4072118d0039235bc707a8375902c840b86e98d",
+    "per_realization.csv": "5eff73fd633f0289839398ea6f49ae65ab8edd94dd069792de7ef334ddbbbca0"
+  },
+  "independent_qa": "report/v8/qa/cross_file_consistency.json"
+}

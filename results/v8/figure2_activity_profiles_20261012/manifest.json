@@ -1,0 +1,116 @@
+{
+  "status": "PASS",
+  "conditions": [
+    "intact",
+    "lesion20_2000",
+    "selection_ranked_100",
+    "connections_random_partners_100",
+    "connections_correct_types_100",
+    "non_target_types_100"
+  ],
+  "checks": [
+    {
+      "condition": "intact",
+      "source": "Existing verified Movie 1 recording",
+      "neural_seed": 1000,
+      "intervention_seed": 2000,
+      "poisson_seed": 7005,
+      "spike_count": 33332,
+      "all_host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 68.8,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "lesion20_2000",
+      "source": "Existing verified Movie 1 recording",
+      "neural_seed": 1000,
+      "intervention_seed": 2000,
+      "poisson_seed": 7005,
+      "spike_count": 24296,
+      "all_host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 28.0,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "selection_ranked_100",
+      "source": "Existing verified Movie 1 recording",
+      "neural_seed": 1000,
+      "intervention_seed": 2000,
+      "poisson_seed": 7005,
+      "spike_count": 30037,
+      "all_host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 63.0,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "connections_random_partners_100",
+      "source": "Exact seed replay of an existing V8 realization, recording spikes",
+      "neural_seed": 1000,
+      "intervention_seed": 2000,
+      "poisson_seed": 7005,
+      "spike_count": 25825,
+      "all_host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 25.4,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "connections_correct_types_100",
+      "source": "Exact seed replay of an existing V8 realization, recording spikes",
+      "neural_seed": 1000,
+      "intervention_seed": 2000,
+      "poisson_seed": 7005,
+      "spike_count": 29785,
+      "all_host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 50.0,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "non_target_types_100",
+      "source": "Exact seed replay of an existing V8 realization, recording spikes",
+      "neural_seed": 1000,
+      "intervention_seed": 2000,
+      "poisson_seed": 7005,
+      "spike_count": 24396,
+      "all_host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 27.2,
+      "removed_cell_spikes": 0
+    }
+  ],
+  "recording_duration_ms": 300,
+  "rate_measurement_window_ms": [
+    50,
+    300
+  ],
+  "trace_window_ms": 25,
+  "trace_definition": "Arithmetic mean of TTMn and DLMn population rates over the preceding 25 ms; early bins use elapsed duration.",
+  "neural_realizations_per_condition": 1,
+  "additional_independent_neural_realizations": 0,
+  "existing_realizations_replayed_for_recording": 3,
+  "frozen_batch_files_unchanged": true,
+  "source_sha256": {
+    "videos/v8/activity_current_model_recordings.npz": "c6a70154fa5db3f4b55c466780030be82ec5056b96b13f141f178f438f991453",
+    "results/v8/states.jsonl": "f95fa88ea6642949c78bd63d9bb8f928e699f26f3d1237f94fdeff9aebc883f2",
+    "results/v8/non_target_states.jsonl": "8ed95bfe5a2e7cd31f15405b67c49832c10a60aaae59446ac09e0b051a0cfd4f",
+    "results/v8/non_target_identity_pool.csv": "ba143eba429f7cfba0b35ee14d1a3338175dd36605adb7d957a875cafd4c4ea2",
+    "code/v8/record_fig2a_profiles.py": "93d16acc4c8a4e29f65c06d7529ef36e0b806c0be55ac9951183691dfa82c339",
+    "code/v8/run_confirmatory.py": "2e1b42af44246b74af5bf049f0a1f2394e648c6e7956ad561de90379a9ad6ebf",
+    "code/v8/graft_identity.py": "5496bfd634182b0512bc4b6d865b8f6b0f3d8591eebeb861048e6806477d93a0",
+    "code/v5/experiments.py": "6d80831846001ec082e1ec5d538a68bd6830b5b0daddafbd0de9106f62dcdee8",
+    "code/v5/flysim.py": "ac2e114aa8a21cc659a7ffe2fda93e8892459a781b4072127877456049f62c1c",
+    "code/v5/flysim_fast.py": "169b30671cc7ee9f379871bd6ec36c48aba931aa7cee34475a0bd99b9cffa0a4",
+    "data/v5/W_csc.npz": "a4d3ae4665f284c84f6f3ccdaea48ba0bb11f7fc9e20f19fbc5db52b0316eb35",
+    "data/v5/neurons.parquet": "c6eb802c77dddd98186e78034e4c04d988edefd05b294b716a4073c38bd59021",
+    "data/v5/cell_groups.json": "3b338c9971d7c50bdd971498ff4eaa54817148980b3720e2120d01f9352f78ae",
+    "data/v5/decoder.npz": "a37dbb0cee057d6237177c957369291806788c0ffeef1b7d13fafc326b27eb53",
+    "results/v8/rates/intact_s1000.npz": "eeb5cb69f55babc64af43858fc378213487b6116ed5fedcc1f95c2815a5603de",
+    "results/v8/rates/lesion20_2000_s1000.npz": "93365424a7dd2cd35c87606761ee37fc2e288f7774d63d2a75a4c6074af60ca5",
+    "results/v8/rates/selection_ranked_100_s1000.npz": "25c746aa69af8821e3790e8354a7a0ba8154231aa92fe902e4daa8d342f540e8",
+    "results/v8/rates/connections_random_partners_100_s1000.npz": "551cef40da3282c53feec7d7fe3c5bcfdfdfe7380dd63cb0f57af46709968c57",
+    "results/v8/rates/connections_correct_types_100_s1000.npz": "ca62f4a46404763366ba5b9898fc0766d4b23f17cb894703c6eef23d3821f71c",
+    "results/v8/rates/non_target_types_100_s1000.npz": "80f8b15f3961de03f13f953fd39028066c398bc9e8e4f72fa4039b282ef18692"
+  },
+  "outputs": {
+    "recordings.npz": "b036674344297412eb7fb8710787feb6f6d031118d9fa86fd92fe660bf6e043b",
+    "motor_traces.csv": "429eb0fc596b8b1f457bf5874b79620b5fc2c69d2a3da3b55fe6f59b45ab8ec2"
+  }
+}

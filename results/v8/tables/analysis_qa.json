@@ -1,0 +1,24 @@
+{
+  "status": "COMPLETE",
+  "realizations": 100,
+  "states": 7100,
+  "expected_states": 7100,
+  "unique_state_seeds": true,
+  "finite_readouts": true,
+  "source_model_hashes_unchanged": true,
+  "exact_reconstruction_max_difference": {
+    "y_R": 0.0,
+    "y_L": 0.0,
+    "y_F": 0.0,
+    "motor_output": 0.0,
+    "takeoff_output": 0.0,
+    "distance_m": 0.0,
+    "LPTC_L_L": 0.0
+  },
+  "replication_unit": "one independent neural/intervention realization, with 20 nested gusts; one anatomical connectome",
+  "source_sha256": {
+    "states.jsonl": "f95fa88ea6642949c78bd63d9bb8f928e699f26f3d1237f94fdeff9aebc883f2",
+    "typed_dose_states.jsonl": "569350a5533f72254868d62a849eeba304f3f3f8cd4685a53af15d885a3b87c5",
+    "non_target_states.jsonl": "8ed95bfe5a2e7cd31f15405b67c49832c10a60aaae59446ac09e0b051a0cfd4f"
+  }
+}
