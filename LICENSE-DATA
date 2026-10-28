@@ -1,3 +1,3 @@
-The derived data, figures and movies in this repository (data/, results/, source_data/, figures/, movies/) are licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/
+The derived data, figures and movies in this repository (data/, results/, source_data/, figures/, movies/, and the data and images in docs/) are licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/
 
 Model inputs in data/v5 are derived from the MaleCNS v1.0 connectome (Janelia Research Campus FlyEM). Use of those inputs should also follow the terms of the original release and cite: Berg S. et al. Sexual dimorphism in the complete Drosophila male central nervous system connectome. Cell 189, 5504-5526.e15 (2026).

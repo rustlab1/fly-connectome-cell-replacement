@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin: 0; background: #ffffff; overflow: hidden; font-family: Helvetica, Arial, sans-serif; }
+  #c { display: block; }
+  .hud { position: absolute; color: #0b0b0b; }
+  #title { left: 28px; top: 22px; font-size: 27px; font-weight: 700; }
+  #sub { left: 28px; top: 64px; font-size: 18px; color: #52514e; }
+  #stats { background:rgba(255,255,255,.90); padding:10px 14px; border-radius:5px; left: 28px; bottom: 24px; font-size: 18px; color: #52514e; line-height: 1.45; }
+  #time { background:rgba(255,255,255,.90); padding:10px 14px; border-radius:5px; right: 318px; bottom: 24px; font-size: 18px; color: #52514e; }
+  #insetlabel { right: 28px; top: 22px; font-size: 14px; color: #52514e; text-align: right; }
+  #tier { display:none; left: 28px; top: 96px; font-size: 15px; font-weight: 600; padding: 4px 10px; border-radius: 6px; color: white; }
+  #insetframe { position: absolute; border: 1px solid #d7dde6; border-radius: 4px; pointer-events: none; }
+#pathmap {display:none;position:absolute;right:24px;bottom:24px;width:270px;height:160px;border:1px solid #d7dde6;border-radius:4px;}
+
+    #title{left:18px;top:14px;font:600 24px Arial;color:#24313a}
+    #sub{left:18px;top:45px;font:18px Arial;color:#44515b}
+    #stats{left:18px;bottom:15px;font:19px Arial;color:#24313a;padding:4px 0;background:transparent}
+    #time{display:none}#insetlabel,#insetframe{display:none}
+    #pathmap{right:14px;bottom:12px;width:220px;height:155px;border:0;border-radius:0}
+    body:before{content:'';position:absolute;left:0;top:0;width:100%;height:72px;background:rgba(255,255,255,.98)}
+    #anatomy{position:absolute;left:8px;top:72px;width:114px;height:120px;background:rgba(255,255,255,.94)}
+    body:before{display:none!important}.hud,#anatomy,#pathmap,#insetframe{display:none!important}</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="title" class="hud"></div>
+<div id="sub" class="hud"></div>
+<div id="tier" class="hud"></div>
+<div id="stats" class="hud"></div>
+<div id="time" class="hud"></div>
+<div id="insetlabel" class="hud"></div>
+<div id="insetframe"></div><canvas id="pathmap" width="220" height="155"></canvas><img id="anatomy" alt="Lesion and graft">
+<script src="../three.min.js"></script>
+<script>
+// ------------------------------------------------------------------ globals
+let W = 1280, H = 720, renderer, scene, camera, fly, wings = {}, trail, trailGeo, trailPos, crumbs, insetScene, insetCam, insetCloud;
+const _m4 = new THREE.Matrix4();
+let DATA = null;            // set by setData(): {traj:[[t,psi,omega,x,y],...], fps, condition, color, cns:{xyz, lesion_mask, graft_xyz}, ...}
+const S = 25.0;             // scene units per metre
+const DEG = Math.PI / 180;
+
+function init(width, height) {
+  W = width; H = height;
+  const canvas = document.getElementById('c');
+  renderer = new THREE.WebGLRenderer({canvas, antialias: true, preserveDrawingBuffer: false});
+  renderer.setSize(W, H); renderer.setPixelRatio(1);
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  scene = new THREE.Scene();
+  scene.background = new THREE.Color(0xffffff);
+  scene.fog = new THREE.Fog(0xffffff, 60, 200);
+  camera = new THREE.PerspectiveCamera(38, W / H, 0.1, 400);
+  // lights
+  scene.add(new THREE.HemisphereLight(0xffffff, 0xd6dde6, 1.3));
+  const sun = new THREE.DirectionalLight(0xffffff, 1.1); sun.position.set(14, 30, 10);
+  sun.castShadow = true; sun.shadow.mapSize.set(512, 512);
+  sun.shadow.camera.left = -30; sun.shadow.camera.right = 30; sun.shadow.camera.top = 30; sun.shadow.camera.bottom = -30; sun.shadow.camera.far = 120; sun.shadow.radius = 4;
+  scene.add(sun); scene.userData.sun = sun;
+  // ground
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(600, 600), new THREE.MeshStandardMaterial({color: 0xf9fafb, roughness: 1}));
+  ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; scene.add(ground);
+  const grid = new THREE.GridHelper(1200, 240, 0xcfd6df, 0xdfe5ec); grid.position.y = 0.01; scene.add(grid);
+  buildLandmarks();
+  buildFly();
+  // trail
+  trailGeo = new THREE.BufferGeometry(); trailPos = new Float32Array(20000 * 3);
+  trailGeo.setAttribute('position', new THREE.BufferAttribute(trailPos, 3)); trailGeo.setDrawRange(0, 0);
+  trail = new THREE.Line(trailGeo, new THREE.LineBasicMaterial({color: 0x2a78d6, linewidth: 2})); scene.add(trail);
+  crumbs = new THREE.InstancedMesh(new THREE.SphereGeometry(0.16, 8, 8), new THREE.MeshStandardMaterial({color: 0x2a78d6, transparent: true, opacity: 0.55}), 400);
+  crumbs.count = 0; crumbs.frustumCulled = false; trail.frustumCulled = false; scene.add(crumbs);
+  // inset scene for the CNS
+  insetScene = new THREE.Scene(); insetScene.background = new THREE.Color(0xffffff);
+  insetCam = new THREE.PerspectiveCamera(30, 1, 1, 5000);
+}
+
+
+function buildLandmarks() {
+ if (scene.userData.landmarks) scene.remove(scene.userData.landmarks);
+ const group=new THREE.Group();scene.userData.landmarks=group;scene.add(group);
+ const rng=mulberry32(7),points=[];
+ for(let x=-40;x<=100;x+=20)for(let z=-60;z<=60;z+=20){
+  const px=x+(rng()-.5)*4,pz=z+(rng()-.5)*4;
+  const h=2.8+rng()*.8,r=.85+rng()*.30;
+  if(Math.hypot(px,pz)>6)points.push({x:px,z:pz,h,r});
+ }
+ const trunk=new THREE.InstancedMesh(new THREE.CylinderGeometry(.10,.17,1,7),new THREE.MeshStandardMaterial({color:0xb0a797,roughness:1}),points.length);
+ const lower=new THREE.InstancedMesh(new THREE.ConeGeometry(1,1,9),new THREE.MeshStandardMaterial({color:0x9eb595,roughness:1}),points.length);
+ const upper=new THREE.InstancedMesh(new THREE.ConeGeometry(1,1,9),new THREE.MeshStandardMaterial({color:0x8fa88a,roughness:1}),points.length);
+ const m=new THREE.Matrix4(),scale=new THREE.Vector3(),rotation=new THREE.Quaternion();
+ points.forEach((p,i)=>{
+  m.compose(new THREE.Vector3(p.x,.6,p.z),rotation,scale.set(1,1.2,1));trunk.setMatrixAt(i,m);
+  m.compose(new THREE.Vector3(p.x,1.35,p.z),rotation,scale.set(p.r,1.75,p.r));lower.setMatrixAt(i,m);
+  m.compose(new THREE.Vector3(p.x,p.h-.95,p.z),rotation,scale.set(p.r*.72,1.90,p.r*.72));upper.setMatrixAt(i,m);
+ });
+ for(const mesh of [trunk,lower,upper]){mesh.castShadow=true;mesh.receiveShadow=true;group.add(mesh);}
+ scene.userData.landmarkCount=points.length;
+ scene.userData.landmarkLayout='fixed-world-grid-seed-7-v1';
+}
+
+function mulberry32(a) { return function() { let t = a += 0x6D2B79F5; t = Math.imul(t ^ t >>> 15, t | 1); t ^= t + Math.imul(t ^ t >>> 7, t | 61); return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+
+// ------------------------------------------------------------------ fly model (procedural, stylised Drosophila)
+function buildFly() {
+  fly = new THREE.Group();
+  const body = new THREE.Group(); fly.add(body); fly.userData.body = body;
+  const brown = new THREE.MeshStandardMaterial({color: 0x8a6a48, roughness: 0.55, metalness: 0.05});
+  const dark = new THREE.MeshStandardMaterial({color: 0x4a3626, roughness: 0.6});
+  const eyeMat = new THREE.MeshStandardMaterial({color: 0xc93b2b, roughness: 0.35, metalness: 0.1});
+  // thorax
+  const thorax = new THREE.Mesh(new THREE.SphereGeometry(0.55, 32, 24), brown); thorax.scale.set(0.9, 0.85, 1.05); thorax.castShadow = true; body.add(thorax);
+  // abdomen (points backwards, -x is forward? we use +x as forward)
+  const abd = new THREE.Mesh(new THREE.SphereGeometry(0.5, 32, 24), new THREE.MeshStandardMaterial({color: 0x9a7d5a, roughness: 0.6})); abd.scale.set(1.7, 0.75, 0.85); abd.position.set(-1.05, -0.08, 0); abd.castShadow = true; body.add(abd);
+  for (let i = 0; i < 4; i++) { const ring = new THREE.Mesh(new THREE.TorusGeometry(0.37 - i * 0.045, 0.045, 8, 32), dark); ring.rotation.y = Math.PI / 2; ring.position.set(-0.95 - i * 0.28, -0.08, 0); ring.scale.set(1, 0.9, 1.0); body.add(ring); }
+  // head + eyes + antennae + proboscis
+  const head = new THREE.Mesh(new THREE.SphereGeometry(0.36, 24, 24), brown); head.position.set(0.72, 0.05, 0); head.castShadow = true; body.add(head);
+  for (const s of [-1, 1]) { const eye = new THREE.Mesh(new THREE.SphereGeometry(0.22, 24, 24), eyeMat); eye.position.set(0.82, 0.08, s * 0.26); eye.scale.set(0.8, 1, 0.9); body.add(eye);
+    const ant = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.03, 0.3, 6), dark); ant.position.set(1.0, 0.1, s * 0.1); ant.rotation.z = -1.1; body.add(ant); }
+  const prob = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.07, 0.35, 8), dark); prob.position.set(0.85, -0.3, 0); body.add(prob);
+  // legs tucked under (flight posture)
+  const legMat = dark;
+  for (const s of [-1, 1]) for (let k = 0; k < 3; k++) {
+    const leg = new THREE.Group();
+    const femur = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.03, 0.55, 6), legMat); femur.position.set(0, -0.27, 0); leg.add(femur);
+    const tibia = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.02, 0.6, 6), legMat); tibia.position.set(0.18, -0.75, 0); tibia.rotation.z = -0.9; leg.add(tibia);
+    leg.position.set(0.35 - k * 0.42, -0.35, s * 0.38); leg.rotation.x = s * 0.55; leg.rotation.z = 0.35 - k * 0.5; body.add(leg);
+  }
+  // halteres
+  for (const s of [-1, 1]) { const st = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 0.35, 6), dark); st.position.set(-0.55, 0.05, s * 0.55); st.rotation.x = s * 1.3; body.add(st);
+    const knob = new THREE.Mesh(new THREE.SphereGeometry(0.06, 8, 8), new THREE.MeshStandardMaterial({color: 0xd8c9a8})); knob.position.set(-0.55, 0.05, s * 0.72); body.add(knob); }
+  // wings: hinge groups at the thorax; wing membrane as a shape in the hinge's local xz plane, extending along +z (right) / -z (left)
+  const wingMat = new THREE.MeshPhysicalMaterial({color: 0xdfe9f5, transparent: true, opacity: 0.42, roughness: 0.15, transmission: 0.0, side: THREE.DoubleSide, clearcoat: 0.6});
+  const veinMat = new THREE.LineBasicMaterial({color: 0x8b95a5, transparent: true, opacity: 0.55});
+  const wingGhostMat = new THREE.MeshPhysicalMaterial({color: 0xdfe9f5, transparent: true, opacity: 0.14, roughness: 0.15, side: THREE.DoubleSide, depthWrite: false});
+  const veinGhostMat = new THREE.LineBasicMaterial({color: 0x8b95a5, transparent: true, opacity: 0.18});
+  for (const s of [-1, 1]) {
+    const hinge = new THREE.Group(); hinge.position.set(-0.05, 0.42, s * 0.28); body.add(hinge);
+    const shape = new THREE.Shape();
+    const L = 2.3, Wd = 0.78; // wing length and width (scene units)
+    shape.moveTo(0, 0);
+    shape.bezierCurveTo(0.3, s * 0.15, 0.9, s * Wd * 0.85, L * 0.72, s * Wd);
+    shape.bezierCurveTo(L * 0.92, s * Wd * 1.02, L * 1.02, s * Wd * 0.55, L, s * Wd * 0.25);
+    shape.bezierCurveTo(L * 0.97, s * -0.05, L * 0.6, s * -0.22, 0.25, s * -0.12);
+    shape.lineTo(0, 0);
+    const geo = new THREE.ShapeGeometry(shape, 24); geo.rotateX(Math.PI / 2);   // shape in XY -> XZ plane (width along z)
+    const pts = [];
+    for (let k = 0; k < 4; k++) { const a = -0.08 + k * 0.28 * s; pts.push(new THREE.Vector3(0, 0, 0), new THREE.Vector3(L * (0.95 - k * 0.12), 0, a * (L * 0.4))); }
+    const veinGeo = new THREE.BufferGeometry().setFromPoints(pts);
+    // three ghost copies per wing to mimic the blur of a 200-Hz wingbeat
+    const ghosts = [];
+    for (let q = 0; q < 3; q++) {
+      const gh = new THREE.Group(); hinge.add(gh);
+      const wing = new THREE.Mesh(geo, q === 0 ? wingMat : wingGhostMat); wing.castShadow = (q === 0);
+      wing.rotation.set(0, -s * Math.PI / 2, 0); gh.add(wing);
+      const veins = new THREE.LineSegments(veinGeo, q === 0 ? veinMat : veinGhostMat); veins.rotation.copy(wing.rotation); veins.position.y = 0.003; gh.add(veins);
+      ghosts.push(gh);
+    }
+    hinge.userData.ghosts = ghosts;
+    wings[s] = hinge;
+  }
+  scene.add(fly);
+}
+
+// ------------------------------------------------------------------ CNS inset (point cloud)
+function buildInset(cns, graftSize) {
+  if (!cns) return;
+  const n = cns.xyz.length / 3;
+  const pos = new Float32Array(cns.xyz); const col = new Float32Array(n * 3);
+  const sizes = new Float32Array(n);
+  const base = new THREE.Color(0xc9d3df), les = new THREE.Color(0xeb6834);
+  for (let i = 0; i < n; i++) { const c = cns.lesion[i] ? les : base; col[3 * i] = c.r; col[3 * i + 1] = c.g; col[3 * i + 2] = c.b; }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(pos, 3)); g.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  const m = new THREE.PointsMaterial({size: 2.2, vertexColors: true, sizeAttenuation: false, transparent: true, opacity: 0.85});
+  insetCloud = new THREE.Points(g, m); insetScene.add(insetCloud);
+  // lesioned neurons drawn again, larger, on top
+  if (cns.lesion.some(v => v)) {
+    const lp = []; for (let i = 0; i < n; i++) if (cns.lesion[i]) lp.push(pos[3 * i], pos[3 * i + 1], pos[3 * i + 2]);
+    const g2 = new THREE.BufferGeometry(); g2.setAttribute('position', new THREE.BufferAttribute(new Float32Array(lp), 3));
+    insetScene.add(new THREE.Points(g2, new THREE.PointsMaterial({size: 3.2, color: 0xeb6834, sizeAttenuation: false})));
+  }
+  if (cns.graft && cns.graft.length) {
+    const g3 = new THREE.BufferGeometry(); g3.setAttribute('position', new THREE.BufferAttribute(new Float32Array(cns.graft), 3));
+    const gm = new THREE.PointsMaterial({size: graftSize || 3.4, color: 0x1baf7a, sizeAttenuation: false, depthTest: false});
+    const gp = new THREE.Points(g3, gm); gp.renderOrder = 10; insetScene.add(gp);
+  }
+  insetScene.userData.center = new THREE.Vector3(cns.center[0], cns.center[1], cns.center[2]);
+  insetScene.userData.radius = cns.radius;
+}
+
+// ------------------------------------------------------------------ data + per-frame update
+function setData(d) { DATA = d; buildInset(d.cns, d.graft_size);
+  let mx = 0, mz = 0; for (const p of d.traj) { mx += p[3]; mz -= p[4]; } mx = mx / d.traj.length * S; mz = mz / d.traj.length * S;
+  buildLandmarks();
+  document.getElementById('title').textContent = d.title; document.getElementById('sub').textContent = d.subtitle;
+  const tier = document.getElementById('tier'); tier.textContent = d.tier_label; tier.style.background = d.tier_color;
+  document.getElementById('insetlabel').innerHTML = d.inset_label;
+  trail.material.color.set(d.color); crumbs.material.color.set(d.color);
+}
+
+function lerpAngle(a, b, t) { let d = b - a; while (d > Math.PI) d -= 2 * Math.PI; while (d < -Math.PI) d += 2 * Math.PI; return a + d * t; }
+
+let camPos = new THREE.Vector3(), camLook = new THREE.Vector3(), camInit = false, lastT = 0;
+
+function sampleArray(array, f) {
+  const j=Math.max(0,Math.min(Math.floor(f),array.length-1)), k=Math.min(j+1,array.length-1), u=f-j;
+  if(Array.isArray(array[j])) return array[j].map((v,l)=>v+(array[k][l]-v)*u);
+  return array[j]+(array[k]-array[j])*u;
+}
+
+function drawReference(f,t) {
+ const c=document.getElementById('pathmap'),g=c.getContext('2d'),[xmin,xmax,ymin,ymax]=DATA.reference_bounds;
+ c.style.display='block';const w=c.width,h=c.height,L=37,R=10,T=21,B=32;
+ const px=v=>L+(v-xmin)/(xmax-xmin)*(w-L-R),py=v=>h-B-(v-ymin)/(ymax-ymin)*(h-B-T);
+ g.clearRect(0,0,w,h);g.fillStyle='rgba(255,255,255,.96)';g.fillRect(0,0,w,h);
+ g.strokeStyle='#b8c2ca';g.lineWidth=1;g.beginPath();g.moveTo(L,T);g.lineTo(L,h-B);g.lineTo(w-R,h-B);g.stroke();
+ g.font='11px Arial';g.fillStyle='#44515b';g.textAlign='center';
+ for(const v of [xmin,xmax]){g.fillText(v.toFixed(1),px(v),h-B+13);}
+ g.textAlign='right';for(const v of [ymin,ymax])g.fillText(v.toFixed(1),L-4,py(v)+3);
+ g.textAlign='center';g.fillText('Lateral displacement (m)',w/2+12,h-3);
+ g.save();g.translate(11,h/2);g.rotate(-Math.PI/2);g.fillText('Forward (m)',0,0);g.restore();
+ function path(tr,color,dash) {
+  g.strokeStyle=color;g.lineWidth=2;g.setLineDash(dash);g.beginPath();const x0=tr[0][3],y0=tr[0][4];
+  for(let j=0;j<=Math.floor(f);j+=15){const p=tr[j];if(j===0)g.moveTo(px(p[4]-y0),py(p[3]-x0));else g.lineTo(px(p[4]-y0),py(p[3]-x0));}
+  const p=sampleArray(tr,f);g.lineTo(px(p[4]-y0),py(p[3]-x0));g.stroke();g.setLineDash([]);
+  g.beginPath();g.arc(px(p[4]-y0),py(p[3]-x0),3.2,0,2*Math.PI);g.fillStyle=color;g.fill();
+ }
+ path(DATA.reference,'#8c969e',[3,3]);path(DATA.traj,DATA.color,[]);
+ g.fillStyle='#44515b';g.font='12px Arial';g.textAlign='left';g.fillText('Intact reference',L,13);
+}
+function renderFrame(timeMs) {
+  const f=Math.max(0,Math.min(timeMs,DATA.traj.length-1));
+  const tr=DATA.traj, [t,psi,omega,x,y]=sampleArray(tr,f);
+  const bodyHeading=sampleArray(DATA.body_heading,f), cameraHeading=sampleArray(DATA.camera_heading,f);
+  const roll=sampleArray(DATA.display_roll,f), turn=sampleArray(DATA.display_turn,f);
+  const alt=4., X=x*S, Z=-y*S;
+  const pitch=.32, freq=11;
+  const ampL=1+.35*Math.max(turn,0)-.25*Math.max(-turn,0);
+  const ampR=1+.35*Math.max(-turn,0)-.25*Math.max(turn,0);
+  const phase=2*Math.PI*freq*t;
+  fly.position.set(X,alt,Z);fly.rotation.set(0,bodyHeading,0);
+  fly.userData.body.rotation.set(roll,0,pitch);
+  wings[-1].rotation.set(.25,.22,.05);wings[1].rotation.set(-.25,-.22,.05);
+  for(let q=0;q<3;q++) {
+    const ph=phase+q*2.1;
+    wings[-1].userData.ghosts[q].rotation.x=-.95*ampL*Math.sin(ph);
+    wings[1].userData.ghosts[q].rotation.x=.95*ampR*Math.sin(ph);
+  }
+  let k=0;
+  for(let j=0;j<=Math.floor(f);j+=10) {const p=tr[j];trailPos[k*3]=p[3]*S;trailPos[k*3+1]=.05;trailPos[k*3+2]=-p[4]*S;k++;}
+  trailPos[k*3]=X;trailPos[k*3+1]=.05;trailPos[k*3+2]=Z;k++;
+  trailGeo.setDrawRange(0,k);trailGeo.attributes.position.needsUpdate=true;
+  let nc=0;
+  for(const p of DATA.trail_dots) {if(p[0]>t||nc>=400)break;_m4.makeTranslation(p[1]*S,4.,-p[2]*S);crumbs.setMatrixAt(nc++,_m4);}
+  crumbs.count=nc;crumbs.instanceMatrix.needsUpdate=true;
+  const back=new THREE.Vector3(-Math.cos(cameraHeading),0,Math.sin(cameraHeading)).multiplyScalar(13.);
+  const side=new THREE.Vector3(Math.sin(cameraHeading),0,Math.cos(cameraHeading)).multiplyScalar(4.);
+  const offset=back.add(side).add(new THREE.Vector3(0,6.,0));
+  camera.position.set(X,alt,Z).add(offset);camera.lookAt(fly.position);
+  scene.userData.sun.position.set(X+14,30,Z+10);scene.userData.sun.target.position.set(X,0,Z);scene.userData.sun.target.updateMatrixWorld();
+  renderer.setViewport(0,0,W,H);renderer.setScissor(0,0,W,H);renderer.setScissorTest(false);renderer.render(scene,camera);
+  if(insetCloud) {
+    const iw=Math.round(W*.25),ih=Math.round(iw*.78),ix=W-iw-24,iy=H-ih-56;
+    renderer.setViewport(ix,iy,iw,ih);renderer.setScissor(ix,iy,iw,ih);renderer.setScissorTest(true);renderer.autoClear=false;
+    const c=insetScene.userData.center,R=insetScene.userData.radius,ang=.55*Math.sin(.45*t);
+    insetCam.aspect=iw/ih;insetCam.updateProjectionMatrix();
+    insetCam.position.set(c.x+R*2.4*Math.sin(ang),c.y+R*2.4*Math.cos(ang),c.z);insetCam.up.set(0,0,-1);insetCam.lookAt(c);
+    const fr=document.getElementById('insetframe');fr.style.left=ix+'px';fr.style.top=(H-iy-ih)+'px';fr.style.width=iw+'px';fr.style.height=ih+'px';
+    renderer.render(insetScene,insetCam);renderer.autoClear=true;renderer.setScissorTest(false);renderer.setViewport(0,0,W,H);
+  }
+  const displacement=Math.hypot(x-tr[0][3],y-tr[0][4]), length=sampleArray(DATA.path_length,f), straight=length>0?displacement/length:1;
+  document.getElementById('stats').innerHTML=`Distance <b>${displacement.toFixed(2)} m</b><br>Straightness <b>${straight.toFixed(2)}</b>`;
+  document.getElementById('time').textContent=`t = ${t.toFixed(1)} s`;
+
+  return {model_time:t,model_x:x,model_y:y,raw_heading:psi,camera_heading:cameraHeading,body_heading:bodyHeading,roll:roll,
+    camera_distance:camera.position.distanceTo(fly.position),fly_scale:fly.scale.toArray(),field_of_view:camera.fov,
+    displacement_m:displacement,path_length_m:length,straightness:straight,
+    landmark_count:scene.userData.landmarkCount,landmark_layout:scene.userData.landmarkLayout,trail_dot_count:nc,dynamic_trails_not_culled:!crumbs.frustumCulled&&!trail.frustumCulled};
+}
+
+function pathStraightness(tr, i) {
+  if (i < 5) return 1;
+  let L = 0; for (let j = 1; j <= i; j++) L += Math.hypot(tr[j][3] - tr[j - 1][3], tr[j][4] - tr[j - 1][4]);
+  return L > 0 ? Math.hypot(tr[i][3] - tr[0][3], tr[i][4] - tr[0][4]) / L : 1;
+}
+window.init = init; window.setData = setData; window.renderFrame = renderFrame;
+</script>
+<script>
+window.resizeScene=function(width,height){W=width;H=height;renderer.setSize(W,H);camera.aspect=W/H;camera.updateProjectionMatrix();};
+</script></body>
+</html>

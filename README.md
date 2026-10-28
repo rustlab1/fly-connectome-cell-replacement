@@ -2,7 +2,9 @@
 
 Code and data for:
 
-Habib P, Petr M, Rust R. *Focal neuronal loss and cell replacement in a connectome model of fly steering.* Manuscript in preparation (2026).
+Habib P, Petr M, Rust R. *Focal neuronal loss and cell replacement in a connectome model of fly steering.* bioRxiv (2026). https://doi.org/10.64898/2026.10.26.762043
+
+**Interactive explorer:** https://rustlab1.github.io/fly-connectome-cell-replacement/ lets you choose a lesion or a replacement condition and compare flight, readouts and motor-neuron firing.
 
 The study simulates 165,122 neurons of the male *Drosophila* central nervous system (MaleCNS v1.0 connectome) with a leaky integrate-and-fire model, removes neurons at defined locations, adds replacement cells under different selection, identity and wiring rules, and converts wing motor-neuron output into steering in a reduced two-dimensional movement controller.
 
@@ -24,7 +26,8 @@ This repository contains only the final code and data used for the manuscript fi
 | `results/literature_benchmarks_20261021` | Simulations behind Supplementary Fig. 2 |
 | `source_data` | Figure 2 and Supplementary Fig. 2 source tables, Movie 2 spike recordings and Movie 1, 3, 4 payloads |
 | `figures` | Final main and supplementary figures (PDF, PNG) |
-| `movies` | Final Supplementary Movies 1 to 4 and captions |
+| `docs` | Interactive explorer website (GitHub Pages), exported from the final results |
+| `movies` | Supplementary Movies 1 to 4 as posted on bioRxiv, and captions |
 | `tests` | Simulator tests |
 
 ## Main result files
@@ -61,8 +64,10 @@ Scripts locate files relative to the repository root, which mirrors the original
 3. **56-site lesion screen.** `code/v5/run_states.py results/v5/specs_states.json results/v5/states.jsonl`; site coordinates are in `results/v5/lesion_sites.csv` and summaries in `results/v5/revision_20261002`.
 4. **Main batch.** `code/v8/run_confirmatory.py` (protocol `results/v8/prespecified_protocol.json`) writes `results/v8/states.jsonl`. Extensions: `run_typed_dose.py` (matched and shuffled types across doses), `run_non_target.py` (non-target types) and `integrate_approved_fig2.py` (random-wiring doses and integration into `results/v8/integrated_20261012`). `analyze.py` derives readouts and summaries. `revise_supplement.py` produces the gust and supplementary control tables in `results/v8/supplement_revision_20261012`.
 5. **Published perturbations.** `code/literature_benchmarks_20261021/run_benchmarks.py` and `build_report.py`.
-6. **Figures.** `code/v8/build_figures.py`; Figure 2a activity panel `figures/v8/review_20261012/build_fig2a_activity_review.py` with recordings from `code/v8/record_fig2a_profiles.py`.
-7. **Movies.** Movie 2: `code/v8/curated_activity_movie.py` then `trim_activity_movie.py`. Movies 1, 3 and 4: see `code/v8/journal_movies/README.txt`. Movies replay saved paths and recordings; they do not rerun simulations.
+6. **Figures.** `code/v8/build_figures.py`; Figure 2a activity panel `figures/v8/review_20261012/build_fig2a_activity_review.py` with recordings from `code/v8/record_fig2a_profiles.py`. `figures/Fig1_v8_focal_loss` and `figures/Fig2_v8_cell_replacement` are the versions in the bioRxiv preprint (Fig. 1d labels tangential cells; small legend spacing fix in Fig. 2c); their PDF files are 300-dpi exports of these images.
+7. **Movies.** Movie 2: `code/v8/curated_activity_movie.py` then `trim_activity_movie.py`. Movies 1, 3 and 4: see `code/v8/journal_movies/README.txt`. Movies replay saved paths and recordings; they do not rerun simulations. The posted movies use a simplified on-screen text overlay (one-line header, condition names, plain distance text); paths, durations and on-screen values are unchanged.
+8. **Controller sensitivity.** `code/v8/controller_sensitivity.py results/v8/integrated_20261012/per_realization.csv results/v8/tables/controller_sensitivity.csv` replays the stored gains, bias and motor outputs through the movement controller with alternative motor-drive definitions (Methods). It reproduces the stored distances to within 0.0003 m.
+9. **Explorer website.** `docs/` is a static site with no build step. Its data were exported from `results/v8/integrated_20261012` (49 conditions, all values checked against the figures); sources and provenance are in `docs/sources`.
 
 ## Requirements
 
@@ -70,7 +75,7 @@ Python 3.11 or 3.12 with numpy, scipy, pandas, pyarrow, numba and matplotlib (se
 
 ## Licenses
 
-Code: MIT (`LICENSE`). Derived data, figures and movies: CC BY 4.0 (`LICENSE-DATA`). The connectome itself is from the MaleCNS v1.0 release by Janelia Research Campus FlyEM and collaborators (Berg et al., *Cell* 2026); please cite it when using the model inputs.
+Code, including the explorer code in `docs`: MIT (`LICENSE`). Derived data, figures, movies and the explorer data: CC BY 4.0 (`LICENSE-DATA`). The connectome itself is from the MaleCNS v1.0 release by Janelia Research Campus FlyEM and collaborators (Berg et al., *Cell* 2026); please cite it when using the model inputs.
 
 ## Contact
 

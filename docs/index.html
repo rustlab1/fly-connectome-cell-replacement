@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore how focal neuronal loss and cell replacement affect flight in a connectome model of the fruit fly (Habib, Petr and Rust, bioRxiv 2026).">
+  <meta name="theme-color" content="#008c7a">
+  <title>Fly circuit explorer</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+<header class="masthead">
+  <a href="#" class="brand" aria-label="Fly circuit explorer home"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 12v18M20 18C7 3 0 16 15 22M20 18C33 3 40 16 25 22M14 32l6-9 6 9"/><ellipse cx="20" cy="11" rx="3" ry="4"/></svg>Fly circuit explorer</a>
+  <span class="edition"><a href="https://www.biorxiv.org/content/10.64898/2026.10.26.762043v1">Preprint</a> · <a href="https://github.com/rustlab1/fly-connectome-cell-replacement">Code and data</a></span>
+</header>
+<main>
+<section class="intro">
+  <h1>Neuronal loss and cell replacement</h1>
+  <p>Choose a lesion or repair condition to compare movement and neuronal firing.</p>
+  <p class="citation">Companion to Habib P, Petr M, Rust R. <a href="https://www.biorxiv.org/content/10.64898/2026.10.26.762043v1">Focal neuronal loss and cell replacement in a connectome model of fly steering</a>. bioRxiv 2026. doi:10.64898/2026.10.26.762043</p>
+</section>
+<nav class="tabs" aria-label="Explorer sections">
+  <button id="tab-lesion" class="active" aria-pressed="true" data-mode="lesion">Lesion size &amp; location</button>
+  <button id="tab-repair" aria-pressed="false" data-mode="repair">Cell replacement</button>
+</nav>
+<div id="loading" role="status">Loading the results…</div>
+<section id="explorer" hidden>
+  <aside class="controls">
+    <div id="lesion-controls">
+      <h2>Choose a lesion</h2>
+      <label for="site">Lesion location</label>
+      <select id="site"><option value="20">Site 20 · central brain</option><option value="25">Site 25 · optic lobe</option></select>
+      <p class="control-note" id="site-note"></p>
+      <label for="lesion-size">Neurons lost</label>
+      <select id="lesion-size"></select>
+      <div class="slider-line"><input type="range" id="lesion-slider" min="0" max="9" step="1" value="4" aria-label="Choose a tested lesion size"></div>
+      <div class="range-labels"><span>Intact</span><span id="largest-lesion">64,000</span></div>
+      <p class="control-note">Each size is a separate lesion condition.</p>
+    </div>
+    <div id="repair-controls" hidden>
+      <h2>Choose a replacement</h2>
+      <div class="fixed-lesion"><span class="lesion-dot"></span><div><strong>2,000 neurons lost</strong><span>Site 20 · same lesion for all grafts</span></div></div>
+      <fieldset class="rule-list"><legend>Repair condition</legend>
+        <label><input type="radio" name="rule" value="none"><span class="swatch" style="--color:#d7652a"></span>No graft</label>
+        <label><input type="radio" name="rule" value="original" checked><span class="swatch" style="--color:#008c7a"></span>Original repair</label>
+        <label><input type="radio" name="rule" value="random"><span class="swatch" style="--color:#50545b"></span>Random wiring</label>
+        <label><input type="radio" name="rule" value="correct"><span class="swatch" style="--color:#2b70b6"></span>Correct-type graft</label>
+        <label><input type="radio" name="rule" value="nontarget"><span class="swatch" style="--color:#c16888"></span>Non-target graft</label>
+      </fieldset>
+      <div id="repair-explanation" class="rule-explanation"></div>
+      <label for="replacement-dose">Replacement cells</label>
+      <select id="replacement-dose"></select>
+      <div class="slider-line"><input type="range" id="dose-slider" min="0" max="9" step="1" value="2" aria-label="Choose a tested replacement dose"></div>
+      <div class="range-labels"><span>0</span><span>2,000 · full dose</span></div>
+    </div>
+    <div class="anatomy-box">
+      <h3 id="anatomy-heading">Lesion positions</h3>
+      <img id="anatomy" alt="Soma positions in the brain and ventral nerve cord, with the selected lesion highlighted" width="210" height="210">
+      <div class="anatomy-key"><span><i class="key-dot host"></i>Host</span><span><i class="key-dot lesion"></i>Lesion</span><span id="graft-key" hidden><i class="key-dot graft"></i>Replacement</span></div>
+    </div>
+    <button class="text-button" id="download-condition">↓ Download this condition</button>
+    <button class="text-button" id="copy-link">↗ Copy this selection</button>
+    <p id="copy-status" class="control-note" role="status"></p>
+  </aside>
+  <div class="results">
+    <section class="summary-panel">
+      <div class="section-heading"><div><div class="eyebrow" id="condition-context"></div><h2 id="condition-title"></h2></div><div class="sample-badge">n = 100<span>model realizations</span></div></div>
+      <p class="summary-description" id="condition-description"></p>
+      <div class="readouts" id="readouts"></div>
+      <p class="chart-note" id="uncertainty-note"></p>
+    </section>
+    <section class="flight-panel">
+      <div class="section-heading"><div><h2>Matched flight example</h2><p>One saved realization · same gust sequence · 10 seconds</p></div><div class="style-controls" role="group" aria-label="Animation style"><button data-style="original" aria-pressed="false">Original</button><button data-style="voxel" class="active" aria-pressed="true">Minecraft</button><button data-style="journal" aria-pressed="false">Journal</button></div></div>
+      <div class="flight-pair">
+        <figure><figcaption id="reference-title">Intact reference</figcaption><div class="scene-wrap"><iframe id="reference-scene" title="Reference flight replay" src="about:blank"></iframe><div class="frame-distance" id="reference-distance"></div></div></figure>
+        <figure><figcaption id="selected-title">Selected condition</figcaption><div class="scene-wrap"><iframe id="selected-scene" title="Selected condition flight replay" src="about:blank"></iframe><div class="frame-distance" id="selected-distance"></div></div></figure>
+      </div>
+      <p id="scene-status" class="chart-note" role="status"></p>
+      <div class="playback"><button id="play" aria-label="Pause flight replay">Ⅱ Pause</button><input id="time" type="range" min="0" max="9999" step="1" value="0" aria-label="Flight replay time"><output id="clock">0.0 s</output><button id="restart" aria-label="Restart flight replay">↺</button></div>
+      <section class="firing-section" aria-labelledby="firing-heading">
+        <div class="firing-heading"><h3 id="firing-heading">Motor-neuron firing</h3><span>Looming input · 300-ms neural trial</span></div>
+        <div class="firing-pair"><div id="reference-firing" class="firing-plot"></div><div id="selected-firing" class="firing-plot"></div></div>
+        <p id="firing-status" class="chart-note" role="status">Loading matched firing recordings…</p>
+      </section>
+      <details class="path-details"><summary>View flight paths from above</summary><div id="path-map"></div><p class="chart-note">The same origins and meter scale are used in both views. Forward and lateral displacement refer to the starting heading. Dots mark one-second intervals.</p></details>
+      <p class="chart-note">Horizontal paths are model data. Fly shape, wing motion, altitude and trees are illustrations. These are steering simulations without full flight biomechanics.</p>
+    </section>
+    <section class="dose-panel">
+      <div class="section-heading"><div><h2 id="curve-title">Function across lesion sizes</h2><p id="curve-subtitle"></p></div><div class="curve-actions"><span id="selection-key" class="selection-key"></span><button id="compare-rules" class="quiet-button" hidden aria-pressed="false">Compare repair rules</button></div></div>
+      <div id="curve-key" class="curve-key"></div><div class="curves" id="curves"></div>
+      <p class="chart-note">Lines connect tested conditions. They do not describe change over time or impose a smooth recovery curve.</p>
+    </section>
+  </div>
+</section>
+<section class="study-notes">
+  <details><summary>How to read the model</summary><div class="notes-grid">
+    <div><h3>Neurons, connections and movement</h3><p>The model uses 165,122 neurons from the male fly CNS connectome. Visual inputs generate spikes; motor responses determine turning and forward movement in a simplified steering controller.</p><p>Site 20 affects a descending motor-control interface. It is not a fly equivalent of motor cortex. Its 1,000-cell lesion removes 37 descending and four lobula plate tangential neurons.</p></div>
+    <div><h3>What the uncertainty means</h3><p>Each result uses 100 neural and intervention realizations within one reconstructed nervous system. Movement is averaged over 20 matched gust sequences before calculating uncertainty. These are model realizations, not 100 animals.</p><p>Lesion bands show the central 95% simulation range, matching Figure 1f. Replacement bands show pointwise 95% confidence intervals for the mean, matching Figure 2c. The animation shows one prespecified example, not the mean path.</p></div>
+    <div><h3>What replacement means here</h3><p>Original repair is an ideal reconstruction of selected lost cells and their available partners. Full original repair reproduces intact by construction. A graft with the correct types instead inherits connections from surviving cells of those types.</p><p>At full dose, 42 untyped positions in the correct-type condition receive sampled lost-cell identities. Replacement is immediate in the model; graft maturation and spontaneous recovery are not simulated.</p></div>
+    <div><h3>Interpreting the readouts</h3><p>Intact function is one. Values above one can occur and are retained. Wing-motor and looming readouts measure neural activity, not physical wing posture or observed takeoff. Virtual crossings describe flight planes, not walking beam counts.</p><p>The controller retains a minimum forward speed, so severe lesions can leave small residual displacement even at zero neural motor drive.</p></div>
+  </div></details>
+  <details><summary>Source data</summary><p>The controls use the final results of the preprint and tested 0–2,000-cell replacement series. Firing traces recover the same first neural realization and are verified against its saved rates.</p><div class="source-links"><a href="sources/fig1f_simulation_range.csv" download>Lesion readouts</a><a href="sources/Fig2_v8_cell_replacement_source_values.csv" download>Replacement readouts</a><a href="sources/provenance.json" download>Data provenance</a><a href="sources/activity_provenance.json" download>Firing recordings</a></div><p>Only tested combinations are offered. The 56-site exploratory screen and additional controls remain in the manuscript.</p></details>
+</section>
+</main>
+<footer><span>Pardes Habib · Michael Petr · Ruslan Rust</span><a href="mailto:rrust@usc.edu">Correspondence: Ruslan Rust</a><span>Computational study · <a href="https://github.com/rustlab1/fly-connectome-cell-replacement">GitHub</a></span></footer>
+</body>
+</html>

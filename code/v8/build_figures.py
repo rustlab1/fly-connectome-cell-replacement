@@ -168,7 +168,7 @@ def figure1(d):
         ax.scatter(old.display_x(d.xyz[vi, 0]), d.xyz[vi, 2], s=9.5, c=BLUE, edgecolors='white', lw=.2, zorder=6)
         ax.set_title(f'Site {site}', fontsize=9, pad=1)
         local.text(j*.52+.235, .68, f'{len(dn)} descending', ha='center', color=PURPLE, fontsize=8, fontweight='bold')
-        local.text(j*.52+.235, .61, f'{len(vi)} visual', ha='center', color=BLUE, fontsize=8, fontweight='bold')
+        local.text(j*.52+.235, .61, f'{len(vi)} tangential', ha='center', color=BLUE, fontsize=8, fontweight='bold')
         ax = local.inset_axes([j*.52+.07, .075, .36, .40])
         path(ax, arrays[j], intact, [ORANGE, BLUE][j], limits, left=(j == 0))
         ax.set_xlabel('Lateral (m)', fontsize=8)

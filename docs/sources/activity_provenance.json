@@ -1,0 +1,522 @@
+{
+  "status": "PASS",
+  "conditions": [
+    "complete_original_2000",
+    "connections_correct_types_100",
+    "connections_random_partners_100",
+    "intact",
+    "lesion20_1000",
+    "lesion20_16000",
+    "lesion20_2000",
+    "lesion20_250",
+    "lesion20_32000",
+    "lesion20_4000",
+    "lesion20_500",
+    "lesion20_64000",
+    "lesion20_8000",
+    "lesion25_1000",
+    "lesion25_16000",
+    "lesion25_4000",
+    "non_target_types_100",
+    "non_target_types_1000",
+    "non_target_types_1250",
+    "non_target_types_1500",
+    "non_target_types_1750",
+    "non_target_types_200",
+    "non_target_types_2000",
+    "non_target_types_50",
+    "non_target_types_500",
+    "review_full_random_partners_2000",
+    "review_random_partners_dose_1000",
+    "review_random_partners_dose_1250",
+    "review_random_partners_dose_1500",
+    "review_random_partners_dose_1750",
+    "review_random_partners_dose_200",
+    "review_random_partners_dose_50",
+    "review_random_partners_dose_500",
+    "selection_ranked_100",
+    "selection_ranked_1000",
+    "selection_ranked_1250",
+    "selection_ranked_1500",
+    "selection_ranked_1750",
+    "selection_ranked_200",
+    "selection_ranked_50",
+    "selection_ranked_500",
+    "typed_dose_correct_types_1000",
+    "typed_dose_correct_types_1250",
+    "typed_dose_correct_types_1500",
+    "typed_dose_correct_types_1750",
+    "typed_dose_correct_types_200",
+    "typed_dose_correct_types_2000",
+    "typed_dose_correct_types_50",
+    "typed_dose_correct_types_500"
+  ],
+  "checks": [
+    {
+      "condition": "complete_original_2000",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 68.8,
+      "motor_spike_count": 253,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "connections_correct_types_100",
+      "source": "Reused verified Figure 2a recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 50.0,
+      "motor_spike_count": 211,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "connections_random_partners_100",
+      "source": "Reused verified Figure 2a recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 25.4,
+      "motor_spike_count": 118,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "intact",
+      "source": "Reused verified Figure 2a recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 68.8,
+      "motor_spike_count": 253,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "lesion20_1000",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 21.6,
+      "motor_spike_count": 101,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "lesion20_16000",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 23.0,
+      "motor_spike_count": 96,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "lesion20_2000",
+      "source": "Reused verified Figure 2a recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 28.0,
+      "motor_spike_count": 129,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "lesion20_250",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 49.6,
+      "motor_spike_count": 203,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "lesion20_32000",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 11.4,
+      "motor_spike_count": 61,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "lesion20_4000",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 31.2,
+      "motor_spike_count": 131,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "lesion20_500",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 23.0,
+      "motor_spike_count": 106,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "lesion20_64000",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 0.0,
+      "motor_spike_count": 0,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "lesion20_8000",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 23.6,
+      "motor_spike_count": 105,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "lesion25_1000",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 68.8,
+      "motor_spike_count": 253,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "lesion25_16000",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 68.8,
+      "motor_spike_count": 253,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "lesion25_4000",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 68.8,
+      "motor_spike_count": 253,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "non_target_types_100",
+      "source": "Reused verified Figure 2a recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 27.2,
+      "motor_spike_count": 126,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "non_target_types_1000",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 21.8,
+      "motor_spike_count": 102,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "non_target_types_1250",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 27.4,
+      "motor_spike_count": 128,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "non_target_types_1500",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 24.4,
+      "motor_spike_count": 110,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "non_target_types_1750",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 28.8,
+      "motor_spike_count": 129,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "non_target_types_200",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 26.4,
+      "motor_spike_count": 121,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "non_target_types_2000",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 24.6,
+      "motor_spike_count": 110,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "non_target_types_50",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 26.8,
+      "motor_spike_count": 123,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "non_target_types_500",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 23.4,
+      "motor_spike_count": 107,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "review_full_random_partners_2000",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 25.8,
+      "motor_spike_count": 118,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "review_random_partners_dose_1000",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 23.4,
+      "motor_spike_count": 108,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "review_random_partners_dose_1250",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 24.2,
+      "motor_spike_count": 114,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "review_random_partners_dose_1500",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 28.6,
+      "motor_spike_count": 129,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "review_random_partners_dose_1750",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 23.2,
+      "motor_spike_count": 110,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "review_random_partners_dose_200",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 25.8,
+      "motor_spike_count": 122,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "review_random_partners_dose_50",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 25.2,
+      "motor_spike_count": 115,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "review_random_partners_dose_500",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 25.0,
+      "motor_spike_count": 119,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "selection_ranked_100",
+      "source": "Reused verified Figure 2a recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 63.0,
+      "motor_spike_count": 234,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "selection_ranked_1000",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 63.2,
+      "motor_spike_count": 231,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "selection_ranked_1250",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 62.0,
+      "motor_spike_count": 236,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "selection_ranked_1500",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 67.8,
+      "motor_spike_count": 255,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "selection_ranked_1750",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 68.6,
+      "motor_spike_count": 253,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "selection_ranked_200",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 65.4,
+      "motor_spike_count": 243,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "selection_ranked_50",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 25.4,
+      "motor_spike_count": 112,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "selection_ranked_500",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 60.6,
+      "motor_spike_count": 236,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "typed_dose_correct_types_1000",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 56.6,
+      "motor_spike_count": 231,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "typed_dose_correct_types_1250",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 54.6,
+      "motor_spike_count": 227,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "typed_dose_correct_types_1500",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 56.2,
+      "motor_spike_count": 231,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "typed_dose_correct_types_1750",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 59.0,
+      "motor_spike_count": 241,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "typed_dose_correct_types_200",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 56.6,
+      "motor_spike_count": 232,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "typed_dose_correct_types_2000",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 63.4,
+      "motor_spike_count": 254,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "typed_dose_correct_types_50",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 24.2,
+      "motor_spike_count": 99,
+      "removed_cell_spikes": 0
+    },
+    {
+      "condition": "typed_dose_correct_types_500",
+      "source": "Reused verified explorer recording",
+      "host_and_graft_rates_match_exactly": true,
+      "mean_motor_hz": 55.4,
+      "motor_spike_count": 235,
+      "removed_cell_spikes": 0
+    }
+  ],
+  "neural_realizations_per_condition": 1,
+  "additional_independent_neural_realizations": 0,
+  "stimulus": "looming",
+  "model_time_ms": 300,
+  "trace_window_ms": 25,
+  "unchanged_frozen_analysis": true,
+  "source_sha256": {
+    "results/v8/states.jsonl": "f95fa88ea6642949c78bd63d9bb8f928e699f26f3d1237f94fdeff9aebc883f2",
+    "results/v8/typed_dose_states.jsonl": "569350a5533f72254868d62a849eeba304f3f3f8cd4685a53af15d885a3b87c5",
+    "results/v8/non_target_states.jsonl": "8ed95bfe5a2e7cd31f15405b67c49832c10a60aaae59446ac09e0b051a0cfd4f",
+    "results/v8/figure2_full_replacement_20261012/states.jsonl": "240b7c60ba89f0b0117c18b7431df4cd3daa8111bca69d3f566b4b966e890dbd",
+    "results/v8/figure2_random_dose_20261012/states.jsonl": "fcfe5ffb483bf92655586b8ab36936b648d4e0b071709dcc9565ab72c4e89deb",
+    "results/v8/figure2_activity_profiles_20261012/recordings.npz": "b036674344297412eb7fb8710787feb6f6d031118d9fa86fd92fe660bf6e043b",
+    "results/v8/non_target_identity_pool.csv": "ba143eba429f7cfba0b35ee14d1a3338175dd36605adb7d957a875cafd4c4ea2",
+    "data/v5/W_csc.npz": "a4d3ae4665f284c84f6f3ccdaea48ba0bb11f7fc9e20f19fbc5db52b0316eb35",
+    "data/v5/neurons.parquet": "c6eb802c77dddd98186e78034e4c04d988edefd05b294b716a4073c38bd59021",
+    "data/v5/cell_groups.json": "3b338c9971d7c50bdd971498ff4eaa54817148980b3720e2120d01f9352f78ae",
+    "data/v5/decoder.npz": "a37dbb0cee057d6237177c957369291806788c0ffeef1b7d13fafc326b27eb53",
+    "code/v8/record_web_activity.py": "bea4952b63298f48eec13efd3bf835fd884a53a5adda1a13527ca8cf0d7f621a",
+    "code/v8/run_confirmatory.py": "2e1b42af44246b74af5bf049f0a1f2394e648c6e7956ad561de90379a9ad6ebf",
+    "code/v8/graft_identity.py": "5496bfd634182b0512bc4b6d865b8f6b0f3d8591eebeb861048e6806477d93a0",
+    "code/v5/experiments.py": "6d80831846001ec082e1ec5d538a68bd6830b5b0daddafbd0de9106f62dcdee8",
+    "code/v5/flysim.py": "ac2e114aa8a21cc659a7ffe2fda93e8892459a781b4072127877456049f62c1c",
+    "code/v5/flysim_fast.py": "169b30671cc7ee9f379871bd6ec36c48aba931aa7cee34475a0bd99b9cffa0a4",
+    "results/v8/rates/complete_original_2000_s1000.npz": "45cdfd4e8b0c18b1d6012c07c6817239b4b7139bd84be306dbcefa68ec1b35a4",
+    "results/v8/rates/connections_correct_types_100_s1000.npz": "ca62f4a46404763366ba5b9898fc0766d4b23f17cb894703c6eef23d3821f71c",
+    "results/v8/rates/connections_random_partners_100_s1000.npz": "551cef40da3282c53feec7d7fe3c5bcfdfdfe7380dd63cb0f57af46709968c57",
+    "results/v8/rates/intact_s1000.npz": "eeb5cb69f55babc64af43858fc378213487b6116ed5fedcc1f95c2815a5603de",
+    "results/v8/rates/lesion20_1000_s1000.npz": "77ae940970e06a84e25ed7fdb1eefa9cb80daef52352077f93d16b5f6c51bca8",
+    "results/v8/rates/lesion20_16000_s1000.npz": "e229f0bd19d5c7e59c51b91bb7fd9d439dd3a8f4fc2446a9d3ba196204e326e9",
+    "results/v8/rates/lesion20_2000_s1000.npz": "93365424a7dd2cd35c87606761ee37fc2e288f7774d63d2a75a4c6074af60ca5",
+    "results/v8/rates/lesion20_250_s1000.npz": "fac0c07ce650ba5af654fdaaa83a9835918d0d9a9a4c69ff6edf4269a2b6501e",
+    "results/v8/rates/lesion20_32000_s1000.npz": "a66a23b3480d97149d16adb3a97b96177ec5d94fe59299997fae4d6af46c95a1",
+    "results/v8/rates/lesion20_4000_s1000.npz": "59369811c000349f4e3fe38dc681874a79abdb4af3857b105e919fb6fa1dbdd4",
+    "results/v8/rates/lesion20_500_s1000.npz": "d2d8981a43b920e7d5695fb565d11b78760542f929a848f88ac140001141f61e",
+    "results/v8/rates/lesion20_64000_s1000.npz": "f8cfb41a9bddcc8ad8a6471ffa5096853a8a5c39ecdbc05a5adff27e9277fdf2",
+    "results/v8/rates/lesion20_8000_s1000.npz": "31238274fc165ac614c72a153e7823201a7a4eb422f4eaa3e402d116818eda3f",
+    "results/v8/rates/lesion25_1000_s1000.npz": "4727ae576f2a74421969d04f922c9e02fb93bff6dfdd4de8e8917327cbb669cf",
+    "results/v8/rates/lesion25_16000_s1000.npz": "601f49f37d06c05d47edc70409d159a9bcd2d71dc0dce80c475a1650b1ce0354",
+    "results/v8/rates/lesion25_4000_s1000.npz": "9a2a658a443667162dabc3401d6c6f0fb2905e116c0efb02f7bd7bd984bbd7a7",
+    "results/v8/rates/non_target_types_100_s1000.npz": "80f8b15f3961de03f13f953fd39028066c398bc9e8e4f72fa4039b282ef18692",
+    "results/v8/rates/non_target_types_1000_s1000.npz": "8e73acf553195386f294494ee969a144f3726bfde67075f180e08a8b216f99df",
+    "results/v8/rates/non_target_types_1250_s1000.npz": "5014f7283c6365e10a1a5276b2df5302bf73842868607ed769b9bb92bb1b7db8",
+    "results/v8/rates/non_target_types_1500_s1000.npz": "f3d073326cede902b4ac812f5c178c6f0533c752838b352017ebd787720448db",
+    "results/v8/rates/non_target_types_1750_s1000.npz": "d52b82e624d1f3b3c77c961cd9f28fa4b1a2f599c4c7ef432da16cb17c8303a4",
+    "results/v8/rates/non_target_types_200_s1000.npz": "878316c9001b0b1715b4c898023ab72188eee82f494656eeb7c3a1906ed41b37",
+    "results/v8/rates/non_target_types_2000_s1000.npz": "95c6507ed361049beb0f8e718a287f42b370ef4d3dbfe45f9062d7784145f422",
+    "results/v8/rates/non_target_types_50_s1000.npz": "1defa3919c6a4389f4412ac0d06b612a96b252e6d93e30f1302b9ebe3e2104ad",
+    "results/v8/rates/non_target_types_500_s1000.npz": "2ab167c62b65cbdfd896d1f6df22198f4a8214395746c4220402afc0fc3bab3a",
+    "results/v8/figure2_full_replacement_20261012/rates/review_full_random_partners_2000_s1000.npz": "d9032381f1dd496299f1cdc3b83c540a3739cac592f1cddb4aca976afa80b9e8",
+    "results/v8/figure2_random_dose_20261012/rates/review_random_partners_dose_1000_s1000.npz": "27b153809ddcec2692b513a494896cfbbf2514ed08f26ac986303e3bd2af4d81",
+    "results/v8/figure2_random_dose_20261012/rates/review_random_partners_dose_1250_s1000.npz": "679d36164e835d6ce5f0f92750f577a469a5bf392caee52d5d8af6daba4ea0c8",
+    "results/v8/figure2_random_dose_20261012/rates/review_random_partners_dose_1500_s1000.npz": "d112a170c93fc7e6725b80d1ee6db84ca2fe674805cac993eaa7620dcbcdaa6c",
+    "results/v8/figure2_random_dose_20261012/rates/review_random_partners_dose_1750_s1000.npz": "0a41221ba578e1ba4d2bef44cf9cd1c2cc95e8fb9d7df69b5bf09bb4d1a6017b",
+    "results/v8/figure2_random_dose_20261012/rates/review_random_partners_dose_200_s1000.npz": "99949f852a3ba44b829d2adb1c4864b99fd70ccc65ae268c1025ea21b529d5f8",
+    "results/v8/figure2_random_dose_20261012/rates/review_random_partners_dose_50_s1000.npz": "ef226f8b89eca01fb94e8819c140bf99b4054769baa61626e92a20861e1f7615",
+    "results/v8/figure2_random_dose_20261012/rates/review_random_partners_dose_500_s1000.npz": "6e8d166f4f37e807464b417ff4eab8cc6ceac0c617ed6a33e96b5851ed9b1186",
+    "results/v8/rates/selection_ranked_100_s1000.npz": "25c746aa69af8821e3790e8354a7a0ba8154231aa92fe902e4daa8d342f540e8",
+    "results/v8/rates/selection_ranked_1000_s1000.npz": "b71f8339aa365bada31573b609d8e50b04e3c329e3c926c0779bfc96a1ca9183",
+    "results/v8/rates/selection_ranked_1250_s1000.npz": "50aac54dedf1ccbdba8e73ddb2a0094104411320680a35079e9cb9ec280bd274",
+    "results/v8/rates/selection_ranked_1500_s1000.npz": "5942c5f69a453333683119772cfa74bd1b0164042209107236d69c2c3ab2dfbb",
+    "results/v8/rates/selection_ranked_1750_s1000.npz": "47cc72fa8d19c04e7b642492add6adc60a5e2d56321e7168f881f26ef9ca408c",
+    "results/v8/rates/selection_ranked_200_s1000.npz": "c9ec8d4c1a2d9e4936fb122798e444bb072c8bcf1ba287d06392035fd154a9a3",
+    "results/v8/rates/selection_ranked_50_s1000.npz": "2b03c6cafb2266d22f6cb759bc1e9b09861b3b1442249aa718dee3723908ef37",
+    "results/v8/rates/selection_ranked_500_s1000.npz": "ecaa4ae61746157b19e5a169c160e72405fbfe7459939a9762ee802f0a6de033",
+    "results/v8/rates/typed_dose_correct_types_1000_s1000.npz": "719fc7726c948681ceacc38c1db20f73c7217da1ff701733c5259c4c9a326ea2",
+    "results/v8/rates/typed_dose_correct_types_1250_s1000.npz": "635aabef654902a03a5336a78a63a49f3bdc7c9ee9a25e81402ca43877330f4f",
+    "results/v8/rates/typed_dose_correct_types_1500_s1000.npz": "b6546812c489315eb4aed5bed69a010c0c5380d1fa0d4704daf44403af2dae00",
+    "results/v8/rates/typed_dose_correct_types_1750_s1000.npz": "f528c8d9a85b9272ccea1e6b630c302824ee62ad91c5e532acae93f94fe85f19",
+    "results/v8/rates/typed_dose_correct_types_200_s1000.npz": "e77a16bcde7bf86e9c3d6dfe111cfb6b271a658f3714468c6164d28ea67f617d",
+    "results/v8/rates/typed_dose_correct_types_2000_s1000.npz": "786b0f6f80d22ef2c569203d15ae19e8fe6674b307f85ef55752b0b16524ccda",
+    "results/v8/rates/typed_dose_correct_types_50_s1000.npz": "853d0e2b6cfd9b648c2945ef475a9f7055d880c1bc3cbdfc08e7ef920f6f5c4b",
+    "results/v8/rates/typed_dose_correct_types_500_s1000.npz": "991c3f2ac760ca6c232da8650a540681e95bbb82fa1e3118941cac7040212db2"
+  }
+}
